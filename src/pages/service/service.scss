@@ -1,3 +1,19 @@
-.dd{
-    background-color: red;
+
+.service-list{
+    font-size: 20px;
+    color:white;
+    // display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.service-list img{
+    width: 50px;
+    height: 50px;
+    margin-left: 7%;
+    
+}
+.service-list span{
+    padding-top: 10px;
 }

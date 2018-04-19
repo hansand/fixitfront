@@ -25702,3 +25702,31 @@ ion-navbar.toolbar {
 .service-list span {
   padding-top: 10px;
 }
+
+.segmentBase {
+  padding-bottom: 10px;
+}
+
+.single-worker {
+  border-bottom: solid 1px;
+  border-bottom-color: gainsboro;
+}
+
+.list-md .item-block .item-inner {
+  border-bottom: 0px solid #dedede;
+}
+
+.name {
+  font-size: 15px !important;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.rate {
+  color: gainsboro;
+  font-size: 15px;
+}

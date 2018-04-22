@@ -1,6 +1,8 @@
+
+
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
 import { NavController } from 'ionic-angular';
+import { MapPage } from '../map/map';
 
 declare var google;
 
@@ -9,15 +11,17 @@ declare var google;
   templateUrl: 'servicelist.html'
 })
 export class ServiceListPage {
-    tab: string = "list";
-    isAndroid: boolean = false;
+  constructor(public navCtrl: NavController) {
+  }
+
+  toMapPage(){
+    this.navCtrl.push(MapPage);
+  }
+
+  
+
+}
 
    
 
-  constructor(public navCtrl: NavController) {
 
-
-  }
- 
-
-}

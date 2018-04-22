@@ -7,18 +7,8 @@
   </ion-header>
   
   <ion-content padding>
-
-      <ion-segment class="segmentBase" [(ngModel)]="tab" color="primary" >
-          <ion-segment-button value="list">
-            List
-          </ion-segment-button>
-          <ion-segment-button value="map">
-            map
-          </ion-segment-button>
-        </ion-segment>
-
-        <div [ngSwitch]="tab">
-            <ion-list *ngSwitchCase="'list'">
+    
+            <ion-list >
 
               <ion-item class="single-worker">
                 
@@ -56,26 +46,60 @@
                     </span>
                  
                   </ion-item>
-            
-            </ion-list>
-            <div *ngSwitchCase="'map'">
-            <ion-list >
-
-              <ion-item class="single-worker">
+                  <ion-item class="single-worker">
                 
-                <ion-thumbnail item-start>
-                  <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
-                </ion-thumbnail>
-                <h2 class="name" >Hansaka Sandaruwan</h2>
-                <span class="rate" >
-                  Ratings: 9/10  <br>
-                  Piliyandala 
-                </span>
-             
-              </ion-item>
-              </ion-list>
-
-            </div>
-        </div>
+                      <ion-thumbnail item-start>
+                        <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+                      </ion-thumbnail>
+                      <h2 class="name" >Shantha Ragel </h2>
+                      <span class="rate" >
+                        Ratings: 9/10  <br>
+                        Piliyandala 
+                      </span>
+                   
+                    </ion-item>
+                    <ion-item class="single-worker">
+                
+                        <ion-thumbnail item-start>
+                          <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+                        </ion-thumbnail>
+                        <h2 class="name" >Shantha Ragel </h2>
+                        <span class="rate" >
+                          Ratings: 9/10  <br>
+                          Piliyandala 
+                        </span>
+                     
+                      </ion-item>
+                      <ion-item class="single-worker">
+                
+                          <ion-thumbnail item-start>
+                            <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+                          </ion-thumbnail>
+                          <h2 class="name" >Shantha Ragel </h2>
+                          <span class="rate" >
+                            Ratings: 9/10  <br>
+                            Piliyandala 
+                          </span>
+                       
+                        </ion-item>
+                        <ion-item class="single-worker">
+                
+                            <ion-thumbnail item-start>
+                              <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+                            </ion-thumbnail>
+                            <h2 class="name" >Shantha Ragel </h2>
+                            <span class="rate" >
+                              Ratings: 9/10  <br>
+                              Piliyandala 
+                            </span>
+                         
+                          </ion-item>
+          
+            </ion-list>
+            <ion-fab (click)="toMapPage" class="fabMap" bottom right>
+                <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->
+                <button (click)="toMapPage()" ion-button round icon-start > <ion-icon name="map"></ion-icon>Map View</button>
+                
+              </ion-fab>
+            
   </ion-content>
-  

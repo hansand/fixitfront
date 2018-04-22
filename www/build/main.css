@@ -25682,15 +25682,33 @@ ion-navbar.toolbar {
   background-color: #161616;
 }
 
-.service-list {
-  font-size: 20px;
-  color: white;
+ion-card.service-list {
+  font-size: 15px;
+  color: black;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
   margin-top: 10px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  background-color: white;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+ion-card.service-list:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  z-index: 5;
+  background-color: #d3d3d3;
 }
 
 .service-list img {
@@ -25729,4 +25747,8 @@ ion-navbar.toolbar {
 .rate {
   color: gainsboro;
   font-size: 15px;
+}
+
+.fab {
+  contain: layout;
 }

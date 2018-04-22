@@ -1,18 +1,33 @@
 
-.service-list{
-    font-size: 20px;
-    color:white;
+ion-card.service-list{
+    font-size: 15px;
+    color:black;
     // display: flex;
     justify-content: center;
     margin-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
+    background-color: white;
+    transition: transform .5s;
+    align-content: center;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+    // margin-left: 10px;
+}
+
+
+
+ion-card.service-list:hover{
+    transform: scale(1.2);
+    z-index: 5;
+    background-color:#d3d3d3;
 }
 
 .service-list img{
     width: 50px;
     height: 50px;
     margin-left: 7%;
-    
 }
 .service-list span{
     padding-top: 10px;

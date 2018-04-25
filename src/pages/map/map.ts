@@ -30,7 +30,9 @@ export class MapPage {
     map: any;
     myLocation: any;
     marker:any;
+    currentMaker:any;
     userInfo:any;
+    x:any;
    
 
   constructor(public navCtrl: NavController,public navParams: NavParams,public geolocation: Geolocation,private userService:UserService) {
@@ -40,17 +42,12 @@ export class MapPage {
   ngOnInit(){
     this.loadMap();
     this.addMarkers();
-    this.getCurrentLocation();
-    
-    
   }
 
 
   ionViewDidLoad(){
-    
-    Geolocation.getPlugin().getCurrentPosition(x => console.log('Success', x), e => console.log('Error', e));
-    
-    
+    Geolocation.getPlugin().getCurrentPosition(x => console.log('Success', x), e => console.log());
+    console.log(this.x)
   } 
 
   addMarkers(){
@@ -63,16 +60,13 @@ export class MapPage {
   }
   
   loadMap(){
- 
+    //set Deafult Zoom to Srilanka
     let latLng = new google.maps.LatLng(6.927079, 79.861244);
- 
- 
     let mapOptions = {
       center: latLng,
       zoom: 7,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
- 
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     // this.marker.addEventListener(GoogleMapsEvent.MAP_CLICK, function() {
     //   alert("InfoWindow is clicked");
@@ -88,11 +82,12 @@ export class MapPage {
   }
 
   getCurrentLocation(){
+
     console.log("current Start");
-   
-    
     this.geolocation.getCurrentPosition().then((position) => {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      // let latLng = new google.maps.LatLng(6.80491179,79.9482853);
+      console.log(latLng);
       this.myLocation=latLng;
       let mapOptions = {
         center: latLng,
@@ -102,11 +97,11 @@ export class MapPage {
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
       //set Marker 
-      this.marker = new google.maps.Marker({
+      this.currentMaker = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
-        // position: this.myLocation,
-        position:{lat:6.804911799999999,lang:79.9482853},
+        position: this.myLocation,
+        // position:{lat:6.80491179,lang:79.9482853},
         icon: {
           url: '../assets/imgs/myLocation2.png'
         },
@@ -114,7 +109,7 @@ export class MapPage {
         'snippet': 'your Loaction',
         draggable: false
       });
-
+      this.addMarkers();
      
     }, (err) => {
       console.log(err);
@@ -130,9 +125,18 @@ export class MapPage {
       icon: {
         url: '../assets/imgs/myLocation.png'
       },
-      title: 'your Loaction',
-      'snippet': 'your Loaction',
       draggable: false
     });
+
+    this.marker.addListener('click', function() {
+      console.log("clicked");
+    });
+    // var InfoWindow= new google.maps.InfoWindow({
+    //   content:"hansaka",
+    //   run(){
+    //     console.log("han");
+    //   }
+    // })
+    // InfoWindow.run();
   }
 }

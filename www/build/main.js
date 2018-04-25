@@ -311,10 +311,10 @@ var MapPage = /** @class */ (function () {
     MapPage.prototype.ngOnInit = function () {
         this.loadMap();
         this.addMarkers();
-        this.getCurrentLocation();
     };
     MapPage.prototype.ionViewDidLoad = function () {
-        __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */].getPlugin().getCurrentPosition(function (x) { return console.log('Success', x); }, function (e) { return console.log('Error', e); });
+        __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */].getPlugin().getCurrentPosition(function (x) { return console.log('Success', x); }, function (e) { return console.log(); });
+        console.log(this.x);
     };
     MapPage.prototype.addMarkers = function () {
         var _this = this;
@@ -326,6 +326,7 @@ var MapPage = /** @class */ (function () {
         });
     };
     MapPage.prototype.loadMap = function () {
+        //set Deafult Zoom to Srilanka
         var latLng = new google.maps.LatLng(6.927079, 79.861244);
         var mapOptions = {
             center: latLng,
@@ -349,6 +350,8 @@ var MapPage = /** @class */ (function () {
         console.log("current Start");
         this.geolocation.getCurrentPosition().then(function (position) {
             var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+            // let latLng = new google.maps.LatLng(6.80491179,79.9482853);
+            console.log(latLng);
             _this.myLocation = latLng;
             var mapOptions = {
                 center: latLng,
@@ -357,11 +360,11 @@ var MapPage = /** @class */ (function () {
             };
             _this.map = new google.maps.Map(_this.mapElement.nativeElement, mapOptions);
             //set Marker 
-            _this.marker = new google.maps.Marker({
+            _this.currentMaker = new google.maps.Marker({
                 map: _this.map,
                 animation: google.maps.Animation.DROP,
-                // position: this.myLocation,
-                position: { lat: 6.804911799999999, lang: 79.9482853 },
+                position: _this.myLocation,
+                // position:{lat:6.80491179,lang:79.9482853},
                 icon: {
                     url: '../assets/imgs/myLocation2.png'
                 },
@@ -369,6 +372,7 @@ var MapPage = /** @class */ (function () {
                 'snippet': 'your Loaction',
                 draggable: false
             });
+            _this.addMarkers();
         }, function (err) {
             console.log(err);
         });
@@ -382,10 +386,18 @@ var MapPage = /** @class */ (function () {
             icon: {
                 url: '../assets/imgs/myLocation.png'
             },
-            title: 'your Loaction',
-            'snippet': 'your Loaction',
             draggable: false
         });
+        this.marker.addListener('click', function () {
+            console.log("clicked");
+        });
+        // var InfoWindow= new google.maps.InfoWindow({
+        //   content:"hansaka",
+        //   run(){
+        //     console.log("han");
+        //   }
+        // })
+        // InfoWindow.run();
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),

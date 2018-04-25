@@ -3,6 +3,12 @@
   "app_id": "",
   "type": "ionic-angular",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "http://cors.api.com/api"
+    }
+  ]
   }
 }

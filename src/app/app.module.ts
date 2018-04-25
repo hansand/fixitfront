@@ -11,12 +11,14 @@ import { ShopPage } from '../pages/shops/shop';
 import { JobPage } from '../pages/jobs/job';
 import { UserPage } from '../pages/user/user';
 import { TabsPage } from '../pages/tabs/tabs';
+import { Http } from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ServiceListPage } from '../pages/servicelist/servicelist';
 import { MapPage } from '../pages/map/map';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

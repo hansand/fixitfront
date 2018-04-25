@@ -3,10 +3,15 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { UserService } from './services/users.service'
+
 import { TabsPage } from '../pages/tabs/tabs';
+import { ServicePage } from '../pages/service/service';
+import { RoleService } from './services/role.service';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers:[UserService,RoleService]
 })
 export class MyApp {
   rootPage:any = TabsPage;

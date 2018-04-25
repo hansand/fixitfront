@@ -1,12 +1,18 @@
-<ion-header >
-    <ion-navbar color="primary">
-      <ion-title>
-        Jobs
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding>
-   This is  a list osg Jobs aVailabel
-  </ion-content>
-  
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Passing Data in Pages
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Enter</ion-label>
+      <ion-input placeholder='Your fav color...' #color></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="secondary" (click)="goTo(color.value)">About Page</button>
+</ion-content>

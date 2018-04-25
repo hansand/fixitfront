@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ServiceListPage } from '../servicelist/servicelist';
+import { RoleService } from '../../app/services/role.service';
+
 @Component({
   selector: 'service',
   templateUrl: 'service.html'
@@ -8,12 +10,29 @@ import { ServiceListPage } from '../servicelist/servicelist';
 })
 export class ServicePage {
 
-  constructor(public navCtrl: NavController) {
+  roles:any;
+
+  constructor(public navCtrl: NavController,private RoleService:RoleService) {
 
   }
 
-  serviceList(){
-    this.navCtrl.push(ServiceListPage);
+  ngOnInit(){
+    this.getAllRoles();
   }
+
+  serviceList(role){
+    this.navCtrl.push(ServiceListPage,{
+      role : role
+    });
+  }
+
+  getAllRoles(){
+    this.RoleService.getAllRoles().subscribe(response=> {
+      this.roles=response;
+      console.log(this.roles);
+     })
+  }
+
+
 
 }

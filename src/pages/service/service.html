@@ -9,41 +9,11 @@
   <ion-content class="background" padding="true">
     <ion-grid>
       <ion-row>
-
-
-        <ion-col  (click)="serviceList();"  class="" col-6>
-          <ion-card class="service-list">
-           <span> Plumber </span>
-          </ion-card> 
-        </ion-col>
-
-
-        <ion-col  (click)="serviceList();"  class="" col-6>
+        <ion-col *ngFor="let role of roles"  (click)="serviceList(role.roleName);"  class="" col-6>
             <ion-card class="service-list">
-             <span> AC Repair </span>
+             <span> {{role.roleName}} </span>
             </ion-card> 
         </ion-col>
-
-        <ion-col  (click)="serviceList();"  class="" col-6>
-              <ion-card class="service-list">
-               <span> CCTV </span>
-              </ion-card> 
-        </ion-col>
-
-        <ion-col  (click)="serviceList();"  class="" col-6>
-            <ion-card class="service-list">
-             <span> Mechanics </span>
-            </ion-card> 
-      </ion-col>
-
-      <ion-col  (click)="serviceList();"  class="" col-6>
-          <ion-card class="service-list">
-           <span> Carpenter </span>
-          </ion-card> 
-    </ion-col>
-
-  
-
       </ion-row>
     </ion-grid>
    

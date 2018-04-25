@@ -10,91 +10,18 @@
     
             <ion-list >
 
-              <ion-item class="single-worker">
+              <ion-item *ngFor="let user of userInfo" class="single-worker">
                 
                 <ion-thumbnail item-start>
                   <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
                 </ion-thumbnail>
-                <h2 class="name" >Hansaka Sandaruwan</h2>
+                <h2 class="name" >{{user.fname}} {{user.lname}}</h2>
                 <span class="rate" >
                   Ratings: 9/10  <br>
-                  Piliyandala 
+                  Piliyandala s
                 </span>
-             
               </ion-item>
-              <ion-item class="single-worker">
-                
-                  <ion-thumbnail item-start>
-                    <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
-                  </ion-thumbnail>
-                  <h2 class="name" > Tharuka Sandaru</h2>
-                  <span class="rate" >
-                    Ratings: 9/10  <br>
-                    Piliyandala 
-                  </span>
-               
-                </ion-item>
-                <ion-item class="single-worker">
-                
-                    <ion-thumbnail item-start>
-                      <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
-                    </ion-thumbnail>
-                    <h2 class="name" >Shantha Ragel </h2>
-                    <span class="rate" >
-                      Ratings: 9/10  <br>
-                      Piliyandala 
-                    </span>
-                 
-                  </ion-item>
-                  <ion-item class="single-worker">
-                
-                      <ion-thumbnail item-start>
-                        <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
-                      </ion-thumbnail>
-                      <h2 class="name" >Shantha Ragel </h2>
-                      <span class="rate" >
-                        Ratings: 9/10  <br>
-                        Piliyandala 
-                      </span>
-                   
-                    </ion-item>
-                    <ion-item class="single-worker">
-                
-                        <ion-thumbnail item-start>
-                          <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
-                        </ion-thumbnail>
-                        <h2 class="name" >Shantha Ragel </h2>
-                        <span class="rate" >
-                          Ratings: 9/10  <br>
-                          Piliyandala 
-                        </span>
-                     
-                      </ion-item>
-                      <ion-item class="single-worker">
-                
-                          <ion-thumbnail item-start>
-                            <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
-                          </ion-thumbnail>
-                          <h2 class="name" >Shantha Ragel </h2>
-                          <span class="rate" >
-                            Ratings: 9/10  <br>
-                            Piliyandala 
-                          </span>
-                       
-                        </ion-item>
-                        <ion-item class="single-worker">
-                
-                            <ion-thumbnail item-start>
-                              <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
-                            </ion-thumbnail>
-                            <h2 class="name" >Shantha Ragel </h2>
-                            <span class="rate" >
-                              Ratings: 9/10  <br>
-                              Piliyandala 
-                            </span>
-                         
-                          </ion-item>
-          
+
             </ion-list>
             <ion-fab (click)="toMapPage" class="fabMap" bottom right>
                 <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->

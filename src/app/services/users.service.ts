@@ -19,4 +19,8 @@ export class UserService{
     getUsersByRole(role){
         return this.http.get(this.baseUrl+'/'+role+'').map(res=> res.json());
     }
+
+    getUserByID(id){
+        return this.http.get(this.baseUrl+'/getid/'+id+'').map(res=> res.json());
+    }
 }

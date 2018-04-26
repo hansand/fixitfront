@@ -8,10 +8,12 @@ import { UserService } from './services/users.service'
 import { TabsPage } from '../pages/tabs/tabs';
 import { ServicePage } from '../pages/service/service';
 import { RoleService } from './services/role.service';
+import { FeedBackService } from './services/feedback.service'
+import { ShopService } from './services/shop.service';
 
 @Component({
   templateUrl: 'app.html',
-  providers:[UserService,RoleService]
+  providers:[UserService,RoleService,FeedBackService,ShopService]
 })
 export class MyApp {
   rootPage:any = TabsPage;

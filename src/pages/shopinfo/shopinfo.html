@@ -1,0 +1,36 @@
+<ion-header >
+        <ion-navbar color="primary">
+          <ion-title >
+            Employee Profile
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content align = "Center" padding="true">
+        <b> Shop Information </b><br><br>
+        
+     
+     <ion-thumbnail item-start>
+       <img class = "useravat" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">
+     </ion-thumbnail>
+     <br><br><br>
+     <span *ngFor="let shop of shopInfo">
+     <h2 class="name" > {{ shop.shopName }} </h2>
+     <span>
+       <b> {{ shop.shopCatogory }} </b><br>
+
+       {{shop.address}}  <br>
+       Contact Number : {{ shop.telephone }}
+     </span>
+    <br>
+  </span>
+  <button ion-button >
+    Send Order Request  
+  </button>
+    
+    <!-- <form align="center">
+        <ion-item>
+            <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>
+          </ion-item>
+    </form> -->
+</ion-content>

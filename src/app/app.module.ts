@@ -21,6 +21,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HttpModule } from '@angular/http';
 import { LoginPage } from '../pages/login/login';
 import { SigninPage } from '../pages/signin/signin';
+import { EmployeePage } from '../pages/employee/employee';
+import { RatePage } from '../pages/rate/rate';
+import { ShopInfoPage } from '../pages/shopinfo/shopinfo';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { SigninPage } from '../pages/signin/signin';
     ServiceListPage,
     MapPage,
     LoginPage,
-    SigninPage
+    SigninPage,
+    EmployeePage,
+    RatePage,
+    ShopInfoPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,9 @@ import { SigninPage } from '../pages/signin/signin';
     ServiceListPage,
     MapPage,
     LoginPage,
-    SigninPage
+    SigninPage,
+    EmployeePage,
+    RatePage,ShopInfoPage
   ],
   providers: [
     StatusBar,

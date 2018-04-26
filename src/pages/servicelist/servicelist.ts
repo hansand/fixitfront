@@ -5,6 +5,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { MapPage } from '../map/map';
 import { ServicePage } from '../service/service';
 import { UserService } from '../../app/services/users.service';
+import { EmployeePage } from '../employee/employee'
 
 
 declare var google;
@@ -24,6 +25,13 @@ export class ServiceListPage {
   ionViewDidLoad(){
    this.getUsers();
   } 
+
+  toEmpPage(id){
+    this.navCtrl.push(EmployeePage,{
+      userID : id
+    });
+    
+  }
 
   toMapPage(){
     this.navCtrl.push(MapPage,{

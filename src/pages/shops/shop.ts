@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
+import { ShopService } from '../../app/services/shop.service'
+import { ShopInfoPage } from '../shopinfo/shopinfo'
 
 @Component({
   selector: 'shop',
@@ -7,14 +9,33 @@ import { NavController,NavParams } from 'ionic-angular';
 })
 export class ShopPage {
 
-  color: string;
+  shopInfo:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.color = navParams.get('data');
+  constructor(public navCtrl: NavController, public navParams: NavParams,private ShopService:ShopService) {
+  }
+
+  ngOnInit(){
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutPage');
+    this.getShops();
   }
+
+  getShops(){
+    this.ShopService.getAllShops().subscribe(response=> {
+      this.shopInfo=response;
+      console.log(this.shopInfo);
+     })
+  }
+
+  toShopInfoPage(id)
+  {
+    this.navCtrl.push(ShopInfoPage,{
+      shopID : id
+    });
+  }
+
 
 }

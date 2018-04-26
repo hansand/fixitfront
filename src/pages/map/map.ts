@@ -48,8 +48,8 @@ export class MapPage {
   ngOnInit(){
     this.loadMap();
     this.addMarkers();
-    // this.nullLocation();
-    this.getCurrentCordinates();
+    this.nullLocation();
+    // this.getCurrentCordinates();
     console.log("map ngOnit");
   }
 
@@ -68,8 +68,6 @@ export class MapPage {
         this.position=x.coords;        
          console.log(this.position);
          if(this.position){
-
-         
          this.addCurrentLocation();
          }else{
            this.locationErroAlert();

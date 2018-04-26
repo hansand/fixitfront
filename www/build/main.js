@@ -328,6 +328,7 @@ var ServiceListPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(152);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -337,6 +338,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -400,7 +402,8 @@ var MapPage = /** @class */ (function () {
         this.userInfo.forEach(function (element) {
             var lat = parseFloat(element.lat);
             var lang = parseFloat(element.lang);
-            _this.addMarker(lat, lang);
+            console.log(element._id);
+            _this.addMarker(lat, lang, element._id);
         });
         console.log(this.myLatitude);
         console.log(this.mylongitude);
@@ -490,7 +493,13 @@ var MapPage = /** @class */ (function () {
             this.locationErroAlert();
         }
     };
-    MapPage.prototype.addMarker = function (latp, langp) {
+    // markerClickEmp(id){
+    //   this.navCtrl.push(EmployeePage,{
+    //     userID : id
+    //   });
+    // }
+    MapPage.prototype.addMarker = function (latp, langp, id) {
+        var _this = this;
         this.marker = new google.maps.Marker({
             map: this.map,
             animation: google.maps.Animation.DROP,
@@ -501,7 +510,9 @@ var MapPage = /** @class */ (function () {
             draggable: false
         });
         this.marker.addListener('click', function () {
-            console.log("clicked");
+            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__employee_employee__["a" /* EmployeePage */], {
+                userID: id
+            });
         });
         // var InfoWindow= new google.maps.InfoWindow({
         //   content:"hansaka",

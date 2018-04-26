@@ -14,6 +14,7 @@ import {
  } from '@ionic-native/google-maps';
 
  import { UserService } from '../../app/services/users.service';
+ import { EmployeePage } from '../employee/employee';
 
 
 
@@ -104,7 +105,8 @@ export class MapPage {
       this.userInfo.forEach(element => {
         var lat=parseFloat(element.lat);
         var lang=parseFloat(element.lang);
-        this.addMarker(lat,lang);
+        console.log(element._id);
+        this.addMarker(lat,lang,element._id);
       });
       console.log(this.myLatitude);
       console.log(this.mylongitude);
@@ -205,7 +207,13 @@ export class MapPage {
   }
   }
 
-  addMarker(latp,langp){
+  // markerClickEmp(id){
+  //   this.navCtrl.push(EmployeePage,{
+  //     userID : id
+  //   });
+  // }
+
+  addMarker(latp,langp,id){
     this.marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
@@ -216,8 +224,10 @@ export class MapPage {
       draggable: false
     });
 
-    this.marker.addListener('click', function() {
-      console.log("clicked");
+    this.marker.addListener('click', () => {
+      this.navCtrl.push(EmployeePage,{
+        userID : id
+      });
     });
     // var InfoWindow= new google.maps.InfoWindow({
     //   content:"hansaka",
@@ -227,6 +237,8 @@ export class MapPage {
     // })
     // InfoWindow.run();
   }
+  
+
 
   nullLocation(){
        let latLng = new google.maps.LatLng(6.9148,79.9731);

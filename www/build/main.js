@@ -254,9 +254,10 @@ var ServiceListPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'servicelist',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/servicelist/servicelist.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        \n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    \n            <ion-list >\n\n              <ion-item *ngFor="let user of userInfo" class="single-worker">\n                \n                <ion-thumbnail item-start>\n                  <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n                </ion-thumbnail>\n                <h2 class="name" >{{user.fname}} {{user.lname}}</h2>\n                <span class="rate" >\n                  Ratings: 9/10  <br>\n                  Piliyandala s\n                </span>\n              </ion-item>\n\n            </ion-list>\n            <ion-fab (click)="toMapPage" class="fabMap" bottom right>\n                <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n                <button (click)="toMapPage()" ion-button round icon-start > <ion-icon name="map"></ion-icon>Map View</button>\n                \n              </ion-fab>\n            \n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/servicelist/servicelist.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _c || Object])
     ], ServiceListPage);
     return ServiceListPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=servicelist.js.map
@@ -286,22 +287,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MapPage = /** @class */ (function () {
-    function MapPage(navCtrl, navParams, geolocation, userService) {
+    function MapPage(navCtrl, navParams, geolocation, userService, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.geolocation = geolocation;
         this.userService = userService;
+        this.alertCtrl = alertCtrl;
         this.userInfo = navParams.get('userInfo');
     }
     MapPage.prototype.ngOnInit = function () {
         this.loadMap();
         this.addMarkers();
         // this.nullLocation();
+        this.getCurrentCordinates();
+        console.log("map ngOnit");
     };
     MapPage.prototype.ionViewDidLoad = function () {
-        __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */].getPlugin().getCurrentPosition(function (x) { return console.log('Success', x); }, function (e) { return console.log(); });
-        console.log(this.x);
     };
+    MapPage.prototype.getCurrentCordinates = function () {
+        var _this = this;
+        __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */].getPlugin().getCurrentPosition(function (x) {
+            _this.myLatitude = parseFloat(x.coords.latitude);
+            _this.mylongitude = parseFloat(x.coords.longitude);
+            // this.position.push(this.myLatitude);
+            // this.position.push(this.mylongitude);
+            _this.position = x.coords;
+            console.log(_this.position);
+            if (_this.position) {
+                _this.addCurrentLocation();
+            }
+            else {
+                _this.locationErroAlert();
+            }
+        });
+    };
+    // getCurrentCordinates(){
+    //   Geolocation.getPlugin().getCurrentPosition(x => {
+    //     this.myLatitude=parseFloat(x.coords.latitude);
+    //     this.mylongitude=parseFloat(x.coords.longitude);
+    //     // this.position.push(this.myLatitude);
+    //     // this.position.push(this.mylongitude);
+    //     this.position=x.coords;        
+    //      console.log(this.position);
+    //   },function(err){
+    //       if(err){
+    //         console.log(err);
+    //         console.log("ErroettingCurrentCOrdinates");
+    //       }
+    //     console.log("gotCurrentCOrdinates");
+    //   });
+    //     console.log(this.myLatitude);
+    //     console.log(this.mylongitude);
+    // }
     MapPage.prototype.addMarkers = function () {
         var _this = this;
         console.log(this.userInfo);
@@ -310,6 +347,8 @@ var MapPage = /** @class */ (function () {
             var lang = parseFloat(element.lang);
             _this.addMarker(lat, lang);
         });
+        console.log(this.myLatitude);
+        console.log(this.mylongitude);
     };
     MapPage.prototype.loadMap = function () {
         //set Deafult Zoom to Srilanka
@@ -331,25 +370,57 @@ var MapPage = /** @class */ (function () {
         //     }
         // );
     };
-    MapPage.prototype.getCurrentLocation = function () {
-        var _this = this;
-        console.log("current Start");
-        this.geolocation.getCurrentPosition().then(function (position) {
-            var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            // let latLng = new google.maps.LatLng(6.9148,79.9731);
+    MapPage.prototype.addCurrentLocation = function () {
+        // console.log(this.myLatitude);
+        // console.log(this.mylongitude);
+        // console.log("current Start");
+        //   // let latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
+        //   // let latLng = new google.maps.LatLng(6.9148,79.9731);
+        //   console.log(this.myLatitude);
+        //   console.log(this.mylongitude);
+        //   // console.log(latLng);
+        //   // this.myLocation=latLng;
+        //   let mapOptions = {
+        //     center: {lat:6.9148,lang:79.9731},
+        //     zoom: 10,
+        //     mapTypeId: google.maps.MapTypeId.ROADMAP
+        //   }
+        //   console.log(mapOptions.zoom);
+        //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        //   //set Marker 
+        //   this.currentMaker = new google.maps.Marker({
+        //     map: this.map,
+        //     animation: google.maps.Animation.DROP,
+        //     position:{lat:6.9148,lang:79.9731},
+        //     // position:{lat:6.80491179,lang:79.9482853},
+        //     icon: {
+        //       url: '../assets/imgs/myLocation2.png'
+        //     },
+        //     title: 'your Loaction',
+        //     'snippet': 'your Loaction',
+        //     draggable: false
+        //   });
+        //   this.addMarkers();
+        // // }, (err) => {
+        // //   console.log(err);
+        //   // this.nullLocation();
+        // // });
+        // console.log("finish");
+        if (this.mylongitude && this.myLatitude) {
+            var latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
             console.log(latLng);
-            _this.myLocation = latLng;
+            this.myLocation = latLng;
             var mapOptions = {
                 center: latLng,
                 zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
-            _this.map = new google.maps.Map(_this.mapElement.nativeElement, mapOptions);
+            this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
             //set Marker 
-            _this.currentMaker = new google.maps.Marker({
-                map: _this.map,
+            this.currentMaker = new google.maps.Marker({
+                map: this.map,
                 animation: google.maps.Animation.DROP,
-                position: _this.myLocation,
+                position: this.myLocation,
                 // position:{lat:6.80491179,lang:79.9482853},
                 icon: {
                     url: '../assets/imgs/myLocation2.png'
@@ -358,12 +429,11 @@ var MapPage = /** @class */ (function () {
                 'snippet': 'your Loaction',
                 draggable: false
             });
-            _this.addMarkers();
-        }, function (err) {
-            console.log(err);
-            // this.nullLocation();
-        });
-        console.log("finish");
+            this.addMarkers();
+        }
+        else {
+            this.locationErroAlert();
+        }
     };
     MapPage.prototype.addMarker = function (latp, langp) {
         this.marker = new google.maps.Marker({
@@ -411,18 +481,26 @@ var MapPage = /** @class */ (function () {
         });
         this.addMarkers();
     };
+    MapPage.prototype.locationErroAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Problem Ocuured While Getting Your Location',
+            subTitle: 'Make Sure to Enable GPS on Your Device',
+            buttons: ['OK']
+        });
+        alert.present();
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], MapPage.prototype, "mapElement", void 0);
     MapPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'map',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/map/map.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n            Map\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      \n      <ion-content padding>\n\n            <div #map id="map" style="height: 100%;" class="please-work"></div>\n            <ion-fab  class="fabMap" bottom right>\n              <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n              <button (click)=" getCurrentLocation();" ion-fab> <ion-icon  name="locate"></ion-icon></button>\n            </ion-fab>\n      </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/map/map.html"*/
+            selector: 'map',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/map/map.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n            Map\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      \n      <ion-content padding>\n\n            <div #map id="map" style="height: 100%;" class="please-work"></div>\n            <ion-fab  class="fabMap" bottom right>\n              <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n              <button (click)=" getCurrentCordinates();" ion-fab> <ion-icon  name="locate"></ion-icon></button>\n            </ion-fab>\n      </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/map/map.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
     ], MapPage);
     return MapPage;
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=map.js.map
@@ -706,12 +784,15 @@ var SigninPage = /** @class */ (function () {
     ], SigninPage.prototype, "rolex", void 0);
     SigninPage = SigninPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'signin',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        Sign In\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  <ion-content padding>  \n\n    Register as an User of a Shop\n      <ion-segment class="segmentBase" [(ngModel)]="tab" color="primary" >\n          <ion-segment-button value="SigninPage">\n              User\n            </ion-segment-button>\n            <ion-segment-button value="list">\n              Shop\n            </ion-segment-button>\n      </ion-segment>\n   \n          <div [ngSwitch]="tab">\n     \n            <form *ngSwitchCase="\'SigninPage\'" >\n              <ion-item >\n\n                <ion-label floating>First Name</ion-label>\n                <ion-input type="text"  #fname ></ion-input>\n              </ion-item>\n\n              <ion-item>\n \n                <ion-label floating>Last Name</ion-label>\n                <ion-input #lname type="text"  name="lname"></ion-input>\n              </ion-item>\n  \n              <ion-item>\n \n                <ion-label floating>Email</ion-label>\n                <ion-input #email type="text"  name="email"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Password</ion-label>\n                <ion-input #password type="password"  name="password"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Mobile Number</ion-label>\n                <ion-input #telephone  type="number"  name="telephone"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Address</ion-label>\n                <ion-input #address type="text"  name="address"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>User Type</ion-label>\n                  <ion-select   #rolex>\n                    <ion-option *ngFor="let role of roles" value="{{role.roleName}}">{{role.roleName}}</ion-option>\n                  </ion-select>\n              </ion-item>\n\n     \n\n\n              <button (click)="signIn()" ion-button type="submit" block> Sign In </button>\n\n            </form>\n\n            <form *ngSwitchCase="\'list\'">\n              <ion-item>           \n                <ion-label floating>Shop Name</ion-label>\n                <ion-input type="text"  name="sname"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                  <ion-label floating>Email</ion-label>\n                  <ion-input type="text"  name="semail"></ion-input>\n                </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Password</ion-label>\n                <ion-input type="text"  name="spassword"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Contact Number</ion-label>\n                <ion-input type="text"  name="scontact"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Address</ion-label>\n                <ion-input type="text"  name="saddress"></ion-input>\n              </ion-item>\n              \n              <button (click)="ServiceList();" ion-button type="submit" block> Register </button>\n              <button (click)="EmployeePage();" ion-button type="submit" block> fdfd </button>\n\n            </form>\n          </div>\n  </ion-content>\n        \n      '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/
+            selector: 'signin',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        Sign In\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  <ion-content padding>  \n\n    Register as an User of a Shop\n      <ion-segment class="segmentBase" [(ngModel)]="tab" color="primary" >\n          <ion-segment-button value="SigninPage">\n              User\n            </ion-segment-button>\n            <ion-segment-button value="list">\n              Shop\n            </ion-segment-button>\n      </ion-segment>\n   \n          <div [ngSwitch]="tab">\n     \n            <form *ngSwitchCase="\'SigninPage\'" >\n              <ion-item >\n\n                <ion-label floating>First Name</ion-label>\n                <ion-input type="text"  #fname ></ion-input>\n              </ion-item>\n\n              <ion-item>\n \n                <ion-label floating>Last Name</ion-label>\n                <ion-input #lname type="text"  name="lname"></ion-input>\n              </ion-item>\n  \n              <ion-item>\n \n                <ion-label floating>Email</ion-label>\n                <ion-input #email type="text"  name="email"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Password</ion-label>\n                <ion-input #password type="password"  name="password"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Mobile Number</ion-label>\n                <ion-input #telephone  type="number"  name="telephone"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Address</ion-label>\n                <ion-input #address type="text"  name="address"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>User Type</ion-label>\n                  <ion-select   #rolex>\n                    <ion-option *ngFor="let role of roles" value="{{role.roleName}}">{{role.roleName}}</ion-option>\n                  </ion-select>\n              </ion-item>\n\n     \n\n\n              <button (click)="signIn()" ion-button type="submit" block> Sign In </button>\n\n            </form>\n\n            <form *ngSwitchCase="\'list\'">\n              <ion-item>           \n                <ion-label floating>Shop Name</ion-label>\n                <ion-input type="text"  name="sname"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                  <ion-label floating>Email</ion-label>\n                  <ion-input type="email"  name="email"></ion-input>\n                </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Password</ion-label>\n                <ion-input type="text"  name="spassword"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Contact Number</ion-label>\n                <ion-input type="text"  name="scontact"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Address</ion-label>\n                <ion-input type="text"  name="saddress"></ion-input>\n              </ion-item>\n              \n              <button (click)="ServiceList();" ion-button type="submit" block> Register </button>\n              <button (click)="EmployeePage();" ion-button type="submit" block> fdfd </button>\n\n            </form>\n          </div>\n  </ion-content>\n        \n      '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__app_services_role_service__["a" /* RoleService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__app_services_role_service__["a" /* RoleService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_4__app_services_role_service__["a" /* RoleService */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], SigninPage);
     return SigninPage;
-    var SigninPage_1, _a, _b, _c, _d;
+    var SigninPage_1;
 }());
 
 //# sourceMappingURL=signin.js.map

@@ -1,7 +1,7 @@
 
 
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController,NavParams } from 'ionic-angular';
+import { NavController,NavParams,AlertController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import {
   GoogleMaps,
@@ -33,9 +33,15 @@ export class MapPage {
     currentMaker:any;
     userInfo:any;
     x:any;
-   
+    position:any;
+    myLatitude:any;
+    mylongitude:any;
 
-  constructor(public navCtrl: NavController,public navParams: NavParams,public geolocation: Geolocation,private userService:UserService) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public geolocation: Geolocation,
+    private userService:UserService,
+    private alertCtrl: AlertController) {
     this.userInfo=navParams.get('userInfo');
   }
 
@@ -43,13 +49,57 @@ export class MapPage {
     this.loadMap();
     this.addMarkers();
     // this.nullLocation();
+    this.getCurrentCordinates();
+    console.log("map ngOnit");
   }
 
 
   ionViewDidLoad(){
-    Geolocation.getPlugin().getCurrentPosition(x => console.log('Success', x), e => console.log());
-    console.log(this.x)
+    
   } 
+
+  getCurrentCordinates(){
+  
+      Geolocation.getPlugin().getCurrentPosition(x => {
+        this.myLatitude=parseFloat(x.coords.latitude);
+        this.mylongitude=parseFloat(x.coords.longitude);
+        // this.position.push(this.myLatitude);
+        // this.position.push(this.mylongitude);
+        this.position=x.coords;        
+         console.log(this.position);
+         if(this.position){
+
+         
+         this.addCurrentLocation();
+         }else{
+           this.locationErroAlert();
+         }
+      });
+
+    
+  }
+
+  // getCurrentCordinates(){
+  //   Geolocation.getPlugin().getCurrentPosition(x => {
+  //     this.myLatitude=parseFloat(x.coords.latitude);
+  //     this.mylongitude=parseFloat(x.coords.longitude);
+  //     // this.position.push(this.myLatitude);
+  //     // this.position.push(this.mylongitude);
+  //     this.position=x.coords;        
+  //      console.log(this.position);
+  //   },function(err){
+  //       if(err){
+  //         console.log(err);
+  //         console.log("ErroettingCurrentCOrdinates");
+          
+  //       }
+  //     console.log("gotCurrentCOrdinates");
+        
+  //   });
+  //     console.log(this.myLatitude);
+  //     console.log(this.mylongitude);
+      
+  // }
 
   addMarkers(){
     console.log(this.userInfo);
@@ -58,6 +108,8 @@ export class MapPage {
         var lang=parseFloat(element.lang);
         this.addMarker(lat,lang);
       });
+      console.log(this.myLatitude);
+      console.log(this.mylongitude);
   }
   
   loadMap(){
@@ -82,42 +134,77 @@ export class MapPage {
  
   }
 
-  getCurrentLocation(){
+  addCurrentLocation(){
+    
+    // console.log(this.myLatitude);
+    // console.log(this.mylongitude);
+    
+    // console.log("current Start");
+    //   // let latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
+    //   // let latLng = new google.maps.LatLng(6.9148,79.9731);
+    //   console.log(this.myLatitude);
+    //   console.log(this.mylongitude);
+    //   // console.log(latLng);
+    //   // this.myLocation=latLng;
+    //   let mapOptions = {
+    //     center: {lat:6.9148,lang:79.9731},
+    //     zoom: 10,
+    //     mapTypeId: google.maps.MapTypeId.ROADMAP
+    //   }
+    //   console.log(mapOptions.zoom);
+    //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
-    console.log("current Start");
-    this.geolocation.getCurrentPosition().then((position) => {
-      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      // let latLng = new google.maps.LatLng(6.9148,79.9731);
-      console.log(latLng);
-      this.myLocation=latLng;
-      let mapOptions = {
-        center: latLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
-      //set Marker 
-      this.currentMaker = new google.maps.Marker({
-        map: this.map,
-        animation: google.maps.Animation.DROP,
-        position: this.myLocation,
-        // position:{lat:6.80491179,lang:79.9482853},
-        icon: {
-          url: '../assets/imgs/myLocation2.png'
-        },
-        title: 'your Loaction',
-        'snippet': 'your Loaction',
-        draggable: false
-      });
-      this.addMarkers();
+    //   //set Marker 
+    //   this.currentMaker = new google.maps.Marker({
+    //     map: this.map,
+    //     animation: google.maps.Animation.DROP,
+    //     position:{lat:6.9148,lang:79.9731},
+    //     // position:{lat:6.80491179,lang:79.9482853},
+    //     icon: {
+    //       url: '../assets/imgs/myLocation2.png'
+    //     },
+    //     title: 'your Loaction',
+    //     'snippet': 'your Loaction',
+    //     draggable: false
+    //   });
+    //   this.addMarkers();
      
-    }, (err) => {
-      console.log(err);
-      // this.nullLocation();
+    // // }, (err) => {
+    // //   console.log(err);
+    //   // this.nullLocation();
 
+   
+    // // });
+    // console.log("finish");
+  
+    if(this.mylongitude && this.myLatitude){
+    let latLng = new google.maps.LatLng(this.myLatitude,this.mylongitude);
+    console.log(latLng);
+    this.myLocation=latLng;
+    let mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+    //set Marker 
+    this.currentMaker = new google.maps.Marker({
+      map: this.map,
+      animation: google.maps.Animation.DROP,
+      position: this.myLocation,
+      // position:{lat:6.80491179,lang:79.9482853},
+      icon: {
+        url: '../assets/imgs/myLocation2.png'
+      },
+      title: 'your Loaction',
+      'snippet': 'your Loaction',
+      draggable: false
     });
-    console.log("finish");
+    this.addMarkers();
+  }else{
+    this.locationErroAlert();
+  }
   }
 
   addMarker(latp,langp){
@@ -168,5 +255,14 @@ export class MapPage {
         draggable: false
       });
       this.addMarkers();
+  }
+
+  locationErroAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Problem Ocuured While Getting Your Location',
+      subTitle: 'Make Sure to Enable GPS on Your Device',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

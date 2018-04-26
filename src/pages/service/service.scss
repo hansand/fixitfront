@@ -18,11 +18,12 @@ ion-card.service-list{
 
 
 
-ion-card.service-list:hover{
-    transform: scale(1.2);
-    z-index: 5;
-    background-color:#d3d3d3;
-}
+// ion-card:hover{
+//     transform: scale(1.2);
+//     z-index: 5;
+//     opacity: 0.5;
+//     background-color:#d3d3d3;
+// }
 
 .service-list img{
     width: 50px;
@@ -31,4 +32,32 @@ ion-card.service-list:hover{
 }
 .service-list span{
     padding-top: 10px;
+}
+
+.card-background-page {
+    ion-card {
+        opacity: 0.5;
+        width: auto;
+        height: 70px;
+      position: relative;
+      text-align: center;
+      
+    }
+    ion-card:hover{
+        transform: scale(1.2);
+        z-index: 5;
+        opacity: 1;
+        background-color:#d3d3d3;
+    
+    }
+    
+    .card-title {
+        position: absolute;
+        top: 39%;
+        font-size: 25px;
+        width: 100%;
+        font-weight: bold;
+        color: white;
+      }
+    
 }

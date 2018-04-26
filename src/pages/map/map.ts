@@ -42,6 +42,7 @@ export class MapPage {
   ngOnInit(){
     this.loadMap();
     this.addMarkers();
+    // this.nullLocation();
   }
 
 
@@ -86,7 +87,7 @@ export class MapPage {
     console.log("current Start");
     this.geolocation.getCurrentPosition().then((position) => {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      // let latLng = new google.maps.LatLng(6.80491179,79.9482853);
+      // let latLng = new google.maps.LatLng(6.9148,79.9731);
       console.log(latLng);
       this.myLocation=latLng;
       let mapOptions = {
@@ -113,6 +114,8 @@ export class MapPage {
      
     }, (err) => {
       console.log(err);
+      // this.nullLocation();
+
     });
     console.log("finish");
   }
@@ -138,5 +141,32 @@ export class MapPage {
     //   }
     // })
     // InfoWindow.run();
+  }
+
+  nullLocation(){
+       let latLng = new google.maps.LatLng(6.9148,79.9731);
+      console.log(latLng);
+      this.myLocation=latLng;
+      let mapOptions = {
+        center: latLng,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+      //set Marker 
+      this.currentMaker = new google.maps.Marker({
+        map: this.map,
+        animation: google.maps.Animation.DROP,
+        position: this.myLocation,
+        // position:{lat:6.80491179,lang:79.9482853},
+        icon: {
+          url: '../assets/imgs/myLocation2.png'
+        },
+        title: 'your Loaction',
+        'snippet': 'your Loaction',
+        draggable: false
+      });
+      this.addMarkers();
   }
 }

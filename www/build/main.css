@@ -25682,6 +25682,10 @@ ion-navbar.toolbar {
   background-color: #161616;
 }
 
+.button {
+  background-color: #020830;
+}
+
 ion-card.service-list {
   font-size: 15px;
   color: black;
@@ -25704,13 +25708,6 @@ ion-card.service-list {
   padding-top: 10px;
 }
 
-ion-card.service-list:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-  z-index: 5;
-  background-color: #d3d3d3;
-}
-
 .service-list img {
   width: 50px;
   height: 50px;
@@ -25719,6 +25716,31 @@ ion-card.service-list:hover {
 
 .service-list span {
   padding-top: 10px;
+}
+
+.card-background-page ion-card {
+  opacity: 0.5;
+  width: auto;
+  height: 70px;
+  position: relative;
+  text-align: center;
+}
+
+.card-background-page ion-card:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  z-index: 5;
+  opacity: 1;
+  background-color: #d3d3d3;
+}
+
+.card-background-page .card-title {
+  position: absolute;
+  top: 39%;
+  font-size: 25px;
+  width: 100%;
+  font-weight: bold;
+  color: white;
 }
 
 .segmentBase {
@@ -25751,4 +25773,11 @@ ion-card.service-list:hover {
 
 .fab {
   contain: layout;
+}
+
+.useravat {
+  max-width: 160px;
+  max-height: 160px;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -19,6 +19,8 @@ import { ServiceListPage } from '../pages/servicelist/servicelist';
 import { MapPage } from '../pages/map/map';
 import { Geolocation } from '@ionic-native/geolocation';
 import { HttpModule } from '@angular/http';
+import { LoginPage } from '../pages/login/login';
+import { SigninPage } from '../pages/signin/signin';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { HttpModule } from '@angular/http';
     UserPage,
     TabsPage,
     ServiceListPage,
-    MapPage
+    MapPage,
+    LoginPage,
+    SigninPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,9 @@ import { HttpModule } from '@angular/http';
     JobPage,
     TabsPage,
     ServiceListPage,
-    MapPage
+    MapPage,
+    LoginPage,
+    SigninPage
   ],
   providers: [
     StatusBar,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ServiceListPage } from '../servicelist/servicelist';
 import { RoleService } from '../../app/services/role.service';
@@ -12,6 +12,7 @@ export class ServicePage {
 
   roles:any;
 
+  
   constructor(public navCtrl: NavController,private RoleService:RoleService) {
 
   }
@@ -32,6 +33,9 @@ export class ServicePage {
       console.log(this.roles);
      })
   }
+
+
+  
 
 
 

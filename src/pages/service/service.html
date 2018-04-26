@@ -1,21 +1,20 @@
 <ion-header >
     <ion-navbar color="primary">
+            
       <ion-title >
-        Services
+        Welcome to FixIt
       </ion-title>
     </ion-navbar>
   </ion-header>
   
   <ion-content class="background" padding="true">
-    <ion-grid>
-      <ion-row>
-        <ion-col *ngFor="let role of roles"  (click)="serviceList(role.roleName);"  class="" col-6>
-            <ion-card class="service-list">
-             <span> {{role.roleName}} </span>
-            </ion-card> 
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-content class="card-background-page" padding="true">
+      <h4 align = "center"><b>Select a Service</b></h4>
+
+      <ion-card  *ngFor="let role of roles"  (click)="serviceList(role.roleName);" >
+        <img src="https://i.pinimg.com/originals/49/31/2b/49312bb613a671f9e41c3c51aaaf77f6.jpg"/>
+        <div class="card-title"> {{role.roleName}}</div>
+    </ion-card>
    
   </ion-content>
   

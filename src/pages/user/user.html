@@ -1,12 +1,31 @@
 <ion-header >
-    <ion-navbar color="primary">
-      <ion-title >
-        User Profile
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding="true">
-   Edit Ur Profile gg
-  </ion-content>
-  
+  <ion-navbar color="primary">
+    <ion-title >
+      User Profile
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content align = "Center" padding="true">
+ <b>User Information</b><br><br>
+ 
+
+<ion-thumbnail item-start>
+<img class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+</ion-thumbnail>
+
+<h2 class="name" >Shawn Ragel </h2>
+<span>
+<b>Customer</b><br>
+Ratings: 10/10  <br>
+Kadawatha
+ 
+</span>
+
+
+<ion-col  (click)="serviceList();"  class="" col-6>
+<ion-card class="service-list">
+ <span> Logout </span> 
+</ion-card> 
+</ion-col>
+</ion-content>

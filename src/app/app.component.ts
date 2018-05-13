@@ -10,6 +10,7 @@ import { ServicePage } from '../pages/service/service';
 import { RoleService } from './services/role.service';
 import { FeedBackService } from './services/feedback.service'
 import { ShopService } from './services/shop.service';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html',

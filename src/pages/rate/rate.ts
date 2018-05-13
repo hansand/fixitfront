@@ -38,8 +38,7 @@ export class RatePage {
         let body={
             empID:this.userID,
             feedback:this.feedback.value
-            // empID:"12345",
-            // feedback:"hansaka sandaruwan"
+          
         };
         this.http.post('http://localhost:3000/api/fixit/feedback',body,{headers:headers})
         .subscribe(data=>{
@@ -57,7 +56,7 @@ export class RatePage {
   fillAllFields(){
     let alert = this.alertCtrl.create({
       title: ':(',
-      subTitle: 'Fill All Fields',
+      subTitle: 'Please Type a Feedback',
       buttons: ['Ok']
     });
     alert.present();

@@ -34,8 +34,7 @@ export class SigninPage {
     this.getAllRoles();
   }
 
-  toServieList(){
-  }
+ 
   ServiceList(){
     this.navCtrl.push(ServicePage);
   }
@@ -81,7 +80,7 @@ export class SigninPage {
       password:this.password.value,
       role:this.rolex.value,
       nearTown:this.address.value,
-      ratings:5,
+      ratings:0,
       lat:5,
       lang:6
     };
@@ -91,6 +90,7 @@ export class SigninPage {
     .subscribe(data=>{
       console.log(data);
       this.signDoneAlert();
+      this.ServiceList();
     },error=>{
       console.log("opps")
     })

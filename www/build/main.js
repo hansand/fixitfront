@@ -1,86 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 152:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rate_rate__ = __webpack_require__(350);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-// import { SigninPage } from '../signin/signin';
-
-
-
-var EmployeePage = /** @class */ (function () {
-    function EmployeePage(navCtrl, navParams, userService, feedbackService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.userService = userService;
-        this.feedbackService = feedbackService;
-        this.userID = navParams.get('userID');
-    }
-    EmployeePage.prototype.ngOnInit = function () {
-        console.log(this.userID);
-        this.getEmployeeInfo();
-        this.getFeedbacks();
-    };
-    EmployeePage.prototype.getEmployeeInfo = function () {
-        var _this = this;
-        this.userService.getUserByID(this.userID).subscribe(function (response) {
-            _this.userInfo = response;
-            console.log(_this.userInfo);
-        });
-    };
-    EmployeePage.prototype.getFeedbacks = function () {
-        var _this = this;
-        this.feedbackService.getFeedback(this.userID).subscribe(function (response) {
-            _this.feedbacks = response;
-            console.log(_this.feedbacks);
-        });
-    };
-    EmployeePage.prototype.toRatePage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__rate_rate__["a" /* RatePage */], {
-            userInfo: this.userInfo,
-            userID: this.userID
-        });
-    };
-    EmployeePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'employee',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title >\n        Employee Profile\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    <b> Employee Information </b><br><br>\n    \n \n <ion-thumbnail item-start>\n   <img class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n </ion-thumbnail>\n <br><br>\n <span class="empInfoWrapper" *ngFor="let user of userInfo" >\n <h2 class="name" >{{user.fname}} {{user.lname}} </h2>\n <span>\n   <b> {{ user.role }} </b><br>\n   Ratings:{{ user.ratings }}   <br>\n   {{ user.nearTown}}  <br>\n   Contact Number : {{ user.telephone }} \n </span>\n<br>\n<button ion-button icon-start (click)="toRatePage()">\n  <ion-icon name="star-half"></ion-icon>\n  Rate Me\n</button>\n<button ion-button >\n  <ion-icon name="star-half"></ion-icon>\n  Send a Job Request  \n</button>\n</span>\n<br><br>\n<b>Feed Backs By Users </b>\n\n<ion-list>\n  <ion-item class="singleFeedback" *ngFor="let feedback of feedbacks">\n    {{feedback.feedback}} <br>\n    <span> By Customer x </span>\n  </ion-item>\n</ion-list>\n<!-- <form align="center">\n    <ion-item>\n        <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n      </ion-item>\n</form> -->\n   </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__["a" /* FeedBackService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__["a" /* FeedBackService */]) === "function" && _d || Object])
-    ], EmployeePage);
-    return EmployeePage;
-    var _a, _b, _c, _d;
-}());
-
-//# sourceMappingURL=employee.js.map
-
-/***/ }),
-
 /***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoleService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -118,9 +46,9 @@ var RoleService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__ = __webpack_require__(689);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shopinfo_shopinfo__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shopinfo_shopinfo__ = __webpack_require__(354);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -162,17 +90,59 @@ var ShopPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'shop',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/shops/shop.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n      Shops\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding align="center">\n <b>Available Stores</b><br><br>\n\n <ion-list >\n\n  <ion-item *ngFor="let shop of shopInfo" (click)="toShopInfoPage(shop._id)" >\n    \n    <ion-thumbnail item-start>\n      <img class="avatar" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">\n    </ion-thumbnail>\n    <h2>{{ shop.shopName }}</h2>\n    <span class="rate" >\n      {{ shop.address }} <br>\n      {{ shop.shopCatogory }}\n    </span>\n    </ion-item>\n    \n\n\n\n\n\n</ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/shops/shop.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__["a" /* ShopService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__["a" /* ShopService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__["a" /* ShopService */]])
     ], ShopPage);
     return ShopPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=shop.js.map
 
 /***/ }),
 
-/***/ 165:
+/***/ 155:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(43);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ShopService = /** @class */ (function () {
+    function ShopService(http) {
+        this.http = http;
+        this.baseUrl = 'http://localhost:3000/api/fixit/shops';
+    }
+    ShopService.prototype.getAllShops = function () {
+        return this.http.get(this.baseUrl).map(function (res) { return res.json(); });
+    };
+    ShopService.prototype.getShopbyId = function (id) {
+        return this.http.get(this.baseUrl + '/getid/' + id + '').map(function (res) { return res.json(); });
+    };
+    ShopService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    ], ShopService);
+    return ShopService;
+}());
+
+//# sourceMappingURL=shop.service.js.map
+
+/***/ }),
+
+/***/ 166:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -185,11 +155,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 165;
+webpackEmptyAsyncContext.id = 166;
 
 /***/ }),
 
-/***/ 210:
+/***/ 211:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -202,20 +172,20 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 210;
+webpackEmptyAsyncContext.id = 211;
 
 /***/ }),
 
-/***/ 346:
+/***/ 347:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_service__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_service__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(353);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shops_shop__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_user__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_user__ = __webpack_require__(355);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -243,7 +213,7 @@ var TabsPage = /** @class */ (function () {
         this.tab4Root = __WEBPACK_IMPORTED_MODULE_4__user_user__["a" /* UserPage */];
     }
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/tabs/tabs.html"*/'<ion-tabs color="primary">\n  <ion-tab [root]="tab1Root" tabTitle="Services" tabIcon="hammer"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Jobs" tabIcon="people"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Shops" tabIcon="pricetags"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="User Profile" tabIcon="person"></ion-tab>\n  \n</ion-tabs>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/tabs/tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/tabs/tabs.html"*/'<ion-tabs color="primary">\n  <ion-tab [root]="tab1Root" tabTitle="Services" tabIcon="hammer"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Jobs" tabIcon="people"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Shops" tabIcon="pricetags"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="User Profile" tabIcon="person"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/tabs/tabs.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], TabsPage);
@@ -254,16 +224,16 @@ var TabsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 347:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiceListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(89);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -319,16 +289,16 @@ var ServiceListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 348:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(350);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(89);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -344,12 +314,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MapPage = /** @class */ (function () {
-    function MapPage(navCtrl, navParams, geolocation, userService, alertCtrl) {
+    function MapPage(navCtrl, navParams, geolocation, userService, alertCtrl, 
+        // public maps: GoogleMaps,
+        viewCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.geolocation = geolocation;
         this.userService = userService;
         this.alertCtrl = alertCtrl;
+        this.viewCtrl = viewCtrl;
+        this.locations = [];
+        this.isKM = 500;
+        this.latLng2 = new google.maps.LatLng(6.927079, 79.861244);
         this.userInfo = navParams.get('userInfo');
     }
     MapPage.prototype.ngOnInit = function () {
@@ -378,24 +354,6 @@ var MapPage = /** @class */ (function () {
             }
         });
     };
-    // getCurrentCordinates(){
-    //   Geolocation.getPlugin().getCurrentPosition(x => {
-    //     this.myLatitude=parseFloat(x.coords.latitude);
-    //     this.mylongitude=parseFloat(x.coords.longitude);
-    //     // this.position.push(this.myLatitude);
-    //     // this.position.push(this.mylongitude);
-    //     this.position=x.coords;        
-    //      console.log(this.position);
-    //   },function(err){
-    //       if(err){
-    //         console.log(err);
-    //         console.log("ErroettingCurrentCOrdinates");
-    //       }
-    //     console.log("gotCurrentCOrdinates");
-    //   });
-    //     console.log(this.myLatitude);
-    //     console.log(this.mylongitude);
-    // }
     MapPage.prototype.addMarkers = function () {
         var _this = this;
         console.log(this.userInfo);
@@ -555,32 +513,151 @@ var MapPage = /** @class */ (function () {
         });
         alert.present();
     };
+    MapPage.prototype.searchCancel = function () {
+        this.locations = [];
+    };
+    MapPage.prototype.SearchPlace = function () {
+        var _this = this;
+        if (this.searchLocation.value == "") {
+            this.searchCancel();
+        }
+        else {
+            // this.loadMap();
+            this.searchCancel();
+            var service = new google.maps.places.PlacesService(this.map);
+            service.nearbySearch({
+                location: this.latLng2,
+                radius: this.isKM,
+                keyword: this.searchLocation.value
+            }, function (results, status) {
+                // this.locations=results;
+                // console.log(results.name);
+                // console.log(this.locations);
+                // console.log(status);
+                if (results) {
+                    results.forEach(function (element) {
+                        console.log(element);
+                        _this.locations.push(element);
+                        console.log(element.geometry.location.lat());
+                        // console.log(this.locations);  
+                    });
+                }
+            });
+        }
+    };
+    MapPage.prototype.addSearchLocation = function (latp, langp) {
+        var lat = parseFloat(latp).toFixed(7);
+        var lang = parseFloat(langp).toFixed(7);
+        console.log(lat);
+        console.log(lang);
+        var latLng = new google.maps.LatLng(latp, langp);
+        console.log(latLng);
+        var mapOptions = {
+            center: latLng,
+            zoom: 15,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        this.customMarker = new google.maps.Marker({
+            map: this.map,
+            animation: google.maps.Animation.DROP,
+            position: { lat: latp, lng: langp },
+            icon: {
+                url: '../assets/imgs/searchlocation.png'
+            },
+            draggable: false
+        });
+        this.searchCancel();
+        this.addMarkers();
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
         __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], MapPage.prototype, "mapElement", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('searchLocation'),
+        __metadata("design:type", Object)
+    ], MapPage.prototype, "searchLocation", void 0);
     MapPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'map',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/map/map.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n            Map\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      \n      <ion-content padding>\n\n            <div #map id="map" style="height: 100%;" class="please-work"></div>\n            <ion-fab  class="fabMap" bottom right>\n              <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n              <button (click)=" getCurrentCordinates();" ion-fab> <ion-icon  name="locate"></ion-icon></button>\n            </ion-fab>\n      </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/map/map.html"*/
+            selector: 'map',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/map/map.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n            Map\n          </ion-title>\n        </ion-navbar>\n        <ion-toolbar color="primary">	\n          <ion-searchbar #searchLocation placeholder="Seach Places"   (input)="SearchPlace()">\n          </ion-searchbar>\n        </ion-toolbar>\n      </ion-header>\n      \n      <ion-content padding>\n        <!-- <div class="Map-Search-Bar">\n            <ion-item>\n              <ion-label> Search Places  </ion-label>\n              <ion-input #searchLocation (input)="SearchPlace()"> \n                  <ion-option> ha ha</ion-option>\n              </ion-input>\n            </ion-item>\n        </div> -->\n        <!-- <ion-searchbar  #searchLocation (input)="SearchPlace();xss();" placeholder="Search"></ion-searchbar>\n        <ion-list>\n        <button  class="sList" ion-item *ngFor="let location of locations">\n            {{location.name}}\n        </button>\n        </ion-list> -->\n        <ion-grid ion-fixed no-padding>\n            <ion-scroll style="width:100%;height:120px" scrollY="true">\n          <ion-list scroll="true" style="position: absolute;z-index:1;width:100%;">\n            <ion-item (click)="addSearchLocation(location.geometry.location.lat(),location.geometry.location.lng())"  *ngFor="let location of locations" color="silver" >\n              {{location.name}}\n            </ion-item>\n          </ion-list>\n          </ion-scroll>\n        </ion-grid>\n\n\n        <div  #map id="map" style="height: 100%;" class="please-work"></div>\n            <ion-fab  class="fabMap" bottom right>\n              <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n              <button (click)=" getCurrentCordinates();" ion-fab> <ion-icon  name="locate"></ion-icon></button>\n            </ion-fab>\n      </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/map/map.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */]) === "function" && _g || Object])
     ], MapPage);
     return MapPage;
-    var _a, _b, _c, _d, _e, _f;
-}());
+    var _a, _b, _c, _d, _e, _f, _g;
+}()); //class ends
 
+// getCurrentCordinates(){
+//   Geolocation.getPlugin().getCurrentPosition(x => {
+//     this.myLatitude=parseFloat(x.coords.latitude);
+//     this.mylongitude=parseFloat(x.coords.longitude);
+//     // this.position.push(this.myLatitude);
+//     // this.position.push(this.mylongitude);
+//     this.position=x.coords;        
+//      console.log(this.position);
+//   },function(err){
+//       if(err){
+//         console.log(err);
+//         console.log("ErroettingCurrentCOrdinates");
+//       }
+//     console.log("gotCurrentCOrdinates");
+//   });
+//     console.log(this.myLatitude);
+//     console.log(this.mylongitude);
+// } 
 //# sourceMappingURL=map.js.map
 
 /***/ }),
 
-/***/ 350:
+/***/ 351:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedBackService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(43);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var FeedBackService = /** @class */ (function () {
+    function FeedBackService(http) {
+        this.http = http;
+        this.baseUrl = 'http://localhost:3000/api/fixit/feedback';
+    }
+    FeedBackService.prototype.getFeedback = function (empID) {
+        return this.http.get(this.baseUrl + '/empid/' + empID + '').map(function (res) { return res.json(); });
+    };
+    FeedBackService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    ], FeedBackService);
+    return FeedBackService;
+}());
+
+//# sourceMappingURL=feedback.service.js.map
+
+/***/ }),
+
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RatePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -612,8 +689,6 @@ var RatePage = /** @class */ (function () {
             var body = {
                 empID: this.userID,
                 feedback: this.feedback.value
-                // empID:"12345",
-                // feedback:"hansaka sandaruwan"
             };
             this.http.post('http://localhost:3000/api/fixit/feedback', body, { headers: headers })
                 .subscribe(function (data) {
@@ -630,7 +705,7 @@ var RatePage = /** @class */ (function () {
     RatePage.prototype.fillAllFields = function () {
         var alert = this.alertCtrl.create({
             title: ':(',
-            subTitle: 'Fill All Fields',
+            subTitle: 'Please Type a Feedback',
             buttons: ['Ok']
         });
         alert.present();
@@ -663,13 +738,13 @@ var RatePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 351:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shops_shop__ = __webpack_require__(154);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -695,7 +770,7 @@ var JobPage = /** @class */ (function () {
     };
     JobPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'job',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Passing Data in Pages\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-list>\n    <ion-item>\n      <ion-label>Enter</ion-label>\n      <ion-input placeholder=\'Your fav color...\' #color></ion-input>\n    </ion-item>\n  </ion-list>\n  <button ion-button color="secondary" (click)="goTo(color.value)">About Page</button>\n</ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/
+            selector: 'job',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Jobs\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  This is a Job List\n</ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
     ], JobPage);
@@ -706,14 +781,66 @@ var JobPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 352:
+/***/ 354:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopInfoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__ = __webpack_require__(155);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+// import { SigninPage } from '../signin/signin';
+var ShopInfoPage = /** @class */ (function () {
+    function ShopInfoPage(navCtrl, navParams, ShopService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ShopService = ShopService;
+        this.shopID = navParams.get('shopID');
+        console.log(this.shopID);
+    }
+    ShopInfoPage.prototype.ngOnInit = function () {
+        this.getShopInfo();
+    };
+    ShopInfoPage.prototype.getShopInfo = function () {
+        var _this = this;
+        this.ShopService.getShopbyId(this.shopID).subscribe(function (response) {
+            _this.shopInfo = response;
+            console.log(_this.shopInfo);
+        });
+    };
+    ShopInfoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'shopinfo',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/shopinfo/shopinfo.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title >\n            Employee Profile\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      \n      <ion-content align = "Center" padding="true">\n        <b> Shop Information </b><br><br>\n        \n     \n     <ion-thumbnail item-start>\n       <img class = "useravat" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">\n     </ion-thumbnail>\n     <br><br><br>\n     <span *ngFor="let shop of shopInfo">\n     <h2 class="name" > {{ shop.shopName }} </h2>\n     <span>\n       <b> {{ shop.shopCatogory }} </b><br>\n\n       {{shop.address}}  <br>\n       Contact Number : {{ shop.telephone }}\n     </span>\n    <br>\n  </span>\n  <button ion-button >\n    Send Order Request  \n  </button>\n    \n    <!-- <form align="center">\n        <ion-item>\n            <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n          </ion-item>\n    </form> -->\n</ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/shopinfo/shopinfo.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__["a" /* ShopService */]])
+    ], ShopInfoPage);
+    return ShopInfoPage;
+}());
+
+//# sourceMappingURL=shopinfo.js.map
+
+/***/ }),
+
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(356);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -746,15 +873,15 @@ var UserPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 353:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_service__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_service__ = __webpack_require__(88);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -793,17 +920,17 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 354:
+/***/ 357:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_service__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__employee_employee__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_service__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__employee_employee__ = __webpack_require__(89);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_role_service__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -830,8 +957,6 @@ var SigninPage = /** @class */ (function () {
     SigninPage_1 = SigninPage;
     SigninPage.prototype.ngOnInit = function () {
         this.getAllRoles();
-    };
-    SigninPage.prototype.toServieList = function () {
     };
     SigninPage.prototype.ServiceList = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__service_service__["a" /* ServicePage */]);
@@ -877,7 +1002,7 @@ var SigninPage = /** @class */ (function () {
                 password: this.password.value,
                 role: this.rolex.value,
                 nearTown: this.address.value,
-                ratings: 5,
+                ratings: 0,
                 lat: 5,
                 lang: 6
             };
@@ -886,6 +1011,7 @@ var SigninPage = /** @class */ (function () {
                 .subscribe(function (data) {
                 console.log(data);
                 _this.signDoneAlert();
+                _this.ServiceList();
             }, function (error) {
                 console.log("opps");
             });
@@ -955,13 +1081,13 @@ var SigninPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 355:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(363);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -969,34 +1095,34 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 360:
+/***/ 363:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(397);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(686);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(687);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(688);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_service_service__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(400);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(688);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_service_service__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_shops_shop__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jobs_job__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_user_user__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_tabs_tabs__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(254);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_servicelist_servicelist__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_map_map__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_geolocation__ = __webpack_require__(349);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_http__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_login_login__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_signin_signin__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_employee_employee__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_rate_rate__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_shopinfo_shopinfo__ = __webpack_require__(690);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jobs_job__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_user_user__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_tabs_tabs__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(255);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_servicelist_servicelist__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_map_map__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_geolocation__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_http__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_login_login__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_signin_signin__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_employee_employee__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_rate_rate__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_shopinfo_shopinfo__ = __webpack_require__(354);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1089,20 +1215,20 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 397:
+/***/ 400:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(255);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_users_service__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_role_service__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_feedback_service__ = __webpack_require__(685);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_shop_service__ = __webpack_require__(689);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_feedback_service__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_shop_service__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1135,64 +1261,22 @@ var MyApp = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/hansand/projects/fixit/src/app/app.html"*/'<!-- <ion-nav [root]="rootPage"></ion-nav> -->\n\n<ion-menu [content]="content">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    <ion-content>\n      <ion-list>\n        <button ion-item (click)="openPage(homePage)">\n          Home\n        </button>\n        <button ion-item (click)="openPage(friendsPage)">\n          Friends\n        </button>\n        <button ion-item (click)="openPage(eventsPage)">\n          Events\n        </button>\n        <button ion-item (click)="closeMenu()">\n          Close Menu\n        </button>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  \n  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>'/*ion-inline-end:"/home/hansand/projects/fixit/src/app/app.html"*/,
             providers: [__WEBPACK_IMPORTED_MODULE_4__services_users_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_6__services_role_service__["a" /* RoleService */], __WEBPACK_IMPORTED_MODULE_7__services_feedback_service__["a" /* FeedBackService */], __WEBPACK_IMPORTED_MODULE_8__services_shop_service__["a" /* ShopService */]]
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 685:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedBackService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(44);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var FeedBackService = /** @class */ (function () {
-    function FeedBackService(http) {
-        this.http = http;
-        this.baseUrl = 'http://localhost:3000/api/fixit/feedback';
-    }
-    FeedBackService.prototype.getFeedback = function (empID) {
-        return this.http.get(this.baseUrl + '/empid/' + empID + '').map(function (res) { return res.json(); });
-    };
-    FeedBackService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object])
-    ], FeedBackService);
-    return FeedBackService;
-    var _a;
-}());
-
-//# sourceMappingURL=feedback.service.js.map
-
-/***/ }),
-
-/***/ 686:
+/***/ 688:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1221,13 +1305,13 @@ var AboutPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 687:
+/***/ 689:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1256,13 +1340,13 @@ var ContactPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 688:
+/***/ 690:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1291,112 +1375,15 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 689:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(44);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var ShopService = /** @class */ (function () {
-    function ShopService(http) {
-        this.http = http;
-        this.baseUrl = 'http://localhost:3000/api/fixit/shops';
-    }
-    ShopService.prototype.getAllShops = function () {
-        return this.http.get(this.baseUrl).map(function (res) { return res.json(); });
-    };
-    ShopService.prototype.getShopbyId = function (id) {
-        return this.http.get(this.baseUrl + '/getid/' + id + '').map(function (res) { return res.json(); });
-    };
-    ShopService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _a || Object])
-    ], ShopService);
-    return ShopService;
-    var _a;
-}());
-
-//# sourceMappingURL=shop.service.js.map
-
-/***/ }),
-
-/***/ 690:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopInfoPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__ = __webpack_require__(689);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-// import { SigninPage } from '../signin/signin';
-var ShopInfoPage = /** @class */ (function () {
-    function ShopInfoPage(navCtrl, navParams, ShopService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.ShopService = ShopService;
-        this.shopID = navParams.get('shopID');
-        console.log(this.shopID);
-    }
-    ShopInfoPage.prototype.ngOnInit = function () {
-        this.getShopInfo();
-    };
-    ShopInfoPage.prototype.getShopInfo = function () {
-        var _this = this;
-        this.ShopService.getShopbyId(this.shopID).subscribe(function (response) {
-            _this.shopInfo = response;
-            console.log(_this.shopInfo);
-        });
-    };
-    ShopInfoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'shopinfo',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/shopinfo/shopinfo.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title >\n            Employee Profile\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      \n      <ion-content align = "Center" padding="true">\n        <b> Shop Information </b><br><br>\n        \n     \n     <ion-thumbnail item-start>\n       <img class = "useravat" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">\n     </ion-thumbnail>\n     <br><br><br>\n     <span *ngFor="let shop of shopInfo">\n     <h2 class="name" > {{ shop.shopName }} </h2>\n     <span>\n       <b> {{ shop.shopCatogory }} </b><br>\n\n       {{shop.address}}  <br>\n       Contact Number : {{ shop.telephone }}\n     </span>\n    <br>\n  </span>\n  <button ion-button >\n    Send Order Request  \n  </button>\n    \n    <!-- <form align="center">\n        <ion-item>\n            <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n          </ion-item>\n    </form> -->\n</ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/shopinfo/shopinfo.html"*/
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__["a" /* ShopService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_shop_service__["a" /* ShopService */]) === "function" && _c || Object])
-    ], ShopInfoPage);
-    return ShopInfoPage;
-    var _a, _b, _c;
-}());
-
-//# sourceMappingURL=shopinfo.js.map
-
-/***/ }),
-
 /***/ 78:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(43);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1434,14 +1421,14 @@ var UserService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServicePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__ = __webpack_require__(348);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1461,8 +1448,9 @@ var ServicePage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.RoleService = RoleService;
     }
-    ServicePage.prototype.ngOnInit = function () {
+    ServicePage.prototype.ionViewDidLoad = function () {
         this.getAllRoles();
+        // this.navCtrl.setRoot(TabsPage);
     };
     ServicePage.prototype.serviceList = function (role) {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__["a" /* ServiceListPage */], {
@@ -1473,12 +1461,12 @@ var ServicePage = /** @class */ (function () {
         var _this = this;
         this.RoleService.getAllRoles().subscribe(function (response) {
             _this.roles = response;
-            console.log(_this.roles);
+            // console.log(this.roles);
         });
     };
     ServicePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'service',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/service/service.html"*/'<ion-header >\n    <ion-navbar color="primary">\n            \n      <ion-title >\n        Welcome to FixIt\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content class="background" padding="true">\n    <ion-content class="card-background-page" padding="true">\n      <h4 align = "center"><b>Select a Service</b></h4>\n\n      <ion-card  *ngFor="let role of roles"  (click)="serviceList(role.roleName);" >\n        <img src="https://i.pinimg.com/originals/49/31/2b/49312bb613a671f9e41c3c51aaaf77f6.jpg"/>\n        <div class="card-title"> {{role.roleName}}</div>\n    </ion-card>\n   \n  </ion-content>\n  '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/service/service.html"*/
+            selector: 'service',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/service/service.html"*/'<ion-header >\n    <ion-navbar color="primary">\n            \n      <ion-title >\n        Welcome to FixIt\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content class="background" padding="true">\n    <ion-content class="card-background-page" padding="true">\n      <h4 align = "center"><b>Select a Service</b></h4>\n\n      <ion-card  *ngFor="let role of roles"  (click)="serviceList(role.roleName);" >\n        <img src="https://i.pinimg.com/originals/49/31/2b/49312bb613a671f9e41c3c51aaaf77f6.jpg"/>\n        <div class="card-title"> {{role.roleName}}</div>\n      </ion-card>\n   \n  </ion-content>\n  '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/service/service.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__["a" /* RoleService */]])
     ], ServicePage);
@@ -1487,7 +1475,81 @@ var ServicePage = /** @class */ (function () {
 
 //# sourceMappingURL=service.js.map
 
+/***/ }),
+
+/***/ 89:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rate_rate__ = __webpack_require__(352);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+// import { SigninPage } from '../signin/signin';
+
+
+
+var EmployeePage = /** @class */ (function () {
+    function EmployeePage(navCtrl, navParams, userService, feedbackService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.userService = userService;
+        this.feedbackService = feedbackService;
+        this.userID = navParams.get('userID');
+    }
+    EmployeePage.prototype.ngOnInit = function () {
+        console.log(this.userID);
+        this.getEmployeeInfo();
+        this.getFeedbacks();
+    };
+    EmployeePage.prototype.getEmployeeInfo = function () {
+        var _this = this;
+        this.userService.getUserByID(this.userID).subscribe(function (response) {
+            _this.userInfo = response;
+            console.log(_this.userInfo);
+        });
+    };
+    EmployeePage.prototype.getFeedbacks = function () {
+        var _this = this;
+        this.feedbackService.getFeedback(this.userID).subscribe(function (response) {
+            _this.feedbacks = response;
+            console.log(_this.feedbacks);
+        });
+    };
+    EmployeePage.prototype.toRatePage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__rate_rate__["a" /* RatePage */], {
+            userInfo: this.userInfo,
+            userID: this.userID
+        });
+    };
+    EmployeePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'employee',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title >\n        Employee Profile\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    <b> Employee Information </b><br><br>\n    \n \n <ion-thumbnail item-start>\n   <img class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n </ion-thumbnail>\n <br><br>\n <span class="empInfoWrapper" *ngFor="let user of userInfo" >\n <h2 class="name" >{{user.fname}} {{user.lname}} </h2>\n <span>\n   <b> {{ user.role }} </b><br>\n   Ratings:{{ user.ratings }}   <br>\n   {{ user.nearTown}}  <br>\n   Contact Number : {{ user.telephone }} \n </span>\n<br>\n<button ion-button icon-start (click)="toRatePage()">\n  <ion-icon name="star-half"></ion-icon>\n  Give Feedback\n</button>\n<button ion-button >\n  <ion-icon name="star-half"></ion-icon>\n  Send a Job Request  \n</button>\n</span>\n<br><br>\n<b>Feed Backs By Users </b>\n\n<ion-list>\n  <ion-item class="singleFeedback" *ngFor="let feedback of feedbacks">\n    {{feedback.feedback}} <br>\n    <span> By Customer x </span>\n  </ion-item>\n</ion-list>\n<!-- <form align="center">\n    <ion-item>\n        <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n      </ion-item>\n</form> -->\n   </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__["a" /* FeedBackService */]])
+    ], EmployeePage);
+    return EmployeePage;
+}());
+
+//# sourceMappingURL=employee.js.map
+
 /***/ })
 
-},[355]);
+},[358]);
 //# sourceMappingURL=main.js.map

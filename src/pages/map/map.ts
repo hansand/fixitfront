@@ -1,7 +1,7 @@
 
 
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController,NavParams,AlertController } from 'ionic-angular';
+import { NavController,NavParams,AlertController,ViewController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import {
   GoogleMaps,
@@ -15,6 +15,7 @@ import {
 
  import { UserService } from '../../app/services/users.service';
  import { EmployeePage } from '../employee/employee';
+ 
 
 
 
@@ -27,7 +28,7 @@ declare var google;
 export class MapPage {
 
     @ViewChild('map') mapElement: ElementRef;
-   
+    @ViewChild('searchLocation') searchLocation;
     map: any;
     myLocation: any;
     marker:any;
@@ -38,11 +39,19 @@ export class MapPage {
     myLatitude:any;
     mylongitude:any;
 
+    locations=[];
+    isKM:any=500;
+    latLng2:any = new google.maps.LatLng(6.927079, 79.861244);
+    customMarker:any;
+
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public geolocation: Geolocation,
     private userService:UserService,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    // public maps: GoogleMaps,
+    public viewCtrl: ViewController
+  ) {
     this.userInfo=navParams.get('userInfo');
   }
 
@@ -55,12 +64,13 @@ export class MapPage {
   }
 
 
+
+
   ionViewDidLoad(){
     
   } 
 
   getCurrentCordinates(){
-  
       Geolocation.getPlugin().getCurrentPosition(x => {
         this.myLatitude=parseFloat(x.coords.latitude);
         this.mylongitude=parseFloat(x.coords.longitude);
@@ -72,33 +82,11 @@ export class MapPage {
          this.addCurrentLocation();
          }else{
            this.locationErroAlert();
-         }
+         } 
       });
-
-    
   }
 
-  // getCurrentCordinates(){
-  //   Geolocation.getPlugin().getCurrentPosition(x => {
-  //     this.myLatitude=parseFloat(x.coords.latitude);
-  //     this.mylongitude=parseFloat(x.coords.longitude);
-  //     // this.position.push(this.myLatitude);
-  //     // this.position.push(this.mylongitude);
-  //     this.position=x.coords;        
-  //      console.log(this.position);
-  //   },function(err){
-  //       if(err){
-  //         console.log(err);
-  //         console.log("ErroettingCurrentCOrdinates");
-          
-  //       }
-  //     console.log("gotCurrentCOrdinates");
-        
-  //   });
-  //     console.log(this.myLatitude);
-  //     console.log(this.mylongitude);
-      
-  // }
+
 
   addMarkers(){
     console.log(this.userInfo);
@@ -275,4 +263,100 @@ export class MapPage {
     });
     alert.present();
   }
-}
+
+  searchCancel(){
+    this.locations=[];
+  }
+
+  
+
+  SearchPlace(){
+    if(this.searchLocation.value == ""){
+      this.searchCancel();
+    }else{
+    // this.loadMap();
+      this.searchCancel();
+    
+    let service = new google.maps.places.PlacesService(this.map);
+    service.nearbySearch({
+              location: this.latLng2,
+              radius: this.isKM,
+              keyword: this.searchLocation.value
+            }, (results, status) => {
+              
+              
+                // this.locations=results;
+                // console.log(results.name);
+                // console.log(this.locations);
+                // console.log(status);
+              if(results){
+                results.forEach(element => {
+                    console.log(element);
+                    this.locations.push(element);
+                    console.log(element.geometry.location.lat());    
+                    // console.log(this.locations);  
+                                
+
+                });
+              }
+            });
+          }
+  }
+  
+
+  addSearchLocation(latp,langp){
+   
+    var lat=parseFloat(latp).toFixed(7);
+    var lang=parseFloat(langp).toFixed(7);
+    console.log(lat);
+    console.log(lang);
+    
+    let latLng = new google.maps.LatLng(latp,langp);
+    console.log(latLng);
+    let mapOptions = {
+      center: latLng,
+      zoom: 15,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+
+    this.customMarker = new google.maps.Marker({
+      map: this.map,
+      animation: google.maps.Animation.DROP,
+      position:{ lat:latp,lng:langp},
+      icon: {
+        url: '../assets/imgs/searchlocation.png'
+      },
+      draggable: false
+    });
+
+    this.searchCancel();
+    this. addMarkers();
+    }
+
+} //class ends
+
+
+
+  // getCurrentCordinates(){
+  //   Geolocation.getPlugin().getCurrentPosition(x => {
+  //     this.myLatitude=parseFloat(x.coords.latitude);
+  //     this.mylongitude=parseFloat(x.coords.longitude);
+  //     // this.position.push(this.myLatitude);
+  //     // this.position.push(this.mylongitude);
+  //     this.position=x.coords;        
+  //      console.log(this.position);
+  //   },function(err){
+  //       if(err){
+  //         console.log(err);
+  //         console.log("ErroettingCurrentCOrdinates");
+          
+  //       }
+  //     console.log("gotCurrentCOrdinates");
+        
+  //   });
+  //     console.log(this.myLatitude);
+  //     console.log(this.mylongitude);
+      
+  // }

@@ -25708,6 +25708,19 @@ ion-navbar.toolbar {
   background-color: #020830;
 }
 
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.Map-Search-Bar {
+  z-index: 1000;
+}
+
+.sList {
+  z-index: 1000;
+}
+
 .inputfie {
   height: 110px;
 }

@@ -10,14 +10,14 @@ import { ServicePage } from '../pages/service/service';
 import { RoleService } from './services/role.service';
 import { FeedBackService } from './services/feedback.service'
 import { ShopService } from './services/shop.service';
-import { LoginPage } from '../pages/login/login';
+import { WelcomePage } from '../pages/welcome/welcome';
 
 @Component({
   templateUrl: 'app.html',
   providers:[UserService,RoleService,FeedBackService,ShopService]
 })
 export class MyApp {
-  rootPage:any = TabsPage;
+  rootPage:any = WelcomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

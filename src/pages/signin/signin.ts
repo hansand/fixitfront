@@ -1,10 +1,21 @@
-import { Component,ViewChild } from '@angular/core';
-import { NavController,AlertController } from 'ionic-angular';
+
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { NavController,NavParams,AlertController,ViewController } from 'ionic-angular';
 import { ServicePage } from '../service/service';
 import { EmployeePage } from '../employee/employee';
 import { RoleService } from '../../app/services/role.service';
 import { Http,Headers} from '@angular/http'
 import { LoginPage } from '../login/login'
+import { Geolocation } from '@ionic-native/geolocation';
+import {
+  GoogleMaps,
+  GoogleMap,
+  GoogleMapsEvent,
+  GoogleMapOptions,
+  CameraPosition,
+  MarkerOptions,
+  Marker
+ } from '@ionic-native/google-maps';
 
 @Component({
   selector: 'signin',
@@ -12,6 +23,8 @@ import { LoginPage } from '../login/login'
 })
 export class SigninPage {
   roles:any;
+  position:any;
+
 
   @ViewChild('fname') fname;
   @ViewChild('lname') lname;
@@ -26,7 +39,16 @@ export class SigninPage {
   constructor(public navCtrl: NavController,
     private RoleService:RoleService,
     public http:Http,
+    public geolocation: Geolocation,
     private alertCtrl: AlertController) {
+
+      this.getCurrentCordinates().then(()=>{
+        
+      },
+      
+   
+      
+      ()=>console.log("rej"));
 
   }
 
@@ -57,13 +79,7 @@ export class SigninPage {
     console.log(this.rolex.value)
     let headers = new Headers();
     headers.append('Content-Type','Application/json');
-    // var url= 'http://localhost:3000/api/fixit/users';
-    // let postData = new FormData();
-    // postData.append('fname','lname','email');
-    // this.data = this.http.post(url,postData);
-    // this.data.subscribe(data=>{
-    //   console.log();
-    // })
+
     if(this.fname.value && 
       this.lname.value && 
       this.email.value &&
@@ -116,4 +132,24 @@ export class SigninPage {
     });
     alert.present();
   }
+
+  //locations 
+
+  getCurrentCordinates(){
+    var promise = new Promise((resolve, reject) => {
+      Geolocation.getPlugin().getCurrentPosition(result => {
+        this.position=result.coords;
+        console.log(this.position);
+        if(this.position.length===0){
+          reject()
+        }else{
+        resolve();
+        }        
+    });
+  
+  });
+  return promise;
 }
+
+
+}//class end

@@ -7,7 +7,7 @@
   </ion-header>
   <ion-content padding>  
 
-    Register as an User of a Shop
+    Register as an User or a Shop
       <ion-segment class="segmentBase" [(ngModel)]="tab" color="primary" >
           <ion-segment-button value="SigninPage">
               User
@@ -55,14 +55,14 @@
 
               <ion-item>
                 <ion-label floating>User Type</ion-label>
+                
                   <ion-select   #rolex>
+                      <ion-option value="Customer">Customer</ion-option>
                     <ion-option *ngFor="let role of roles" value="{{role.roleName}}">{{role.roleName}}</ion-option>
                   </ion-select>
               </ion-item>
 
-     
-
-
+              <span>  Your Current Location Wll be Saved as Your Location.You can Change this later.</span>
               <button (click)="signIn()" ion-button type="submit" block> Sign In </button>
 
             </form>
@@ -92,9 +92,9 @@
                 <ion-label floating>Address</ion-label>
                 <ion-input type="text"  name="saddress"></ion-input>
               </ion-item>
+
               
               <button (click)="ServiceList();" ion-button type="submit" block> Register </button>
-              <button (click)="EmployeePage();" ion-button type="submit" block> fdfd </button>
 
             </form>
           </div>

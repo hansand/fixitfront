@@ -16,7 +16,7 @@ import { UserPage } from '../user/user';
 })
 export class TabsPage {
 
-  tab1Root = ServicePage;
+  tab1Root = ServicePage ;
   tab2Root = JobPage;
   tab3Root = ShopPage;
   tab4Root = UserPage; 

@@ -1,0 +1,27 @@
+
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+        Login as Shop
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>   
+       <form >
+    <ion-item>
+      <!-- <ion-label>Username</ion-label> -->
+      <ion-label #email floating>Email</ion-label>
+      <ion-input type="email" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label>Password</ion-label> -->
+      <ion-label floating>Password</ion-label>
+      <ion-input #password type="password" ></ion-input>
+    </ion-item>
+
+   
+    <button (click)="ServiceList();" ion-button type="submit" block> Login </button>
+    <button (click)="Signin();" ion-button type="submit" block> Sign In</button>
+  </form>
+  

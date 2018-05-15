@@ -1,17 +1,27 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {LoginPage} from '../login/login'
+// import { GlobalProvider } from '../../providers/global/global'
+import { UserService } from '../../app/services/users.service';
+
 
 @Component({
   selector: 'user',
-  templateUrl: 'user.html'
+  templateUrl: 'user.html',
+  // providers: [GlobalProvider]
 })
 export class UserPage {
 
-  constructor(public navCtrl: NavController) {
-
+  details:any;
+  constructor(public navCtrl: NavController,private userService:UserService) {
+    this.details=this.userService.userDetails;
+    console.log(this.details[0].fname);
   }
-  serviceList(){
+
+ngOnInit(){
+}
+
+serviceList(){
     this.navCtrl.push(LoginPage);
   }
 }

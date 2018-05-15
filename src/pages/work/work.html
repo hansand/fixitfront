@@ -1,0 +1,21 @@
+<ion-header >
+        <ion-navbar color="primary">
+          <ion-title>
+          Send a Job Request
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      <ion-content padding>  
+         
+                <form >
+                  <ion-item >
+                    <ion-label floating>Job Description</ion-label>
+                    <ion-input type="text"  #description ></ion-input>
+                  </ion-item>
+                  <button (click)="sendJobReq()" ion-button type="submit" block> Send Request </button>
+                </form>
+    
+                
+      </ion-content>
+            
+          

@@ -4,6 +4,7 @@ import { NavController,NavParams } from 'ionic-angular';
 import { UserService } from '../../app/services/users.service';
 import { FeedBackService } from '../../app/services/feedback.service';
 import { RatePage } from '../rate/rate'
+import { WorkPage } from '../work/work'
 
 
 
@@ -47,6 +48,13 @@ import { RatePage } from '../rate/rate'
 
     toRatePage(){
         this.navCtrl.push(RatePage,{
+          userInfo : this.userInfo,
+          userID : this.userID
+        });
+      }
+    
+      toWorkPage(){
+        this.navCtrl.push(WorkPage,{
           userInfo : this.userInfo,
           userID : this.userID
         });

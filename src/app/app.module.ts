@@ -26,8 +26,7 @@ import { RatePage } from '../pages/rate/rate';
 import { ShopInfoPage } from '../pages/shopinfo/shopinfo';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginShopPage } from '../pages/loginShop/loginShop';
-// import { GlobalProvider } from '../providers/global/global';
-import { UserProvider } from '../providers/user/user';
+import { WorkPage } from '../pages/work/work';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,7 @@ import { UserProvider } from '../providers/user/user';
     EmployeePage,
     RatePage,
     ShopInfoPage,
-    WelcomePage,LoginShopPage
+    WelcomePage,LoginShopPage,WorkPage
   ],
   imports: [
     BrowserModule,
@@ -70,15 +69,13 @@ import { UserProvider } from '../providers/user/user';
     LoginPage,
     SigninPage,
     EmployeePage,
-    RatePage,ShopInfoPage,WelcomePage,LoginShopPage
+    RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    // GlobalProvider,
-    UserProvider
   ]
 })
 export class AppModule {}

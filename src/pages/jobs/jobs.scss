@@ -1,0 +1,47 @@
+.segmentBase{
+    padding-bottom: 10px;
+}
+
+.single-worker{
+    border-bottom:solid 1px;
+    border-bottom-color: rgb(220,220,220);
+}
+
+//removing the default bottom boader
+.list-md .item-block .item-inner {
+    border-bottom: 0px solid #dedede;
+}
+
+.name {
+   font-size: 35px !important; 
+   position: center;
+   //margin-bottom: 10px;
+}
+
+.avatar{
+    max-width: 60px; 
+    max-height: 60px;
+}
+
+.rate {
+    color:rgb(220,220,220);
+    font-size: 15px;
+}
+
+.fab {
+    contain: layout;
+}
+
+
+
+// .labelMap {
+//     position: absolute;
+//     top: 0px;
+//     right: 60px;
+
+//     color: white;
+//     background-color: rgba(0,0,0,0.6);
+//     line-height: 24px;
+//     padding: 4px 8px;
+//     border-radius: 4px;
+// }

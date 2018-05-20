@@ -25704,6 +25704,38 @@ ion-navbar.toolbar {
   font-size: 15px;
 }
 
+.segmentBase {
+  padding-bottom: 10px;
+}
+
+.single-worker {
+  border-bottom: solid 1px;
+  border-bottom-color: gainsboro;
+}
+
+.list-md .item-block .item-inner {
+  border-bottom: 0px solid #dedede;
+}
+
+.name {
+  font-size: 35px !important;
+  position: center;
+}
+
+.avatar {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.rate {
+  color: gainsboro;
+  font-size: 15px;
+}
+
+.fab {
+  contain: layout;
+}
+
 .button {
   background-color: #020830;
 }

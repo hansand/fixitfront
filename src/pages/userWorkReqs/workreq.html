@@ -1,0 +1,26 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         Job Requests
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    
+            <ion-list >
+
+              <ion-item *ngFor="" class="single-worker" (click)="toEmpPage(user._id);" >
+                
+
+                <h2 class="name" >{{user.fname}} {{user.lname}}  </h2> <img *ngIf="checkRate()" src="../../assets/imgs/like.png" alt="">
+                <span class="rate" >
+                  Ratings: {{user.ratings}}/10  <br>
+                  {{ user.nearTown }}
+                </span>
+              </ion-item>
+
+            </ion-list>
+      
+            
+  </ion-content>

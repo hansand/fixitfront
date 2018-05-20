@@ -27,6 +27,10 @@ import { ShopInfoPage } from '../pages/shopinfo/shopinfo';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginShopPage } from '../pages/loginShop/loginShop';
 import { WorkPage } from '../pages/work/work';
+import { AddJobPage } from '../pages/addjob/addjob';
+import { WorkReqPage } from '../pages/userWorkReqs/workreq';
+
+
 
 @NgModule({
   declarations: [
@@ -46,7 +50,7 @@ import { WorkPage } from '../pages/work/work';
     EmployeePage,
     RatePage,
     ShopInfoPage,
-    WelcomePage,LoginShopPage,WorkPage
+    WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +73,7 @@ import { WorkPage } from '../pages/work/work';
     LoginPage,
     SigninPage,
     EmployeePage,
-    RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage
+    RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage
   ],
   providers: [
     StatusBar,

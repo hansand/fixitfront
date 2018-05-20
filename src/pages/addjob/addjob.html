@@ -1,0 +1,51 @@
+<ion-header >
+        <ion-navbar color="primary">
+          <ion-title>
+            Add a Job
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+
+      <ion-content padding>
+           
+                  <form>
+                    <ion-item >
+      
+                      <ion-label floating>Job Title </ion-label>
+                      <ion-input #jobTitle type="text"  name="jobTitle" ></ion-input>
+                    </ion-item>
+      
+                    <ion-item>
+       
+                      <ion-label floating>Job Organizer</ion-label>
+                      <ion-input #jobOrg type="text"  name="jobOrg"></ion-input>
+                    </ion-item>
+        
+                    <ion-item>
+       
+                      <ion-label floating>Email</ion-label>
+                      <ion-input #email type="text"  name="email"></ion-input>
+                    </ion-item>
+      
+                    <ion-item>
+                      <ion-label floating>Job Password</ion-label>
+                      <ion-input #password type="password"  name="password"></ion-input>
+                    </ion-item>
+      
+                    <ion-item>
+                      <ion-label floating>Contact Number</ion-label>
+                      <ion-input #contact  type="number"  name="telephone"></ion-input>
+                    </ion-item>
+      
+                    <ion-item>
+                      <ion-label floating>Job Description</ion-label>
+                      <ion-textarea #description type="text" name="description"> </ion-textarea>
+                    </ion-item>
+      
+                   
+                    <!-- <button (click)="presentAlert()" ion-button type="submit"> Add Job </button> -->
+                    <button (click)="addjob()" ion-button type="submit" block> Add Job </button>
+      
+                  </form>
+               
+      </ion-content>

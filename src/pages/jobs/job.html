@@ -1,12 +1,46 @@
-
-<ion-header>
-  <ion-navbar>
+<ion-header >
+  <ion-navbar color="primary">
     <ion-title>
       Jobs
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  This is a Job List
+<ion-content padding align="center">
+    <b>Available Jobs</b><br><br>
+
+          <ion-list >
+              <ion-item (click)="tojobinfopage()"class="single-worker;" >              
+              <ion-thumbnail item-start>
+                <img class="avatar" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">
+              </ion-thumbnail>
+              <h2 class="name" ><b> Job title </b></h2>
+              <!-- <span class="rate" >  
+                job ownwer <br>   
+                Job description  <br>          
+              </span> -->
+          </ion-item> 
+             
+       
+         
+              <ion-item (click)="tojobinfopage()"class="single-worker;" >              
+              <ion-thumbnail item-start>
+                <img class="avatar" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">
+              </ion-thumbnail>
+              <h2 class="name" ><b> Job title </b></h2>
+              <!-- <span class="rate" >  
+                job ownwer <br>   
+                Job description  <br>          
+              </span> -->
+              
+          </ion-item> 
+          </ion-list>  
+          <ion-fab bottom left  >
+              <button ion-fab transition-delay ="20ms"><ion-icon name="add"></ion-icon></button>
+              <ion-fab-list side=top>
+                  <button ion-button round mini (click)="addNewJob()" > Add job</button>
+                  <button ion-button round mini> Update job</button>
+                  <button ion-button round mini> Delete job</button>
+              </ion-fab-list>
+            </ion-fab>     
 </ion-content>

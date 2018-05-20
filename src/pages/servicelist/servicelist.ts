@@ -20,6 +20,7 @@ export class ServiceListPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private userService:UserService) {
     this.role=navParams.get('role');
     console.log(this.role);
+    console.log(this.userService.userDetails[0]._id);
   }
 
   ionViewDidLoad(){
@@ -47,8 +48,15 @@ export class ServiceListPage {
      })
   }
 
+  checkRate(rate){
+    if(parseFloat(rate)>7.0){
+      return true;
+  }else{
+    return false;
+  }
+
 }
 
-   
+}
 
 

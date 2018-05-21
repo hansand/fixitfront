@@ -61,7 +61,6 @@ export class WorkPage {
     .map(res=> res.json())
     .subscribe(data=>{
       console.log(data);
-    
       this.sucesess();
       this.toEmpPage();
     },error=>{
@@ -75,7 +74,7 @@ export class WorkPage {
   sucesess(){
     let alert = this.alertCtrl.create({
       title: ':)',
-      subTitle: 'Successesfully Sent the Job Request to the User',
+      subTitle: 'Successesfully Sent the Job Request to the Worker',
       buttons: ['Ok']
     });
     alert.present();

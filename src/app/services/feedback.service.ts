@@ -13,7 +13,13 @@ export class FeedBackService{
     }
 
     getFeedback(empID){
-        return this.http.get(this.baseUrl+'/empid/'+empID+'').map(res => res.json()) ;
+        return this.http.get(this.baseUrl+'/empid/'+empID+'').map(res => res.json());
       }
+    
+    getWorkFeedback(id){
+        return this.http.get(this.baseUrl+'/wfeedback/'+id+'').map(res => res.json());
+    }
+
+      
 
 }

@@ -5,6 +5,7 @@ import {LoginPage} from '../login/login'
 import { UserService } from '../../app/services/users.service';
 import { WorkService } from '../../app/services/work.service';
 import { SingleWork } from '../singleWork/singlework';
+import { SingleWorkUser } from '../singleworkuser/singleworkuser';
 
 
 
@@ -29,7 +30,7 @@ ngOnInit(){
 }
 
 toSingleWork(id){
-    this.navCtrl.push(SingleWork,{
+    this.navCtrl.push(SingleWorkUser,{
       id : id
     });
   }

@@ -4,6 +4,7 @@ import {LoginPage} from '../login/login'
 // import { GlobalProvider } from '../../providers/global/global'
 import { UserService } from '../../app/services/users.service';
 import { WorkReqPage } from '../userWorkReqs/workreq';
+import { RequestedWorkPage } from '../requestedWorks/requestedworks';
 
 
 
@@ -26,5 +27,9 @@ ngOnInit(){
 toWorkReqPage(){
   console.log("hahah");
     this.navCtrl.push(WorkReqPage);
+  }
+
+  toRequestedWorkPage(){
+    this.navCtrl.push(RequestedWorkPage);
   }
 }

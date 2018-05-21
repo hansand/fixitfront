@@ -1,0 +1,39 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    
+            <br><br>
+
+            <div *ngFor="let w of work" class="single-worker" >
+                <b class="title">{{w.workTitle}}</b>     <br> <br><br>
+                <span>{{w.description}}</span> 
+                <span></span> 
+                <br><br><br>
+         <div *ngIf="checkDone(w.state);">
+            <span *ngIf="checkPending(w.state)"  class="accept" color="secondary">Waiting For Worker to Respond</span>
+            <span *ngIf="checkRejected(w.state)"  class="reject" color="secondary">Worker Rejected This Request </span>
+            <span *ngIf="checkAccepted(w.state)"  class="accept" color="secondary">Worker Accepted This Request</span>
+            <div *ngIf="checkAccepted(w.state)">
+
+                <form >
+                
+                  <ion-item >
+                    <ion-label floating>Give FeedBack About This Job </ion-label>
+                    <ion-input type="text"  #feedback ></ion-input>
+                  </ion-item>
+                  <button (click)="completeReq(w._id)" ion-button type="submit" block> Mark This Work Request as Completed </button>
+                </form>                
+            </div>
+        </div>  
+        <br><br><br>
+        <div class="accept" *ngIf="!checkDone(w.state)">
+          This Job is Done
+        </div>
+        </div>      
+  </ion-content>

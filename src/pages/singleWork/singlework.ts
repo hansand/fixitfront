@@ -7,7 +7,7 @@ import { WorkService } from '../../app/services/work.service';
 import { PENDING } from '@angular/forms/src/model';
 import { WorkReqPage } from '../userWorkReqs/workreq';
 import { Http,Headers} from '@angular/http';
-
+import { FeedBackService } from '../../app/services/feedback.service';
 
 @Component({
   selector: 'singlework',
@@ -19,8 +19,10 @@ export class SingleWork {
   details:any; //details of the logged User
   work:any;
   workID:any;
+  feedback:any;
 
-  constructor(public navCtrl: NavController,private userService:UserService,
+
+constructor(public navCtrl: NavController,private userService:UserService,private FeedBackService:FeedBackService,
     private workService:WorkService,
     public navParams: NavParams,
     private alertCtrl: AlertController,
@@ -33,6 +35,7 @@ export class SingleWork {
 
 ngOnInit(){
   this.getWork();
+  this.getFeedbacks();
 }
 
 serviceList(){
@@ -111,6 +114,13 @@ serviceList(){
       buttons: ['Welcome']
     });
     alert.present();
+  }
+
+  getFeedbacks(){
+    this.FeedBackService.getWorkFeedback(this.workID).subscribe(Response=>{
+      this.feedback=Response;
+      console.log(this.feedback);
+    })
   }
 
 }

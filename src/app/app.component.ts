@@ -12,10 +12,11 @@ import { FeedBackService } from './services/feedback.service'
 import { ShopService } from './services/shop.service';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { WorkService } from './services/work.service';
+import { JobService } from './services/job.service';
 
 @Component({
   templateUrl: 'app.html',
-  providers:[UserService,RoleService,FeedBackService,ShopService,WorkService]
+  providers:[UserService,RoleService,FeedBackService,ShopService,WorkService,JobService]
 })
 export class MyApp {
   rootPage:any = WelcomePage;

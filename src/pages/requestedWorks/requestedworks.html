@@ -1,0 +1,23 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         Job Requests
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    
+            <ion-list >
+
+              <ion-item *ngFor="let work of works" class="single-worker" (click)="toSingleWork(work._id);" >
+                
+
+                <h2 class="name" > {{work.workTitle}}  </h2> 
+                <span class="rate" >
+                  {{work.state}} <br>
+                </span>
+              </ion-item>
+
+            </ion-list>
+  </ion-content>

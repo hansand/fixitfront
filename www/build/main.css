@@ -25878,6 +25878,18 @@ ion-card.service-list {
   contain: layout;
 }
 
+.title {
+  font-size: 25px;
+}
+
+.accept {
+  background: #32db64;
+}
+
+.reject {
+  background: #f53d3d;
+}
+
 .useravat {
   max-width: 160px;
   max-height: 160px;

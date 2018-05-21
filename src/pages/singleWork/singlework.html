@@ -1,0 +1,26 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    
+            <br><br>
+
+            <div *ngFor="let w of work" class="single-worker" >
+                <b class="title">{{w.workTitle}}</b>     <br> <br><br>
+                <span>{{w.description}}</span> 
+                <span></span> 
+                
+         <div *ngIf="checkDone(w.state);">
+            <button ion-button *ngIf="checkPending(w.state)"  (click)="changeState('Accepted')" class="accept" color="secondary">Accept</button>
+            <button ion-button *ngIf="checkRejected(w.state)"  (click)="changeState('Rejected')" class="reject" color="danger">Reject</button>
+        </div>  
+        <div *ngIf="!checkDone(w.state)">
+          This Job is Done
+        </div>
+        </div>      
+  </ion-content>

@@ -3,7 +3,8 @@ import { NavController } from 'ionic-angular';
 import {LoginPage} from '../login/login'
 // import { GlobalProvider } from '../../providers/global/global'
 import { UserService } from '../../app/services/users.service';
-import { JobReqPage } from '../userJobReqs/jobreq';
+import { WorkReqPage } from '../userWorkReqs/workreq';
+
 
 
 @Component({
@@ -22,7 +23,8 @@ export class UserPage {
 ngOnInit(){
 }
 
-toJobReqPage(){
-    this.navCtrl.push(JobReqPage);
+toWorkReqPage(){
+  console.log("hahah");
+    this.navCtrl.push(WorkReqPage);
   }
 }

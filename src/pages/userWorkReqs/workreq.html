@@ -10,17 +10,14 @@
     
             <ion-list >
 
-              <ion-item *ngFor="" class="single-worker" (click)="toEmpPage(user._id);" >
+              <ion-item *ngFor="let work of works" class="single-worker" (click)="toSingleWork(work._id);" >
                 
 
-                <h2 class="name" >{{user.fname}} {{user.lname}}  </h2> <img *ngIf="checkRate()" src="../../assets/imgs/like.png" alt="">
+                <h2 class="name" > {{work.workTitle}}  </h2> 
                 <span class="rate" >
-                  Ratings: {{user.ratings}}/10  <br>
-                  {{ user.nearTown }}
+                  {{work.state}} <br>
                 </span>
               </ion-item>
 
             </ion-list>
-      
-            
   </ion-content>

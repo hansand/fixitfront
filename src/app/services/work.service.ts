@@ -15,5 +15,9 @@ export class WorkService{
     getWorks(empID){
         return this.http.get(this.baseUrl+'/empid/'+empID+'').map(res => res.json());
       }
+    
+      getWork(workID){
+        return this.http.get(this.baseUrl+'/'+workID+'').map(res => res.json());
+      }
 
 }

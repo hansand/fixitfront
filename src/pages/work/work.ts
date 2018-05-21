@@ -24,6 +24,7 @@ import {
 })
 export class WorkPage {
   
+  @ViewChild('title') title;
   @ViewChild('description') description;
   empID:any;
   userInfo:any;
@@ -47,10 +48,11 @@ export class WorkPage {
     let headers = new Headers();
     headers.append('Content-Type','Application/json');
 
-    if(this.description.value!=""){
+    if(this.description.value!="" && this.title.value!=""){
     let body={
       empID:this.empID,
       userID:this.userService.userDetails[0]._id,
+      workTitle:this.title.value,
       description:this.description.value,
       state:"pending"
     };

@@ -29,6 +29,7 @@ import { LoginShopPage } from '../pages/loginShop/loginShop';
 import { WorkPage } from '../pages/work/work';
 import { AddJobPage } from '../pages/addjob/addjob';
 import { WorkReqPage } from '../pages/userWorkReqs/workreq';
+import { SingleWork } from '../pages/singleWork/singlework';
 
 
 
@@ -50,7 +51,7 @@ import { WorkReqPage } from '../pages/userWorkReqs/workreq';
     EmployeePage,
     RatePage,
     ShopInfoPage,
-    WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage
+    WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork
   ],
   imports: [
     BrowserModule,
@@ -73,7 +74,7 @@ import { WorkReqPage } from '../pages/userWorkReqs/workreq';
     LoginPage,
     SigninPage,
     EmployeePage,
-    RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage
+    RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork
   ],
   providers: [
     StatusBar,

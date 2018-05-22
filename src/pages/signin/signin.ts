@@ -26,13 +26,14 @@ export class SigninPage {
   position:any;
 
 
-  @ViewChild('fname') fname;
-  @ViewChild('lname') lname;
+  @ViewChild('name') name;
   @ViewChild('email') email;
   @ViewChild('password') password;
   @ViewChild('telephone') telephone;
   @ViewChild('address') address;
   @ViewChild('rolex') rolex;
+  @ViewChild('shopType') ShopType;
+  
   
   tab: string = "SigninPage";
 
@@ -80,23 +81,21 @@ export class SigninPage {
     let headers = new Headers();
     headers.append('Content-Type','Application/json');
 
-    if(this.fname.value && 
-      this.lname.value && 
+    if(this.name.value && 
       this.email.value &&
       this.telephone.value &&
       this.password.value &&
       this.rolex.value &&
-      this.rolex.value &&
       this.address.value){
     let body={
-      fname:this.fname.value,
-      lname:this.lname.value,
+      name:this.name.value,
       email:this.email.value,
       telephone:this.telephone.value,
       password:this.password.value,
       role:this.rolex.value,
       nearTown:this.address.value,
       ratings:0,
+      shopType:this.ShopType.value,
       lat:5,
       lang:6
     };

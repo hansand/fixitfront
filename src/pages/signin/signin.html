@@ -22,16 +22,9 @@
             <form *ngSwitchCase="'SigninPage'" >
               <ion-item >
 
-                <ion-label floating>First Name</ion-label>
-                <ion-input type="text"  #fname ></ion-input>
+                <ion-label floating>User Name/Shop Name</ion-label>
+                <ion-input type="text"  #name ></ion-input>
               </ion-item>
-
-              <ion-item>
- 
-                <ion-label floating>Last Name</ion-label>
-                <ion-input #lname type="text"  name="lname"></ion-input>
-              </ion-item>
-  
               <ion-item>
  
                 <ion-label floating>Email</ion-label>
@@ -58,16 +51,25 @@
                 
                   <ion-select   #rolex>
                       <ion-option value="Customer">Customer</ion-option>
+                      <ion-option value="Shop">Shop</ion-option>
                     <ion-option *ngFor="let role of roles" value="{{role.roleName}}">{{role.roleName}}</ion-option>
                   </ion-select>
               </ion-item>
-
-              <span>  Your Current Location Wll be Saved as Your Location.You can Change this later.</span>
+              <ion-item>
+                  <ion-label floating> Shop Type(you can Skip this if your not Sing In as a Shop) </ion-label>
+                <ion-select   #shopType>
+                <ion-option value="Hardware">Harware</ion-option>
+                <ion-option value="AC">AC</ion-option>
+                <ion-option value="Electric">Electric</ion-option>
+            </ion-select>
+        </ion-item>
+<br><br><br>
+              <span>  Your Current Location Wll be Saved as Your Location.</span>
               <button (click)="signIn()" ion-button type="submit" block> Sign In </button>
 
             </form>
 
-            <form *ngSwitchCase="'list'">
+            <!-- <form *ngSwitchCase="'list'">
               <ion-item>           
                 <ion-label floating>Shop Name</ion-label>
                 <ion-input type="text"  name="sname"></ion-input>
@@ -96,7 +98,7 @@
               
               <button (click)="ServiceList();" ion-button type="submit" block> Register </button>
 
-            </form>
+            </form> -->
           </div>
   </ion-content>
         

@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AddJobPage } from '../addjob/addjob';
 import { JobService } from '../../app/services/job.service';
-// import { JobInfoPage } from '../jobdinfo/jobinfo';
+import { JobInfoPage } from '../jobdinfo/jobinfo';
 
 @Component({
   selector: 'job',
@@ -37,10 +37,12 @@ export class JobPage {
 //      })
 //   }
 
-//   tojobinfopage()
-//   {
-//     // this.navCtrl.push(JobInfoPage);
-//   }
+tojobInfoPage(id)
+  {
+    this.navCtrl.push(JobInfoPage,{
+      jobID : id
+    });
+  }
 
   addNewJob(){
     

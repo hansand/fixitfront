@@ -15,15 +15,16 @@
      </ion-thumbnail>
      <br><br><br>
      <span *ngFor="let shop of shopInfo">
-     <h2 class="name" > {{ shop.shopName }} </h2>
+     <h2 class="name" > {{ shop.name }} </h2>
      <span>
-       <b> {{ shop.shopCatogory }} </b><br>
+       <b> {{ shop.shopType }} </b><br>
 
-       {{shop.address}}  <br>
+       {{shop.nearTown}}  <br>
        Contact Number : {{ shop.telephone }}
      </span>
     <br>
   </span>
+  <br><br>
   <button ion-button >
     Send Order Request  
   </button>

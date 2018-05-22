@@ -37,7 +37,6 @@ export class WorkPage {
     private alertCtrl: AlertController) {
 
       this.empID=navParams.get('userID');
-
       this.userInfo=navParams.get('userInfo');
       console.log(this.empID);
       console.log(this.userService.userDetails[0]._id)

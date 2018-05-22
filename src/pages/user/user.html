@@ -11,23 +11,31 @@
  
 <span *ngFor="let detail of details ">
 <ion-thumbnail item-start>
-<img class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+<img *ngIf="checkShop(detail.role)" class = "useravat" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">
+<img *ngIf="!checkShop(detail.role)" class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+
 </ion-thumbnail>
 
-<h2 class="name" > {{detail.fname}} {{ detail.lname}} </h2>
+<h2 class="name" > {{detail.name}} </h2>
 <span>
-<b> {{ detail.role }}</b><br>
+<b *ngIf="checkShop(detail.role)"> {{ detail.shopType }}</b>
+<b *ngIf="!checkShop(detail.role)"> {{ detail.role }}</b><br>
 Ratings : {{ detail.ratings }} <br>
 {{ detail.nearTown }}
  
 </span>
-</span>
-<br>
-<button (click)= "toWorkReqPage()" ion-button >
+
+<br> <br><br><br>
+<button *ngIf="!checkShop(detail.role)" (click)= "toWorkReqPage()" ion-button >
   Work Requests  
 </button>
 
-<button (click)= "toRequestedWorkPage()" ion-button >
+<button  (click)= "toRequestedWorkPage()" ion-button >
   Requested Works
 </button>
+
+<button *ngIf="checkShop(detail.role)" (click)= "toRequestedWorkPage()" ion-button >
+   Order Requests
+  </button>
+</span>
 </ion-content>

@@ -25682,6 +25682,29 @@ ion-navbar.toolbar {
   background-color: #161616;
 }
 
+.derections .scroll {
+  height: 100%;
+}
+
+.derections #map {
+  width: 100%;
+  height: 100%;
+}
+
+.derections ion-card {
+  max-height: 10px;
+  overflow: scroll;
+  position: absolute;
+  z-index: 1;
+}
+
+.derection-panel {
+  max-height: 1000px;
+  overflow: scroll;
+  position: absolute;
+  z-index: 100;
+}
+
 .useravat {
   max-width: 160px;
   max-height: 160px;

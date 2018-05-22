@@ -10,7 +10,7 @@
     <b>Available Jobs</b><br><br>
 
           <ion-list >
-            <ion-item *ngFor="let job of jobInfo" class="single-worker" >             
+            <ion-item *ngFor="let job of jobInfo" (click)="tojobInfoPage(job._id)" >             
               <ion-thumbnail item-start>
                 <img class="avatar" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">
               </ion-thumbnail>

@@ -1,0 +1,41 @@
+<ion-header >
+        <ion-navbar color="primary">
+          <ion-title >
+             Job Info
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content align = "Center" padding="true">
+        <b> Job Information </b><br><br>
+        
+     
+     <ion-thumbnail item-start>
+       <img class = "useravat" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">
+     </ion-thumbnail>
+     <br><br><br>
+     <span *ngFor="let job of jobInfo">
+     <h2 class="name" > {{job.jobTitle}} </h2>
+     <span>
+       <b> {{job.jobOrg}} </b><br>
+       {{ job.contact }} <br>
+       {{ job.email }} <br>
+       {{ job.description }} <br>
+     </span>
+     
+    <br>
+  </span>
+  <button ion-button (click)="presentConfirm()">
+    Delete Job 
+  </button>
+  <button ion-button (click)="presentConfirm()">
+    Send Job Request 
+  </button>
+  
+    
+    <!-- <form align="center">
+        <ion-item>
+            <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>
+          </ion-item>
+    </form> -->
+</ion-content>

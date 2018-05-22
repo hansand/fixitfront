@@ -1,0 +1,26 @@
+
+    .derections {
+ 
+        .scroll {
+            height: 100%
+        }
+ 
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+ 
+        ion-card {
+            max-height: 10px;
+            overflow: scroll;
+            position: absolute;
+            z-index: 1;
+        }
+ 
+    }
+.derection-panel{
+    max-height: 1000px;
+    overflow: scroll;
+    position: absolute;
+    z-index: 100;
+}

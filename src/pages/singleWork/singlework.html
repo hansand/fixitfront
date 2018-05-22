@@ -16,6 +16,7 @@
                 <span></span> 
                 
          <div *ngIf="checkDone(w.state);">
+            <button ion-button  (click)="toDerectionPage();" class="accept" color="secondary">See On map</button>           
             <button ion-button *ngIf="checkPending(w.state)"  (click)="changeState('Accepted')" class="accept" color="secondary">Accept</button>
             <button ion-button *ngIf="checkRejected(w.state)"  (click)="changeState('Rejected')" class="reject" color="danger">Reject</button>
         </div>  

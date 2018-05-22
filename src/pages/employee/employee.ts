@@ -53,7 +53,7 @@ import { WorkPage } from '../work/work'
         });
       }
     
-      toWorkPage(){
+    toWorkPage(){
         this.navCtrl.push(WorkPage,{
           userInfo : this.userInfo,
           userID : this.userID

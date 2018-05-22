@@ -32,4 +32,12 @@ toWorkReqPage(){
   toRequestedWorkPage(){
     this.navCtrl.push(RequestedWorkPage);
   }
+
+  checkShop(role){
+    if(role == "shop" || role=="Shop"){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

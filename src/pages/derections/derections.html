@@ -1,0 +1,49 @@
+<ion-header >
+        <ion-navbar color="primary">
+          <ion-title>
+            Map
+          </ion-title>
+        </ion-navbar>
+        <ion-toolbar color="primary">	
+          <ion-searchbar #searchLocation placeholder="Seach Places"  (keyup.eneter)="SearchPlace();"   (input)="SearchPlace()">
+          </ion-searchbar>
+          <ion-card class="derections">
+            <ion-card-content class="derection-panel"> 
+                <div #directionsPanel></div>
+            </ion-card-content>
+        </ion-card>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content padding>
+        <!-- <div class="Map-Search-Bar">
+            <ion-item>
+              <ion-label> Search Places  </ion-label>
+              <ion-input #searchLocation (input)="SearchPlace()"> 
+                  <ion-option> ha ha</ion-option>
+              </ion-input>
+            </ion-item>
+        </div> -->
+        <!-- <ion-searchbar  #searchLocation (input)="SearchPlace();xss();" placeholder="Search"></ion-searchbar>
+        <ion-list>
+        <button  class="sList" ion-item *ngFor="let location of locations">
+            {{location.name}}
+        </button>
+        </ion-list> -->
+        <ion-grid ion-fixed no-padding>
+            <ion-scroll style="width:100%;height:120px" scrollY="true">
+          <ion-list scroll="true" style="position: absolute;z-index:1;width:100%;">
+            <ion-item (click)="setCustomDerections(location.geometry.location.lat(),location.geometry.location.lng())"  *ngFor="let location of locations" color="silver" >
+              {{location.name}}
+            </ion-item>
+          </ion-list>
+          </ion-scroll>
+        </ion-grid>
+
+
+        <div  #map id="map" style="height: 100%;" class="please-work"></div>
+            <ion-fab  class="fabMap" bottom right>
+              <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->
+              <button (click)=" markDerectionsonmap();" ion-fab> <ion-icon  name="locate"></ion-icon></button>
+            </ion-fab>
+      </ion-content>

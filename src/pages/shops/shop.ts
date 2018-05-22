@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController,NavParams } from 'ionic-angular';
 import { ShopService } from '../../app/services/shop.service'
 import { ShopInfoPage } from '../shopinfo/shopinfo'
+import { UserService } from '../../app/services/users.service';
 
 @Component({
   selector: 'shop',
@@ -11,7 +12,7 @@ export class ShopPage {
 
   shopInfo:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private ShopService:ShopService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private userService:UserService) {
   }
 
   ngOnInit(){
@@ -24,7 +25,7 @@ export class ShopPage {
   }
 
   getShops(){
-    this.ShopService.getAllShops().subscribe(response=> {
+    this.userService.getUsersByRole('Shop').subscribe(response=> {
       this.shopInfo=response;
       console.log(this.shopInfo);
      })

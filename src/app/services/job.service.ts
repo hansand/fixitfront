@@ -17,7 +17,7 @@ export class JobService{
       }
 
       getjobByID(id){
-        return this.http.get(this.baseUrl+'/getid/'+id+'').map(res=> res.json());
+        return this.http.get(this.baseUrl+'/'+id+'').map(res=> res.json());
     }
 
     //   getJobByID(id){

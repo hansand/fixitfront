@@ -8,6 +8,8 @@ import { PENDING } from '@angular/forms/src/model';
 import { WorkReqPage } from '../userWorkReqs/workreq';
 import { Http,Headers} from '@angular/http';
 import { FeedBackService } from '../../app/services/feedback.service';
+import { MapPage } from '../map/map';
+import { DerectionsPage } from '../derections/derections';
 
 @Component({
   selector: 'singlework',
@@ -20,7 +22,7 @@ export class SingleWork {
   work:any;
   workID:any;
   feedback:any;
-
+  userInfo:any;
 
 constructor(public navCtrl: NavController,private userService:UserService,private FeedBackService:FeedBackService,
     private workService:WorkService,
@@ -34,7 +36,10 @@ constructor(public navCtrl: NavController,private userService:UserService,privat
   }
 
 ngOnInit(){
-  this.getWork();
+  this.getWork().then(()=>{
+    console.log(this.work[0].userID);
+    this.getUserInfo(this.work[0].userID);
+  });
   this.getFeedbacks();
 }
 
@@ -42,13 +47,33 @@ serviceList(){
     this.navCtrl.push(LoginPage);
   }
 
+  toDerectionPage(){
+    this.navCtrl.push(DerectionsPage,{
+      userInfo:this.userInfo
+    });
+  }
 
+  getUserInfo(userID){
+    var promise = new Promise((reslove,reject)=>{
+      this.userService.getUserByID(userID).subscribe(response=>{
+        this.userInfo=response;
+        console.log(this.userInfo);
+        reslove();
+     })
+  
+    })
+    return promise;
+     }
 
   getWork(){
+    var promise = new Promise((reslove,reject)=>{
       this.workService.getWork(this.workID).subscribe(response=>{
-          this.work=response;
-          console.log(this.work);
-      })
+        this.work=response;
+        console.log(this.work);
+        reslove();
+    });
+    });
+    return promise;
   }
 
   checkPending(state){

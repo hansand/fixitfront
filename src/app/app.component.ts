@@ -13,13 +13,14 @@ import { ShopService } from './services/shop.service';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { WorkService } from './services/work.service';
 import { JobService } from './services/job.service';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html',
   providers:[UserService,RoleService,FeedBackService,ShopService,WorkService,JobService]
 })
 export class MyApp {
-  rootPage:any = WelcomePage;
+  rootPage:any = LoginPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

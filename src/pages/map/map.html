@@ -5,7 +5,7 @@
           </ion-title>
         </ion-navbar>
         <ion-toolbar color="primary">	
-          <ion-searchbar #searchLocation placeholder="Seach Places"   (input)="SearchPlace()">
+          <ion-searchbar #searchLocation placeholder="Seach Places"  (keyup.eneter)="SearchPlace();"  (input)="SearchPlace()">
           </ion-searchbar>
         </ion-toolbar>
       </ion-header>
@@ -39,6 +39,6 @@
         <div  #map id="map" style="height: 100%;" class="please-work"></div>
             <ion-fab  class="fabMap" bottom right>
               <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->
-              <button (click)=" getCurrentCordinates();" ion-fab> <ion-icon  name="locate"></ion-icon></button>
+              <button (click)=" addCurrentLocation();" ion-fab> <ion-icon  name="locate"></ion-icon></button>
             </ion-fab>
       </ion-content>

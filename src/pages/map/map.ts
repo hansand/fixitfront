@@ -59,7 +59,7 @@ export class MapPage {
     this.loadMap();
     this.addMarkers();
     this.nullLocation();
-    // this.getCurrentCordinates();
+    this.getCurrentCordinates();
     console.log("map ngOnit");
   }
 
@@ -266,6 +266,7 @@ export class MapPage {
 
   searchCancel(){
     this.locations=[];
+    console.log(this.locations);
   }
 
   

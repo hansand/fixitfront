@@ -40,7 +40,7 @@ export class MapPage {
     mylongitude:any;
 
     locations=[];
-    isKM:any=500;
+    isKM:any=500000;
     latLng2:any = new google.maps.LatLng(6.927079, 79.861244);
     customMarker:any;
 
@@ -58,32 +58,26 @@ export class MapPage {
   ngOnInit(){
     this.loadMap();
     this.addMarkers();
-    this.nullLocation();
-    this.getCurrentCordinates();
+    // this.nullLocation();
+    this.addCurrentLocation();
     console.log("map ngOnit");
   }
 
-
-
-
-  ionViewDidLoad(){
-    
-  } 
-
   getCurrentCordinates(){
-      Geolocation.getPlugin().getCurrentPosition(x => {
-        this.myLatitude=parseFloat(x.coords.latitude);
-        this.mylongitude=parseFloat(x.coords.longitude);
-        // this.position.push(this.myLatitude);
-        // this.position.push(this.mylongitude);
-        this.position=x.coords;        
-         console.log(this.position);
-         if(this.position){
-         this.addCurrentLocation();
-         }else{
-           this.locationErroAlert();
-         } 
-      });
+      var promise = new Promise((reslove,reject)=>{
+        Geolocation.getPlugin().getCurrentPosition(response => {
+          this.myLatitude=parseFloat(response.coords.latitude);
+          this.mylongitude=parseFloat(response.coords.longitude);
+          // this.position.push(this.myLatitude);
+          // this.position.push(this.mylongitude);
+          reslove();
+        });
+
+        setTimeout(()=>{
+          reject();
+        },5000)
+      })
+      return promise;
   }
 
 
@@ -123,50 +117,9 @@ export class MapPage {
   }
 
   addCurrentLocation(){
-    
-    // console.log(this.myLatitude);
-    // console.log(this.mylongitude);
-    
-    // console.log("current Start");
-    //   // let latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
-    //   // let latLng = new google.maps.LatLng(6.9148,79.9731);
-    //   console.log(this.myLatitude);
-    //   console.log(this.mylongitude);
-    //   // console.log(latLng);
-    //   // this.myLocation=latLng;
-    //   let mapOptions = {
-    //     center: {lat:6.9148,lang:79.9731},
-    //     zoom: 10,
-    //     mapTypeId: google.maps.MapTypeId.ROADMAP
-    //   }
-    //   console.log(mapOptions.zoom);
-    //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
-    //   //set Marker 
-    //   this.currentMaker = new google.maps.Marker({
-    //     map: this.map,
-    //     animation: google.maps.Animation.DROP,
-    //     position:{lat:6.9148,lang:79.9731},
-    //     // position:{lat:6.80491179,lang:79.9482853},
-    //     icon: {
-    //       url: '../assets/imgs/myLocation2.png'
-    //     },
-    //     title: 'your Loaction',
-    //     'snippet': 'your Loaction',
-    //     draggable: false
-    //   });
-    //   this.addMarkers();
-     
-    // // }, (err) => {
-    // //   console.log(err);
-    //   // this.nullLocation();
-
    
-    // // });
-    // console.log("finish");
-  
-    if(this.mylongitude && this.myLatitude){
-    let latLng = new google.maps.LatLng(this.myLatitude,this.mylongitude);
+    this.getCurrentCordinates().then(()=>{
+      let latLng = new google.maps.LatLng(this.myLatitude,this.mylongitude);
     console.log(latLng);
     this.myLocation=latLng;
     let mapOptions = {
@@ -190,9 +143,11 @@ export class MapPage {
       draggable: false
     });
     this.addMarkers();
-  }else{
+    }),()=>{
     this.locationErroAlert();
-  }
+      
+    }
+
   }
 
   // markerClickEmp(id){
@@ -361,3 +316,48 @@ export class MapPage {
   //     console.log(this.mylongitude);
       
   // }
+
+
+
+  //things in the Add codeiates
+   
+    // console.log(this.myLatitude);
+    // console.log(this.mylongitude);
+    
+    // console.log("current Start");
+    //   // let latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
+    //   // let latLng = new google.maps.LatLng(6.9148,79.9731);
+    //   console.log(this.myLatitude);
+    //   console.log(this.mylongitude);
+    //   // console.log(latLng);
+    //   // this.myLocation=latLng;
+    //   let mapOptions = {
+    //     center: {lat:6.9148,lang:79.9731},
+    //     zoom: 10,
+    //     mapTypeId: google.maps.MapTypeId.ROADMAP
+    //   }
+    //   console.log(mapOptions.zoom);
+    //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+    //   //set Marker 
+    //   this.currentMaker = new google.maps.Marker({
+    //     map: this.map,
+    //     animation: google.maps.Animation.DROP,
+    //     position:{lat:6.9148,lang:79.9731},
+    //     // position:{lat:6.80491179,lang:79.9482853},
+    //     icon: {
+    //       url: '../assets/imgs/myLocation2.png'
+    //     },
+    //     title: 'your Loaction',
+    //     'snippet': 'your Loaction',
+    //     draggable: false
+    //   });
+    //   this.addMarkers();
+     
+    // // }, (err) => {
+    // //   console.log(err);
+    //   // this.nullLocation();
+
+   
+    // // });
+    // console.log("finish");

@@ -495,35 +495,32 @@ var MapPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.viewCtrl = viewCtrl;
         this.locations = [];
-        this.isKM = 500;
+        this.isKM = 500000;
         this.latLng2 = new google.maps.LatLng(6.927079, 79.861244);
         this.userInfo = navParams.get('userInfo');
     }
     MapPage.prototype.ngOnInit = function () {
         this.loadMap();
         this.addMarkers();
-        this.nullLocation();
-        this.getCurrentCordinates();
+        // this.nullLocation();
+        this.addCurrentLocation();
         console.log("map ngOnit");
-    };
-    MapPage.prototype.ionViewDidLoad = function () {
     };
     MapPage.prototype.getCurrentCordinates = function () {
         var _this = this;
-        __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */].getPlugin().getCurrentPosition(function (x) {
-            _this.myLatitude = parseFloat(x.coords.latitude);
-            _this.mylongitude = parseFloat(x.coords.longitude);
-            // this.position.push(this.myLatitude);
-            // this.position.push(this.mylongitude);
-            _this.position = x.coords;
-            console.log(_this.position);
-            if (_this.position) {
-                _this.addCurrentLocation();
-            }
-            else {
-                _this.locationErroAlert();
-            }
+        var promise = new Promise(function (reslove, reject) {
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */].getPlugin().getCurrentPosition(function (response) {
+                _this.myLatitude = parseFloat(response.coords.latitude);
+                _this.mylongitude = parseFloat(response.coords.longitude);
+                // this.position.push(this.myLatitude);
+                // this.position.push(this.mylongitude);
+                reslove();
+            });
+            setTimeout(function () {
+                reject();
+            }, 5000);
         });
+        return promise;
     };
     MapPage.prototype.addMarkers = function () {
         var _this = this;
@@ -558,56 +555,22 @@ var MapPage = /** @class */ (function () {
         // );
     };
     MapPage.prototype.addCurrentLocation = function () {
-        // console.log(this.myLatitude);
-        // console.log(this.mylongitude);
-        // console.log("current Start");
-        //   // let latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
-        //   // let latLng = new google.maps.LatLng(6.9148,79.9731);
-        //   console.log(this.myLatitude);
-        //   console.log(this.mylongitude);
-        //   // console.log(latLng);
-        //   // this.myLocation=latLng;
-        //   let mapOptions = {
-        //     center: {lat:6.9148,lang:79.9731},
-        //     zoom: 10,
-        //     mapTypeId: google.maps.MapTypeId.ROADMAP
-        //   }
-        //   console.log(mapOptions.zoom);
-        //   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-        //   //set Marker 
-        //   this.currentMaker = new google.maps.Marker({
-        //     map: this.map,
-        //     animation: google.maps.Animation.DROP,
-        //     position:{lat:6.9148,lang:79.9731},
-        //     // position:{lat:6.80491179,lang:79.9482853},
-        //     icon: {
-        //       url: '../assets/imgs/myLocation2.png'
-        //     },
-        //     title: 'your Loaction',
-        //     'snippet': 'your Loaction',
-        //     draggable: false
-        //   });
-        //   this.addMarkers();
-        // // }, (err) => {
-        // //   console.log(err);
-        //   // this.nullLocation();
-        // // });
-        // console.log("finish");
-        if (this.mylongitude && this.myLatitude) {
-            var latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
+        var _this = this;
+        this.getCurrentCordinates().then(function () {
+            var latLng = new google.maps.LatLng(_this.myLatitude, _this.mylongitude);
             console.log(latLng);
-            this.myLocation = latLng;
+            _this.myLocation = latLng;
             var mapOptions = {
                 center: latLng,
                 zoom: 15,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
-            this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+            _this.map = new google.maps.Map(_this.mapElement.nativeElement, mapOptions);
             //set Marker 
-            this.currentMaker = new google.maps.Marker({
-                map: this.map,
+            _this.currentMaker = new google.maps.Marker({
+                map: _this.map,
                 animation: google.maps.Animation.DROP,
-                position: this.myLocation,
+                position: _this.myLocation,
                 // position:{lat:6.80491179,lang:79.9482853},
                 icon: {
                     url: '../assets/imgs/myLocation2.png'
@@ -616,11 +579,10 @@ var MapPage = /** @class */ (function () {
                 'snippet': 'your Loaction',
                 draggable: false
             });
-            this.addMarkers();
-        }
-        else {
-            this.locationErroAlert();
-        }
+            _this.addMarkers();
+        }), function () {
+            _this.locationErroAlert();
+        };
     };
     // markerClickEmp(id){
     //   this.navCtrl.push(EmployeePage,{
@@ -777,7 +739,43 @@ var MapPage = /** @class */ (function () {
 //   });
 //     console.log(this.myLatitude);
 //     console.log(this.mylongitude);
-// } 
+// }
+//things in the Add codeiates
+// console.log(this.myLatitude);
+// console.log(this.mylongitude);
+// console.log("current Start");
+//   // let latLng = new google.maps.LatLng(this.myLatitude, this.mylongitude);
+//   // let latLng = new google.maps.LatLng(6.9148,79.9731);
+//   console.log(this.myLatitude);
+//   console.log(this.mylongitude);
+//   // console.log(latLng);
+//   // this.myLocation=latLng;
+//   let mapOptions = {
+//     center: {lat:6.9148,lang:79.9731},
+//     zoom: 10,
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   }
+//   console.log(mapOptions.zoom);
+//   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+//   //set Marker 
+//   this.currentMaker = new google.maps.Marker({
+//     map: this.map,
+//     animation: google.maps.Animation.DROP,
+//     position:{lat:6.9148,lang:79.9731},
+//     // position:{lat:6.80491179,lang:79.9482853},
+//     icon: {
+//       url: '../assets/imgs/myLocation2.png'
+//     },
+//     title: 'your Loaction',
+//     'snippet': 'your Loaction',
+//     draggable: false
+//   });
+//   this.addMarkers();
+// // }, (err) => {
+// //   console.log(err);
+//   // this.nullLocation();
+// // });
+// console.log("finish"); 
 //# sourceMappingURL=map.js.map
 
 /***/ }),
@@ -1584,8 +1582,8 @@ var DerectionsPage = /** @class */ (function () {
     }
     DerectionsPage.prototype.ngOnInit = function () {
         this.loadMap();
-        this.markDerectionsonmap();
-        // this.alertThis();
+        // this.markDerectionsonmap();
+        this.markDerectionsonmaps();
         this.addDestinationMarker(this.userInfo[0].lat, this.userInfo[0].lang);
     };
     DerectionsPage.prototype.markDerectionsonmap = function () {
@@ -1597,7 +1595,8 @@ var DerectionsPage = /** @class */ (function () {
             _this.addDestinationMarker(_this.userInfo[0].lat, _this.userInfo[0].lang);
             _this.addStartMarker(_this.myLatitude, _this.mylongitude);
         }, function () {
-            console.log("fail");
+            _this.cantgetLocationAlert();
+            _this.derectionsFromDefaultLocation();
         });
     };
     DerectionsPage.prototype.loadMap = function () {
@@ -1617,6 +1616,25 @@ var DerectionsPage = /** @class */ (function () {
         directionsDisplay.setPanel(this.directionsPanel.nativeElement);
         directionsService.route({
             origin: { lat: this.myLatitude, lng: this.mylongitude },
+            destination: { lat: this.userInfo[0].lat, lng: this.userInfo[0].lang },
+            travelMode: google.maps.TravelMode['DRIVING']
+        }, function (res, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(res);
+            }
+            else {
+                console.warn(status);
+            }
+        });
+    };
+    DerectionsPage.prototype.derectionsFromDefaultLocation = function () {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsDisplay.setMap(this.map);
+        directionsDisplay.setOptions({ suppressMarkers: true });
+        directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+        directionsService.route({
+            origin: { lat: this.userService.userDetails[0].lat, lng: this.userService.userDetails[0].lang },
             destination: { lat: this.userInfo[0].lat, lng: this.userInfo[0].lang },
             travelMode: google.maps.TravelMode['DRIVING']
         }, function (res, status) {
@@ -1705,41 +1723,36 @@ var DerectionsPage = /** @class */ (function () {
             });
         }
     };
-    DerectionsPage.prototype.addSearchLocation = function (latp, langp) {
-        var lat = parseFloat(latp).toFixed(7);
-        var lang = parseFloat(langp).toFixed(7);
-        console.log(lat);
-        console.log(lang);
-        var latLng = new google.maps.LatLng(latp, langp);
-        console.log(latLng);
-        var mapOptions = {
-            center: latLng,
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-        this.customMarker = new google.maps.Marker({
-            map: this.map,
-            animation: google.maps.Animation.DROP,
-            position: { lat: latp, lng: langp },
-            icon: {
-                url: '../assets/imgs/searchlocation.png'
-            },
-            draggable: false
-        });
-        this.searchCancel();
-        // this. addMarkers();
+    DerectionsPage.prototype.markDerectionsonmaps = function () {
+        this.startNavigatings();
+        this.addDestinationMarker(this.userInfo[0].lat, this.userInfo[0].lang);
+        this.addStartMarker(6.9148, 79.9731);
     };
-    DerectionsPage.prototype.alertThis = function () {
-        var _this = this;
-        console.log("alert");
-        this.getCurrentCordinates().then(function () {
-            console.log("inside");
-            _this.startNavigating();
-            _this.addDestinationMarker(_this.userInfo[0].lat, _this.userInfo[0].lang);
-            _this.addStartMarker(6.9148, 79.9731);
-        }, function () {
-            console.log("fail");
+    DerectionsPage.prototype.cantgetLocationAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Erro',
+            subTitle: 'Google Can not Dertermine Your Location.Default Location Used Instead',
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    DerectionsPage.prototype.startNavigatings = function () {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        directionsDisplay.setMap(this.map);
+        directionsDisplay.setOptions({ suppressMarkers: true });
+        directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+        directionsService.route({
+            origin: { lat: 6.9148, lng: 79.9731 },
+            destination: { lat: this.userInfo[0].lat, lng: this.userInfo[0].lang },
+            travelMode: google.maps.TravelMode['DRIVING']
+        }, function (res, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(res);
+            }
+            else {
+                console.warn(status);
+            }
         });
     };
     __decorate([

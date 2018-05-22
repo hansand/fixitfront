@@ -51,7 +51,7 @@ export class DerectionsPage {
     private userService:UserService,
     private alertCtrl: AlertController,
     // public maps: GoogleMaps,
-    public viewCtrl: ViewController,) {
+    public viewCtrl: ViewController) {
 
     this.userInfo=navParams.get('userInfo');
     console.log(this.userInfo);
@@ -59,8 +59,8 @@ export class DerectionsPage {
 
   ngOnInit(){
     this.loadMap();
-    this.markDerectionsonmap();
-    // this.alertThis();
+    // this.markDerectionsonmap();
+    this.markDerectionsonmaps()
     this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
   
   }
@@ -73,7 +73,8 @@ export class DerectionsPage {
         this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
         this.addStartMarker(this.myLatitude,this.mylongitude);
     },()=>{
-        console.log("fail");
+      this.cantgetLocationAlert();
+      this.derectionsFromDefaultLocation();
     });
   }
 
@@ -110,7 +111,30 @@ startNavigating(){
         }
 
     });
+}
 
+derectionsFromDefaultLocation(){
+  let directionsService = new google.maps.DirectionsService;
+  let directionsDisplay = new google.maps.DirectionsRenderer;
+
+  directionsDisplay.setMap(this.map);
+  directionsDisplay.setOptions( { suppressMarkers: true } );
+  directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+
+  directionsService.route({
+      origin: {lat:this.userService.userDetails[0].lat,lng:this.userService.userDetails[0].lang},
+      destination:  {lat:this.userInfo[0].lat,lng:this.userInfo[0].lang},
+      
+      travelMode: google.maps.TravelMode['DRIVING']
+  }, (res, status) => {
+
+      if(status == google.maps.DirectionsStatus.OK){
+          directionsDisplay.setDirections(res);
+      } else {
+          console.warn(status);
+      }
+
+  });
 }
 
 getCurrentCordinates(){
@@ -198,50 +222,49 @@ SearchPlace(){
           }
   }
 
-  addSearchLocation(latp,langp){
-   
-    var lat=parseFloat(latp).toFixed(7);
-    var lang=parseFloat(langp).toFixed(7);
-    console.log(lat);
-    console.log(lang);
-    
-    let latLng = new google.maps.LatLng(latp,langp);
-    console.log(latLng);
-    let mapOptions = {
-      center: latLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+ 
 
+markDerectionsonmaps(){
 
-    this.customMarker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position:{ lat:latp,lng:langp},
-      icon: {
-        url: '../assets/imgs/searchlocation.png'
-      },
-      draggable: false
-    });
-
-    this.searchCancel();
-    // this. addMarkers();
-    }
-
-    alertThis(){
-      console.log("alert");
-    this.getCurrentCordinates().then(()=>{
-      console.log("inside");
-        this.startNavigating();
+        this.startNavigatings();
         this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
         this.addStartMarker( 6.9148,79.9731);
-    },()=>{
-        console.log("fail");
-    });
+  
   }    
 
-  
+  cantgetLocationAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Erro',
+      subTitle: 'Google Can not Dertermine Your Location.Default Location Used Instead',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  startNavigatings(){
+
+    let directionsService = new google.maps.DirectionsService;
+    let directionsDisplay = new google.maps.DirectionsRenderer;
+
+    directionsDisplay.setMap(this.map);
+    directionsDisplay.setOptions( { suppressMarkers: true } );
+    directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+
+    directionsService.route({
+        origin: {lat:6.9148,lng:79.9731},
+        destination:  {lat:this.userInfo[0].lat,lng:this.userInfo[0].lang},
+        
+        travelMode: google.maps.TravelMode['DRIVING']
+    }, (res, status) => {
+
+        if(status == google.maps.DirectionsStatus.OK){
+            directionsDisplay.setDirections(res);
+        } else {
+            console.warn(status);
+        }
+
+    });
+}
 
 } //class ends
 

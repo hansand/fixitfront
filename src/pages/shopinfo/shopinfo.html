@@ -28,6 +28,10 @@
   <button ion-button >
     Send Order Request  
   </button>
+  <button *ngIf="!isFromJob" ion-button icon-start (click)="toRatePage()">
+    <ion-icon name="star-half"></ion-icon>
+    Give Feedback
+  </button>
     
     <!-- <form align="center">
         <ion-item>

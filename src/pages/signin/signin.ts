@@ -24,6 +24,8 @@ import {
 export class SigninPage {
   roles:any;
   position:any;
+  lat:any=6.9148;
+  lng:any=79.9731;
 
 
   @ViewChild('name') name;
@@ -34,7 +36,7 @@ export class SigninPage {
   @ViewChild('rolex') rolex;
   @ViewChild('shopType') ShopType;
   
-  
+ 
   tab: string = "SigninPage";
 
   constructor(public navCtrl: NavController,
@@ -55,6 +57,8 @@ export class SigninPage {
 
   ngOnInit(){
     this.getAllRoles();
+    this.getCurrentCordinates()
+   
   }
 
  
@@ -135,20 +139,22 @@ export class SigninPage {
   //locations 
 
   getCurrentCordinates(){
-    var promise = new Promise((resolve, reject) => {
-      Geolocation.getPlugin().getCurrentPosition(result => {
-        this.position=result.coords;
-        console.log(this.position);
-        if(this.position.length===0){
-          reject()
-        }else{
-        resolve();
-        }        
-    });
-  
-  });
-  return promise;
-}
+    var promise = new Promise((reslove,reject)=>{
+      this.geolocation.getCurrentPosition().then((resp) => {
+        // resp.coords.latitude
+        // resp.coords.longitude
+        console.log(resp.coords.latitude);
+        console.log(resp.coords.longitude);
+        this.lat=resp.coords.latitude;
+        this.lat=resp.coords.longitude;
+        reslove();
+       }).catch((error) => {
+         reject();
+         console.log('Error getting location', error);
+       });
+    })
+    return promise;
+  }
 
 
 }//class end

@@ -40,7 +40,7 @@ export class MapPage {
     mylongitude:any;
 
     locations=[];
-    isKM:any=500000;
+    isKM:any=5000000;
     latLng2:any = new google.maps.LatLng(6.927079, 79.861244);
     customMarker:any;
 
@@ -58,56 +58,10 @@ export class MapPage {
   ngOnInit(){
     this.loadMap();
     this.addMarkers();
-    this.nullLocation();
     // this.addCurrentLocation();
-    console.log("map ngOnit");
+    this.addCurrentLocations();
   }
 
-  getCurrentCordinates(){
-    var done:boolean=false;
-    var promise = new Promise((reslove,reject)=>{
-        // reject();
-    
-            Geolocation.getPlugin().getCurrentPosition(response => {
-                this.myLatitude=parseFloat(response.coords.latitude);
-                this.mylongitude=parseFloat(response.coords.longitude);
-                console.log(this.myLatitude);
-                var done=true;
-                console.log("1234","done" );
-                reslove();
-                // if(this.myLatitude.length>0 && this.mylongitude.length>0){
-                //     reslove();
-                // }else{
-                //     reject();
-                // }
-              })
-
-              setTimeout(()=>{
-                console.log("waited");
-                  // reject();
-                  
-              },5000)
-        
- 
-    //  reject()
-    });
-    console.log(promise);
-    return promise;
-}
-
-
-  addMarkers(){
-    console.log(this.userInfo);
-      this.userInfo.forEach(element => {
-        var lat=parseFloat(element.lat);
-        var lang=parseFloat(element.lang);
-        console.log(element._id);
-        this.addMarker(lat,lang,element._id);
-      });
-      console.log(this.myLatitude);
-      console.log(this.mylongitude);
-  }
-  
   loadMap(){
     //set Deafult Zoom to Srilanka
     let latLng = new google.maps.LatLng(6.927079, 79.861244);
@@ -117,18 +71,96 @@ export class MapPage {
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-    // this.marker.addEventListener(GoogleMapsEvent.MAP_CLICK, function() {
-    //   alert("InfoWindow is clicked");
-    //   console.log("hansaka");
-    // });
-  //   this.marker.GoogleMapsEvent.MAP_CLICK.subscribe(
-  //     (data) => {
-  //         alert("Click MAP");
-  //         console.log("hansaka");
-  //     }
-  // );
- 
   }
+
+  getCurrentCordinates(){
+    var promise = new Promise((reslove,reject)=>{
+      this.geolocation.getCurrentPosition().then((resp) => {
+        // resp.coords.latitude
+        // resp.coords.longitude
+        console.log(resp.coords.latitude);
+        console.log(resp.coords.longitude);
+        this.myLatitude=resp.coords.latitude;
+        this.mylongitude=resp.coords.longitude;
+        reslove();
+       }).catch((error) => {
+         reject();
+         this.currentLocationErro(error);
+         console.log('Error getting location', error);
+       });
+    })
+    return promise;
+  }
+
+//   getCurrentCordinates(){
+//     var done:boolean=false;
+//     var promise = new Promise((reslove,reject)=>{
+//         // reject();
+    
+//             Geolocation.getPlugin().getCurrentPosition(response => {
+//                 this.myLatitude=parseFloat(response.coords.latitude);
+//                 this.mylongitude=parseFloat(response.coords.longitude);
+//                 console.log(this.myLatitude);
+//                 var done=true;
+//                 console.log("1234","done" );
+//                 reslove();
+//                 // if(this.myLatitude.length>0 && this.mylongitude.length>0){
+//                 //     reslove();
+//                 // }else{
+//                 //     reject();
+//                 // }
+//               })
+
+//               setTimeout(()=>{
+//                 console.log("waited");
+//                   // reject();
+                  
+//               },5000)
+        
+ 
+//     //  reject()
+//     });
+//     console.log(promise);
+//     return promise;
+// }
+
+
+addMarker(latp,langp,id){
+  this.marker = new google.maps.Marker({
+    map: this.map,
+    animation: google.maps.Animation.DROP,
+    position:{ lat:latp,lng:langp},
+    icon: {
+      url: '../assets/imgs/myLocation.png'
+    },
+    draggable: false
+  });
+
+  this.marker.addListener('click', () => {
+    this.navCtrl.push(EmployeePage,{
+      userID : id
+    });
+  });
+  // var InfoWindow= new google.maps.InfoWindow({
+  //   content:"hansaka",
+  //   run(){
+  //     console.log("han");
+  //   }
+  // })
+  // InfoWindow.run();
+}
+
+  addMarkers(){
+    console.log(this.userInfo);
+      this.userInfo.forEach(element => {
+        var lat=parseFloat(element.lat);
+        var lang=parseFloat(element.lang);
+        console.log(element._id);
+        this.addMarker(lat,lang,element._id);
+      });
+  }
+  
+
 
   addCurrentLocation(){
    
@@ -159,75 +191,26 @@ export class MapPage {
     this.addMarkers();
     }),()=>{
     this.locationErroAlert();
-      
     }
-
   }
 
-  // markerClickEmp(id){
-  //   this.navCtrl.push(EmployeePage,{
-  //     userID : id
-  //   });
-  // }
-
-  addMarker(latp,langp,id){
-    this.marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position:{ lat:latp,lng:langp},
-      icon: {
-        url: '../assets/imgs/myLocation.png'
-      },
-      draggable: false
-    });
-
-    this.marker.addListener('click', () => {
-      this.navCtrl.push(EmployeePage,{
-        userID : id
-      });
-    });
-    // var InfoWindow= new google.maps.InfoWindow({
-    //   content:"hansaka",
-    //   run(){
-    //     console.log("han");
-    //   }
-    // })
-    // InfoWindow.run();
-  }
-  
 
 
-  nullLocation(){
-       let latLng = new google.maps.LatLng(6.9148,79.9731);
-      console.log(latLng);
-      this.myLocation=latLng;
-      let mapOptions = {
-        center: latLng,
-        zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
-      //set Marker 
-      this.currentMaker = new google.maps.Marker({
-        map: this.map,
-        animation: google.maps.Animation.DROP,
-        position: this.myLocation,
-        // position:{lat:6.80491179,lang:79.9482853},
-        icon: {
-          url: '../assets/imgs/myLocation2.png'
-        },
-        title: 'your Loaction',
-        'snippet': 'your Loaction',
-        draggable: false
-      });
-      this.addMarkers();
-  }
 
   locationErroAlert() {
     let alert = this.alertCtrl.create({
       title: 'Problem Ocuured While Getting Your Location',
       subTitle: 'Make Sure to Enable GPS on Your Device',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+
+  currentLocationErro(error) {
+    let alert = this.alertCtrl.create({
+      title: 'Error Occurd While Getting Your Current Location',
+      subTitle: 'Erro :'+error+'',
       buttons: ['OK']
     });
     alert.present();
@@ -244,7 +227,7 @@ export class MapPage {
     if(this.searchLocation.value == ""){
       this.searchCancel();
     }else{
-    // this.loadMap();
+     
       this.searchCancel();
     
     let service = new google.maps.places.PlacesService(this.map);
@@ -253,20 +236,11 @@ export class MapPage {
               radius: this.isKM,
               keyword: this.searchLocation.value
             }, (results, status) => {
-              
-              
-                // this.locations=results;
-                // console.log(results.name);
-                // console.log(this.locations);
-                // console.log(status);
               if(results){
                 results.forEach(element => {
                     console.log(element);
                     this.locations.push(element);
                     console.log(element.geometry.location.lat());    
-                    // console.log(this.locations);  
-                                
-
                 });
               }
             });
@@ -304,6 +278,33 @@ export class MapPage {
     this.searchCancel();
     this. addMarkers();
     }
+
+    addCurrentLocations(){
+      let latLng = new google.maps.LatLng(6.9148,79.9731);
+     console.log(latLng);
+     this.myLocation=latLng;
+     let mapOptions = {
+       center: latLng,
+       zoom: 15,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+     }
+     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+     //set Marker 
+     this.currentMaker = new google.maps.Marker({
+       map: this.map,
+       animation: google.maps.Animation.DROP,
+       position: this.myLocation,
+       // position:{lat:6.80491179,lang:79.9482853},
+       icon: {
+         url: '../assets/imgs/myLocation2.png'
+       },
+       title: 'your Loaction',
+       'snippet': 'your Loaction',
+       draggable: false
+     });
+     this.addMarkers();
+ }
 
 } //class ends
 

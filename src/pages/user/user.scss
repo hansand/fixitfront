@@ -4,3 +4,8 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.myClass button{
+    // background: #0e353e;
+    background: map-get($colors, button);
+}

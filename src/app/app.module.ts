@@ -36,6 +36,8 @@ import { DerectionsPage } from '../pages/derections/derections';
 import { JobInfoPage } from '../pages/jobdinfo/jobinfo';
 import { JobRequestPage } from '../pages/JobRequest/JobRequest';
 import { JobInfoPageUser } from '../pages/jobinfoUser/jobinfouser';
+import { DerectionPanelPage } from '../pages/derectionPanel/derectionpanel';
+import { MyFeedBacksPage } from '../pages/myfeedbacks/myfeedback';
 
 
 
@@ -58,7 +60,7 @@ import { JobInfoPageUser } from '../pages/jobinfoUser/jobinfouser';
     RatePage,
     ShopInfoPage,
     WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork,RequestedWorkPage,SingleWorkUser,JobInfoPage,
-    DerectionsPage,JobRequestPage,JobInfoPageUser
+    DerectionsPage,JobRequestPage,JobInfoPageUser,DerectionPanelPage,MyFeedBacksPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,7 @@ import { JobInfoPageUser } from '../pages/jobinfoUser/jobinfouser';
     SigninPage,
     EmployeePage,
     RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork,SingleWorkUser,DerectionsPage,
-    RequestedWorkPage,JobInfoPage,JobRequestPage,JobInfoPageUser
+    RequestedWorkPage,JobInfoPage,JobRequestPage,JobInfoPageUser,DerectionPanelPage,MyFeedBacksPage
   ],
   providers: [
     StatusBar,

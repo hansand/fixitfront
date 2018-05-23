@@ -6,6 +6,7 @@ import { UserService } from '../../app/services/users.service';
 import { WorkReqPage } from '../userWorkReqs/workreq';
 import { RequestedWorkPage } from '../requestedWorks/requestedworks';
 import { JobRequestPage } from '../JobRequest/JobRequest';
+import { MyFeedBacksPage } from '../myfeedbacks/myfeedback';
 
 
 
@@ -44,5 +45,13 @@ toWorkReqPage(){
     }else{
       return false;
     }
+  }
+
+  toMyFeedbacks(){
+    this.navCtrl.push(MyFeedBacksPage)
+  }
+
+  signOut(){
+    this.navCtrl.push(LoginPage);
   }
 }

@@ -6,7 +6,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content align = "Center" padding="true">
+<ion-content class="myClass"align = "Center" padding="true">
  <b>User Information</b><br><br>
  
 <span *ngFor="let detail of details ">
@@ -26,7 +26,7 @@ Ratings : {{ detail.ratings }} <br>
 </span>
 
 <br> <br><br><br>
-<button *ngIf="!checkShop(detail.role)" (click)= "toWorkReqPage()" ion-button >
+<button class="mybutton" *ngIf="!checkShop(detail.role)" (click)= "toWorkReqPage()" ion-button >
   Work Requests  
 </button>
 
@@ -38,8 +38,16 @@ Ratings : {{ detail.ratings }} <br>
   Posted Jobs
 </button>
 
+<button  (click)= "toMyFeedbacks()" ion-button >
+  My FeedBacks
+</button>
+
 <button *ngIf="checkShop(detail.role)" (click)= "toRequestedWorkPage()" ion-button >
    Order Requests
   </button>
 </span>
+<br><br>
+<button  (click)= "signOut()" ion-button >
+  Sign Out
+ </button>
 </ion-content>

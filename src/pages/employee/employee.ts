@@ -20,6 +20,7 @@ import { WorkPage } from '../work/work'
     userInfo:any;
     feedbacks:any;
     isFromJob:boolean;
+    isShop:boolean=false;
 
     constructor(
         public navCtrl: NavController,
@@ -28,6 +29,7 @@ import { WorkPage } from '../work/work'
         private feedbackService:FeedBackService) {
       this.userID=navParams.get('userID');
       this.isFromJob=navParams.get('isFromJob');
+      this.isShop=navParams.get('isShop');
       console.log(this.isFromJob);
       
     }

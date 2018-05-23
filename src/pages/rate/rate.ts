@@ -4,6 +4,7 @@ import { ShopPage } from '../shops/shop';
 import { Http,Headers} from '@angular/http';
 import { FeedBackService } from '../../app/services/feedback.service';
 import { UserService } from '../../app/services/users.service';
+import { EmployeePage } from '../employee/employee';
 
 
 
@@ -56,6 +57,9 @@ export class RatePage {
           this.FeedBackDoneAlert();
           this.getFeedbacksandCalc().then(()=>{
             this.updateRatings();
+            this.navCtrl.push(EmployeePage,{
+              userID:this.userID
+            });
           });
         },error=>{
           console.log("opps")

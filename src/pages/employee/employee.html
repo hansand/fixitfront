@@ -10,9 +10,12 @@
     <b> Employee Information </b><br><br>
     
  
- <ion-thumbnail item-start>
+ <ion-thumbnail item-start *ngIf="!isShop">
    <img class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
  </ion-thumbnail>
+ <ion-thumbnail item-start *ngIf="isShop">
+  <img class = "useravat" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">
+</ion-thumbnail>
  <br><br>
  <span class="empInfoWrapper" *ngFor="let user of userInfo" >
  <h2 class="name" >{{user.name}} </h2>
@@ -27,10 +30,18 @@
   <ion-icon name="star-half"></ion-icon>
   Give Feedback
 </button>
-<button *ngIf="!isFromJob" ion-button (click)="toWorkPage()" >
+<div *ngIf="!isFromJob"> 
+<button *ngIf="!isShop" ion-button (click)="toWorkPage()" >
   <ion-icon name="star-half"></ion-icon>
   Send a Job Request  
 </button>
+</div>
+<div *ngIf="!isFromJob"> 
+    <button *ngIf="isShop" ion-button (click)="toWorkPage()" >
+      <ion-icon name="star-half"></ion-icon>
+       Request a Oreder 
+    </button>
+    </div>
 </span>
 <br><br>
 <b>Feed Backs By Users </b>

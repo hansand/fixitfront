@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>
+        You're Feedbacks by Users
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list>
+   
+    <ion-item class="singleFeedback" *ngFor="let feedback of feedbacks">
+        <ion-thumbnail *ngIf="checkRate(feedback.ratePoint)" item-start>
+            <img class="avatar" src="../../assets/imgs/fill.png">
+          </ion-thumbnail>
+          <ion-thumbnail *ngIf="!checkRate(feedback.ratePoint)" item-start>
+              <img class="avatar" src="../../assets/imgs/empty.png">
+            </ion-thumbnail>
+      {{feedback.feedback}} <br>
+     <span> {{feedback.ratePoint}}/10 </span> <br>
+     <span> by {{feedback.userName}} </span>     
+    </ion-item>
+  </ion-list>
+  </ion-content>
+  

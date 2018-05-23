@@ -7,11 +7,7 @@
         <ion-toolbar color="primary">	
           <ion-searchbar #searchLocation placeholder="Seach Places"  (keyup.eneter)="SearchPlace();"   (input)="SearchPlace()">
           </ion-searchbar>
-          <ion-card class="derections">
-            <ion-card-content class="derection-panel"> 
-                <div #directionsPanel></div>
-            </ion-card-content>
-        </ion-card>
+
         </ion-toolbar>
       </ion-header>
       
@@ -33,17 +29,23 @@
         <ion-grid ion-fixed no-padding>
             <ion-scroll style="width:100%;height:120px" scrollY="true">
           <ion-list scroll="true" style="position: absolute;z-index:1;width:100%;">
-            <ion-item (click)="setCustomDerections(location.geometry.location.lat(),location.geometry.location.lng())"  *ngFor="let location of locations" color="silver" >
+            <ion-item (click)="addSearchLocation(location.geometry.location.lat(),location.geometry.location.lng())"  *ngFor="let location of locations" color="silver" >
               {{location.name}}
             </ion-item>
           </ion-list>
           </ion-scroll>
         </ion-grid>
-
+        <!-- <ion-card  class="derections"> -->
+          <!-- <ion-card-content class="derection-panel">  -->
+              <div class="derection-panel" #directionsPanel></div>
+      
 
         <div  #map id="map" style="height: 100%;" class="please-work"></div>
             <ion-fab  class="fabMap" bottom right>
               <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->
-              <button (click)=" markDerectionsonmap();" ion-fab> <ion-icon  name="locate"></ion-icon></button>
+              <button (click)=" markDerectionsonmaps();" ion-fab> <ion-icon  name="locate"></ion-icon></button>
             </ion-fab>
+           
+
+        
       </ion-content>

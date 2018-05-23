@@ -18,15 +18,14 @@
     </ion-thumbnail>
     <h2>{{ shop.name }}</h2>
     <span class="rate" >
+        Ratings: {{shop.ratings}}/10  <br>
       {{ shop.nearTown }} <br>
       {{ shop.shopType }}
     </span>
     </ion-item>
-    
-
-
-
-
-
 </ion-list>
+<ion-fab (click)="toMapPage" class="fabMap" bottom right>
+  <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->
+  <button (click)="toMapPage()" ion-button round icon-start > <ion-icon name="map"></ion-icon>Map View</button>
+</ion-fab>
 </ion-content>

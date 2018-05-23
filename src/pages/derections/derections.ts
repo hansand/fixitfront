@@ -15,6 +15,7 @@ import {
 
  import { UserService } from '../../app/services/users.service';
  import { EmployeePage } from '../employee/employee';
+import { timeout } from 'rxjs/operators';
  
 
 
@@ -31,6 +32,8 @@ export class DerectionsPage {
     @ViewChild('searchLocation') searchLocation;
     @ViewChild('directionsPanel') directionsPanel: ElementRef;
     map: any;
+    map1: any;
+    
     myLocation: any;
     marker:any;
     currentMaker:any;
@@ -41,9 +44,15 @@ export class DerectionsPage {
     mylongitude:any;
 
     locations=[];
-    isKM:any=5000;
+    isKM:any=5000000;
     latLng2:any = new google.maps.LatLng(6.927079, 79.861244);
     customMarker:any;
+
+    directionsService= new google.maps.DirectionsService;
+    directionsDisplay = new google.maps.DirectionsRenderer;
+
+
+    // derectionView:boolean=false;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -51,7 +60,8 @@ export class DerectionsPage {
     private userService:UserService,
     private alertCtrl: AlertController,
     // public maps: GoogleMaps,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController,
+) {
 
     this.userInfo=navParams.get('userInfo');
     console.log(this.userInfo);
@@ -59,34 +69,22 @@ export class DerectionsPage {
 
   ngOnInit(){
     this.loadMap();
-    // this.markDerectionsonmap();
-    this.markDerectionsonmaps()
+    this.markDerectionsonmaps();
+    // this.markDerectionsonmap()
     this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
   
   }
 
-  markDerectionsonmap(){
-      console.log("starting Derecion");
-    this.getCurrentCordinates().then(()=>{
-      console.log("inside");
-      this.loadMap().then(()=>{
-        this.startNavigating();
-        this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
-        this.addStartMarker(this.myLatitude,this.mylongitude);
-      })
-        
-    },()=>{
-      this.cantgetLocationAlert();
-      this.loadMap().then(()=>{
-      this.derectionsFromDefaultLocation();    
-      this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
-      this.addStartMarker(this.userService.userDetails[0].lat,this.userService.userDetails[0].lang);    
-      })
-    });
-  }
+  // togleDerectionPanel(){
+  //   if(this.derectionView==false){
+  //     this.derectionView = true;
+  //   }else if(this.derectionView==true){
+  //     this.derectionView = false;
+  //   }
+  // }
+
 
   loadMap(){
-
     var promise = new Promise((reslove,reject)=>{
       let latLng = new google.maps.LatLng(6.927079, 79.861244);
       let mapOptions = {
@@ -98,43 +96,63 @@ export class DerectionsPage {
       reslove();
     })
     return promise;
-
 }
+
+  markDerectionsonmap(){
+      console.log("starting Derecion");
+    this.getCurrentCordinates().then(()=>{
+      console.log("inside");
+      this.loadMap().then(()=>{
+        this.startNavigating();
+        this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
+        this.addStartMarker(this.myLatitude,this.mylongitude);
+     
+      })
+        
+    },()=>{
+      this.loadMap().then(()=>{
+      this.derectionsFromDefaultLocation();    
+      this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
+      this.addStartMarker(this.userService.userDetails[0].lat,this.userService.userDetails[0].lang);    
+      })
+    });
+  }
+
 
 startNavigating(){
 
-    let directionsService = new google.maps.DirectionsService;
-    let directionsDisplay = new google.maps.DirectionsRenderer;
+    // let directionsService = new google.maps.DirectionsService;
+    // let directionsDisplay = new google.maps.DirectionsRenderer;
 
-    directionsDisplay.setMap(this.map);
-    directionsDisplay.setOptions( { suppressMarkers: true } );
-    directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+    this.directionsDisplay.setMap(this.map);
+    this.directionsDisplay.setOptions( { suppressMarkers: true } );
+    this.directionsDisplay.setPanel(this.directionsPanel.nativeElement);
 
-    directionsService.route({
+    this.directionsService.route({
+
         origin: {lat:this.myLatitude,lng:this.mylongitude},
         destination:  {lat:this.userInfo[0].lat,lng:this.userInfo[0].lang},
-        
         travelMode: google.maps.TravelMode['DRIVING']
+
     }, (res, status) => {
 
         if(status == google.maps.DirectionsStatus.OK){
-            directionsDisplay.setDirections(res);
+            this.directionsDisplay.setDirections(res);
         } else {
-            console.warn(status);
+            console.log(status);
         }
-
     });
 }
 
 derectionsFromDefaultLocation(){
-  let directionsService = new google.maps.DirectionsService;
-  let directionsDisplay = new google.maps.DirectionsRenderer;
+  // let directionsService = new google.maps.DirectionsService;
+  // let directionsDisplay = new google.maps.DirectionsRenderer;
 
-  directionsDisplay.setMap(this.map);
-  directionsDisplay.setOptions( { suppressMarkers: true } );
-  directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+  this.directionsDisplay.setMap(this.map);
+  this.directionsDisplay.setOptions( { suppressMarkers: true } );
+  this.directionsDisplay.setPanel(this.directionsPanel.nativeElement);
 
-  directionsService.route({
+  this.directionsService.route({
       origin: {lat:this.userService.userDetails[0].lat,lng:this.userService.userDetails[0].lang},
       destination:  {lat:this.userInfo[0].lat,lng:this.userInfo[0].lang},
       
@@ -142,7 +160,7 @@ derectionsFromDefaultLocation(){
   }, (res, status) => {
 
       if(status == google.maps.DirectionsStatus.OK){
-          directionsDisplay.setDirections(res);
+        this.directionsDisplay.setDirections(res);
       } else {
           console.warn(status);
       }
@@ -150,35 +168,55 @@ derectionsFromDefaultLocation(){
   });
 }
 
-getCurrentCordinates(){
-    var done:boolean=false;
-    var promise = new Promise((reslove,reject)=>{
-        // reject();
-    
-            Geolocation.getPlugin().getCurrentPosition(response => {
-                this.myLatitude=parseFloat(response.coords.latitude);
-                this.mylongitude=parseFloat(response.coords.longitude);
-                console.log(this.myLatitude);
-                var done=true;
-                console.log("1234","done" );
-                reslove();
-                // if(this.myLatitude.length>0 && this.mylongitude.length>0){
-                //     reslove();
-                // }else{
-                //     reject();
-                // }
-              })
+// getCurrentCordinates(){
+//       var done:boolean=false;
+//       var promise = new Promise((reslove,reject)=>{
+//           // reject();
+      
+//               Geolocation.getPlugin().getCurrentPosition(response => {
+//                   this.myLatitude=parseFloat(response.coords.latitude);
+//                   this.mylongitude=parseFloat(response.coords.longitude);
+//                   console.log(this.myLatitude);
+//                   var done=true;
+//                   console.log("1234","done" );
+//                   reslove();
+//                   // if(this.myLatitude.length>0 && this.mylongitude.length>0){
+//                   //     reslove();
+//                   // }else{
+//                   //     reject();
+//                   // }
+//                 })
+  
+//                 setTimeout(()=>{
+//                   console.log("waited");
+//                     reject();
+                    
+//                 },5000)
+          
+   
+//       //  reject()
+//       });
+//       console.log(promise);
+//       return promise;
+//   }
 
-              setTimeout(()=>{
-                  reject();
-                  console.log("waited");
-              },5000)
-        
- 
-    //  reject()
-    });
-    console.log(promise);
-    return promise;
+getCurrentCordinates(){
+  var promise = new Promise((reslove,reject)=>{
+    this.geolocation.getCurrentPosition().then((resp) => {
+      // resp.coords.latitude
+      // resp.coords.longitude
+      console.log(resp.coords.latitude);
+      console.log(resp.coords.longitude);
+      this.myLatitude=resp.coords.latitude;
+      this.mylongitude=resp.coords.longitude;
+      reslove();
+     }).catch((error) => {
+       reject();
+       this.currentLocationErro(error);
+       console.log('Error getting location', error);
+     });
+  })
+  return promise;
 }
 
 addDestinationMarker(latp,langp){
@@ -237,13 +275,15 @@ SearchPlace(){
 
  
 
-markDerectionsonmaps(){
 
-        this.startNavigatings();
-        this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
-        this.addStartMarker( 6.9148,79.9731);
-  
-  }    
+  currentLocationErro(error) {
+    let alert = this.alertCtrl.create({
+      title: 'Error Occurd While Getting Your Current Location',
+      subTitle: 'Erro :'+error+'Google Can not Dertermine Your Location.Default Location Used Instead',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
 
   cantgetLocationAlert() {
     let alert = this.alertCtrl.create({
@@ -251,33 +291,92 @@ markDerectionsonmaps(){
       subTitle: 'Google Can not Dertermine Your Location.Default Location Used Instead',
       buttons: ['OK']
     });
-    alert.present();
+    // alert.present();
   }
 
-  startNavigatings(){
 
-    let directionsService = new google.maps.DirectionsService;
-    let directionsDisplay = new google.maps.DirectionsRenderer;
 
-    directionsDisplay.setMap(this.map);
-    directionsDisplay.setOptions( { suppressMarkers: true } );
-    directionsDisplay.setPanel(this.directionsPanel.nativeElement);
 
-    directionsService.route({
-        origin: {lat:6.9148,lng:79.9731},
+//drection from searched location
+addSearchLocation(latp,langp){
+  var lat=parseFloat(latp).toFixed(7);
+  var lang=parseFloat(langp).toFixed(7);
+  console.log(lat);
+  console.log(lang);
+  
+  let latLng = new google.maps.LatLng(latp,langp);
+  console.log(latLng);
+  let mapOptions = {
+    center: latLng,
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+
+  this.customMarker = new google.maps.Marker({
+    map: this.map,
+    animation: google.maps.Animation.DROP,
+    position:{ lat:latp,lng:langp},
+    icon: {
+      url: '../assets/imgs/searchlocation.png'
+    },
+    draggable: false
+  });
+  this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
+  this.searchCancel();
+  // let directionsService = new google.maps.DirectionsService;
+  //   let directionsDisplay = new google.maps.DirectionsRenderer;
+
+  this.directionsDisplay.setMap(this.map);
+  this.directionsDisplay.setOptions( { suppressMarkers: true } );
+    // directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+
+    this.directionsService.route({
+        origin: {lat:latp,lng:langp},
         destination:  {lat:this.userInfo[0].lat,lng:this.userInfo[0].lang},
         
         travelMode: google.maps.TravelMode['DRIVING']
     }, (res, status) => {
 
         if(status == google.maps.DirectionsStatus.OK){
-            directionsDisplay.setDirections(res);
+          this.directionsDisplay.setDirections(res);
         } else {
             console.warn(status);
         }
 
     });
+  }
+
+  markDerectionsonmaps(){
+    this.startNavigatings();
+    this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
+    this.addStartMarker( 6.9148,79.9731);
+}    
+
+startNavigatings(){
+  this.loadMap();
+  this.directionsDisplay.setMap(this.map);
+  this.directionsDisplay.setOptions( { suppressMarkers: true } );
+  this.directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+
+  this.directionsService.route({
+      origin: {lat:6.9148,lng:79.9731},
+      destination:  {lat:this.userInfo[0].lat,lng:this.userInfo[0].lang},
+      
+      travelMode: google.maps.TravelMode['DRIVING']
+  }, (res, status) => {
+
+      if(status == google.maps.DirectionsStatus.OK){
+        this.directionsDisplay.setDirections(res);
+      } else {
+          console.warn(status);
+      }
+  });
 }
+
+  
+
 
 } //class ends
 

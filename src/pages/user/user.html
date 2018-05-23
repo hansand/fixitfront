@@ -34,6 +34,10 @@ Ratings : {{ detail.ratings }} <br>
   Requested Works
 </button>
 
+<button  (click)= "tojobreq()" ion-button >
+  Posted Jobs
+</button>
+
 <button *ngIf="checkShop(detail.role)" (click)= "toRequestedWorkPage()" ion-button >
    Order Requests
   </button>

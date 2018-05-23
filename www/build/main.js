@@ -1,56 +1,13 @@
 webpackJsonp([0],{
 
-/***/ 159:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(23);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var JobService = /** @class */ (function () {
-    function JobService(http) {
-        this.http = http;
-        this.baseUrl = 'http://localhost:3000/api/fixit/jobs';
-    }
-    JobService.prototype.getAllJobs = function () {
-        return this.http.get(this.baseUrl).map(function (res) { return res.json(); });
-    };
-    JobService.prototype.getjobByID = function (id) {
-        return this.http.get(this.baseUrl + '/' + id + '').map(function (res) { return res.json(); });
-    };
-    JobService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
-    ], JobService);
-    return JobService;
-}());
-
-//# sourceMappingURL=job.service.js.map
-
-/***/ }),
-
-/***/ 160:
+/***/ 161:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shops_shop__ = __webpack_require__(361);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_user__ = __webpack_require__(363);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -91,85 +48,6 @@ var TabsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 161:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addjob_addjob__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_job_service__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jobdinfo_jobinfo__ = __webpack_require__(360);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var JobPage = /** @class */ (function () {
-    function JobPage(navCtrl, navParams, JobService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.JobService = JobService;
-        // this.job=navParams.get('jobID');
-    }
-    JobPage.prototype.ngOnInit = function () {
-        console.log("working");
-        // this.getJobInfo();
-    };
-    // getJobInfo(){
-    //   this.JobService.getAllJobs().subscribe(response=> {
-    //     this.jobInfo=response;
-    //     console.log(this.jobInfo);
-    //    })
-    // }
-    //   getJobInfo(){
-    //     this.JobService.getjobByID(this.jobID).subscribe(response=> {
-    //       this.jobInfo=response;
-    //       console.log(this.jobInfo);
-    //      })
-    //   }
-    JobPage.prototype.tojobInfoPage = function (id) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__jobdinfo_jobinfo__["a" /* JobInfoPage */], {
-            jobID: id
-        });
-    };
-    JobPage.prototype.addNewJob = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__addjob_addjob__["a" /* AddJobPage */]);
-    };
-    JobPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AboutPage');
-        this.getJobs();
-    };
-    JobPage.prototype.getJobs = function () {
-        var _this = this;
-        this.JobService.getAllJobs().subscribe(function (response) {
-            _this.jobInfo = response;
-            console.log(_this.jobInfo);
-        });
-    };
-    JobPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'job',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/'<ion-header >\n  <ion-navbar color="primary">\n    <ion-title>\n      Jobs\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding align="center">\n    <b>Available Jobs</b><br><br>\n\n          <ion-list >\n            <ion-item *ngFor="let job of jobInfo" (click)="tojobInfoPage(job._id)" >             \n              <ion-thumbnail item-start>\n                <img class="avatar" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">\n              </ion-thumbnail>\n              <h2 class="name" >{{job.jobTitle}} </h2>\n                <span class="rate" >\n                  {{job.jobOrg}}  <br>\n                  {{ job.contact }}\n                </span>\n          </ion-item> \n             \n          </ion-list>  \n          <ion-fab bottom left  >\n              <button ion-fab transition-delay ="20ms"><ion-icon name="add"></ion-icon></button>\n              <ion-fab-list side=top>\n                  <button ion-button round mini (click)="addNewJob()" > Add job</button>\n                  <button ion-button round mini> Update job</button>\n                  <button ion-button round mini> Delete job</button>\n              </ion-fab-list>\n            </ion-fab>     \n</ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_services_job_service__["a" /* JobService */]])
-    ], JobPage);
-    return JobPage;
-}());
-
-//# sourceMappingURL=job.js.map
-
-/***/ }),
-
 /***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -177,8 +55,8 @@ var JobPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkReqPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleWork_singlework__ = __webpack_require__(364);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -238,8 +116,8 @@ var WorkReqPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RequestedWorkPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleworkuser_singleworkuser__ = __webpack_require__(366);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -292,32 +170,15 @@ var RequestedWorkPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 174:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 174;
-
-/***/ }),
-
-/***/ 21:
+/***/ 17:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -369,6 +230,23 @@ var UserService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 174:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 174;
+
+/***/ }),
+
 /***/ 219:
 /***/ (function(module, exports) {
 
@@ -390,12 +268,265 @@ webpackEmptyAsyncContext.id = 219;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RatePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var RatePage = /** @class */ (function () {
+    function RatePage(navCtrl, navParams, alertCtrl, http, feedbackService, userService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.http = http;
+        this.feedbackService = feedbackService;
+        this.userService = userService;
+        this.count = 1;
+        this.totalPoints = 0;
+        this.finalPoint = 0;
+        this.userInfo = navParams.get('userInfo');
+        this.userID = navParams.get('userID');
+        console.log(this.userInfo);
+        console.log(this.userID);
+    }
+    RatePage.prototype.addFeedBack = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        if (this.feedback.value) {
+            console.log(this.feedback.value);
+            var body = {
+                empID: this.userID,
+                feedback: this.feedback.value,
+                userID: this.userService.userDetails[0]._id,
+                userName: this.userService.userDetails[0].name,
+                ratePoint: this.ratepoint.value
+            };
+            this.http.post('http://localhost:3000/api/fixit/feedback', body, { headers: headers })
+                .subscribe(function (data) {
+                console.log(data);
+                _this.FeedBackDoneAlert();
+                _this.getFeedbacksandCalc().then(function () {
+                    _this.updateRatings();
+                });
+            }, function (error) {
+                console.log("opps");
+            });
+        }
+        else {
+            this.fillAllFields();
+        }
+    };
+    RatePage.prototype.fillAllFields = function () {
+        var alert = this.alertCtrl.create({
+            title: ':(',
+            subTitle: 'Please Type a Feedback',
+            buttons: ['Ok']
+        });
+        alert.present();
+    };
+    RatePage.prototype.FeedBackDoneAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Thank You',
+            subTitle: 'Your Feedback Succeesessfully Submited',
+            buttons: ['Welcome']
+        });
+        alert.present();
+    };
+    RatePage.prototype.updateRatings = function () {
+        console.log("hansaka ", this.totalPoints);
+        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
+        console.log(this.feedback.value);
+        var body = {
+            ratings: this.finalPoint
+        };
+        this.http.put('http://localhost:3000/api/fixit/users/getid/' + this.userID + '', body, { headers: headers })
+            .subscribe(function (data) {
+            console.log(data);
+        });
+    };
+    RatePage.prototype.getFeedbacksandCalc = function () {
+        var _this = this;
+        var promise = new Promise(function (reslove, reject) {
+            _this.feedbackService.getFeedback(_this.userID).subscribe(function (response) {
+                _this.feedbacks = response;
+                response.forEach(function (element) {
+                    _this.count = _this.count + 1;
+                    _this.totalPoints = _this.totalPoints + Number(element.ratePoint);
+                    console.log(_this.totalPoints);
+                });
+                _this.finalPoint = (_this.totalPoints / _this.count).toFixed(2);
+                console.log(_this.finalPoint);
+                if (_this.finalPoint != 0) {
+                    reslove();
+                }
+            });
+        });
+        return promise;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('feedback'),
+        __metadata("design:type", Object)
+    ], RatePage.prototype, "feedback", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('ratepoint'),
+        __metadata("design:type", Object)
+    ], RatePage.prototype, "ratepoint", void 0);
+    RatePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'rate',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/rate/rate.html"*/'\n<ion-header>\n    <ion-navbar>\n      <ion-title>\n        Feedback\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <br><br><br>\n\n    <ion-item>    Give Feedback and Rate this User</ion-item>\n    <ion-item> 1 is lowest and 10 is the Heighst </ion-item>\n    <ion-item>\n      <ion-label>Points</ion-label>\n      <ion-select #ratepoint>\n        <ion-option value="1">1</ion-option>\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="4">4</ion-option>\n        <ion-option value="5">5</ion-option>\n        <ion-option value="6">6</ion-option>\n        <ion-option value="7">7</ion-option>\n        <ion-option value="8">8</ion-option>\n        <ion-option value="9">9</ion-option>\n        <ion-option value="10">10</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-list>\n      <ion-item>\n        <ion-input class="inputField" placeholder=\'Enter your Feedback here\' #feedback></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button color="secondary" (click)="addFeedBack();">Submit</button>\n  </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/rate/rate.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__["a" /* FeedBackService */],
+            __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__["a" /* UserService */]])
+    ], RatePage);
+    return RatePage;
+}());
+
+//# sourceMappingURL=rate.js.map
+
+/***/ }),
+
+/***/ 356:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__employee_employee__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var WorkPage = /** @class */ (function () {
+    function WorkPage(navCtrl, RoleService, userService, http, navParams, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.RoleService = RoleService;
+        this.userService = userService;
+        this.http = http;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.empID = navParams.get('userID');
+        this.userInfo = navParams.get('userInfo');
+        console.log(this.empID);
+        console.log(this.userService.userDetails[0]._id);
+    }
+    WorkPage.prototype.sendJobReq = function () {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'Application/json');
+        if (this.description.value != "" && this.title.value != "") {
+            var body = {
+                empID: this.empID,
+                userID: this.userService.userDetails[0]._id,
+                workTitle: this.title.value,
+                description: this.description.value,
+                state: "pending"
+            };
+            this.http.post('http://localhost:3000/api/fixit/work', JSON.stringify(body), { headers: headers })
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) {
+                console.log(data);
+                _this.sucesess();
+                _this.toEmpPage();
+            }, function (error) {
+                console.log("opps");
+            });
+        }
+        else {
+            this.fillAllFields();
+        }
+    };
+    WorkPage.prototype.sucesess = function () {
+        var alert = this.alertCtrl.create({
+            title: ':)',
+            subTitle: 'Successesfully Sent the Job Request to the Worker',
+            buttons: ['Ok']
+        });
+        alert.present();
+    };
+    WorkPage.prototype.fillAllFields = function () {
+        var alert = this.alertCtrl.create({
+            title: ':(',
+            subTitle: 'Please add a Job Description',
+            buttons: ['Ok']
+        });
+        alert.present();
+    };
+    WorkPage.prototype.toEmpPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__employee_employee__["a" /* EmployeePage */], {
+            userInfo: this.userInfo,
+            userID: this.empID
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('title'),
+        __metadata("design:type", Object)
+    ], WorkPage.prototype, "title", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('description'),
+        __metadata("design:type", Object)
+    ], WorkPage.prototype, "description", void 0);
+    WorkPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'work',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/work/work.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n          Send a Job Request\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      <ion-content padding>  \n                <form >\n                    <ion-item >\n                        <ion-label floating>Title</ion-label>\n                        <ion-input type="text"  #title ></ion-input>\n                      </ion-item>\n                  <ion-item >\n                    <ion-label floating>Job Description</ion-label>\n                    <ion-input type="text"  #description ></ion-input>\n                  </ion-item>\n                  <button (click)="sendJobReq()" ion-button type="submit" block> Send Request </button>\n                </form>\n      </ion-content>\n            \n          '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/work/work.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__["a" /* RoleService */],
+            __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], WorkPage);
+    return WorkPage;
+}()); //class end
+
+//# sourceMappingURL=work.js.map
+
+/***/ }),
+
+/***/ 357:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServiceListPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__map_map__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -440,7 +571,7 @@ var ServiceListPage = /** @class */ (function () {
         });
     };
     ServiceListPage.prototype.checkRate = function (rate) {
-        if (parseFloat(rate) > 7.0) {
+        if (parseFloat(rate) >= 7.0) {
             return true;
         }
         else {
@@ -449,7 +580,7 @@ var ServiceListPage = /** @class */ (function () {
     };
     ServiceListPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'servicelist',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/servicelist/servicelist.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        \n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    \n            <ion-list >\n\n              <ion-item *ngFor="let user of userInfo" class="single-worker" (click)="toEmpPage(user._id);" >\n                \n                <ion-thumbnail item-start>\n                  <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n                </ion-thumbnail>\n                <h2 class="name" >{{user.name}}  </h2> <img *ngIf="checkRate()" src="../../assets/imgs/like.png" alt="">\n                <span class="rate" >\n                  Ratings: {{user.ratings}}/10  <br>\n                  {{ user.nearTown }}\n                </span>\n              </ion-item>\n\n            </ion-list>\n            <ion-fab (click)="toMapPage" class="fabMap" bottom right>\n                <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n                <button (click)="toMapPage()" ion-button round icon-start > <ion-icon name="map"></ion-icon>Map View</button>\n              </ion-fab>\n            \n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/servicelist/servicelist.html"*/
+            selector: 'servicelist',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/servicelist/servicelist.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        \n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    \n            <ion-list >\n\n              <ion-item *ngFor="let user of userInfo" class="single-worker" (click)="toEmpPage(user._id);" >\n                \n                <ion-thumbnail item-start>\n                  <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n                </ion-thumbnail>\n                <h2 class="name" >{{user.name}}  </h2> <img *ngIf="checkRate(user.ratings)" src="../../assets/imgs/like.png" alt="">\n                <span class="rate" >\n                  Ratings: {{user.ratings}}/10  <br>\n                  {{ user.nearTown }}\n                </span>\n              </ion-item>\n\n            </ion-list>\n            <ion-fab (click)="toMapPage" class="fabMap" bottom right>\n                <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n                <button (click)="toMapPage()" ion-button round icon-start > <ion-icon name="map"></ion-icon>Map View</button>\n              </ion-fab>\n            \n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/servicelist/servicelist.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]])
     ], ServiceListPage);
@@ -460,7 +591,7 @@ var ServiceListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 356:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -468,8 +599,8 @@ var ServiceListPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -502,24 +633,35 @@ var MapPage = /** @class */ (function () {
     MapPage.prototype.ngOnInit = function () {
         this.loadMap();
         this.addMarkers();
-        // this.nullLocation();
-        this.addCurrentLocation();
+        this.nullLocation();
+        // this.addCurrentLocation();
         console.log("map ngOnit");
     };
     MapPage.prototype.getCurrentCordinates = function () {
         var _this = this;
+        var done = false;
         var promise = new Promise(function (reslove, reject) {
+            // reject();
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */].getPlugin().getCurrentPosition(function (response) {
                 _this.myLatitude = parseFloat(response.coords.latitude);
                 _this.mylongitude = parseFloat(response.coords.longitude);
-                // this.position.push(this.myLatitude);
-                // this.position.push(this.mylongitude);
+                console.log(_this.myLatitude);
+                var done = true;
+                console.log("1234", "done");
                 reslove();
+                // if(this.myLatitude.length>0 && this.mylongitude.length>0){
+                //     reslove();
+                // }else{
+                //     reject();
+                // }
             });
             setTimeout(function () {
-                reject();
+                console.log("waited");
+                // reject();
             }, 5000);
+            //  reject()
         });
+        console.log(promise);
         return promise;
     };
     MapPage.prototype.addMarkers = function () {
@@ -706,7 +848,7 @@ var MapPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], MapPage.prototype, "mapElement", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('searchLocation'),
@@ -716,10 +858,14 @@ var MapPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'map',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/map/map.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n            Map\n          </ion-title>\n        </ion-navbar>\n        <ion-toolbar color="primary">	\n          <ion-searchbar #searchLocation placeholder="Seach Places"  (keyup.eneter)="SearchPlace();"  (input)="SearchPlace()">\n          </ion-searchbar>\n        </ion-toolbar>\n      </ion-header>\n      \n      <ion-content padding>\n        <!-- <div class="Map-Search-Bar">\n            <ion-item>\n              <ion-label> Search Places  </ion-label>\n              <ion-input #searchLocation (input)="SearchPlace()"> \n                  <ion-option> ha ha</ion-option>\n              </ion-input>\n            </ion-item>\n        </div> -->\n        <!-- <ion-searchbar  #searchLocation (input)="SearchPlace();xss();" placeholder="Search"></ion-searchbar>\n        <ion-list>\n        <button  class="sList" ion-item *ngFor="let location of locations">\n            {{location.name}}\n        </button>\n        </ion-list> -->\n        <ion-grid ion-fixed no-padding>\n            <ion-scroll style="width:100%;height:120px" scrollY="true">\n          <ion-list scroll="true" style="position: absolute;z-index:1;width:100%;">\n            <ion-item (click)="addSearchLocation(location.geometry.location.lat(),location.geometry.location.lng())"  *ngFor="let location of locations" color="silver" >\n              {{location.name}}\n            </ion-item>\n          </ion-list>\n          </ion-scroll>\n        </ion-grid>\n\n\n        <div  #map id="map" style="height: 100%;" class="please-work"></div>\n            <ion-fab  class="fabMap" bottom right>\n              <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n              <button (click)=" addCurrentLocation();" ion-fab> <ion-icon  name="locate"></ion-icon></button>\n            </ion-fab>\n      </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/map/map.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */]])
     ], MapPage);
     return MapPage;
-    var _a, _b, _c, _d, _e, _f, _g;
 }()); //class ends
 
 // getCurrentCordinates(){
@@ -780,253 +926,6 @@ var MapPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 357:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RatePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__ = __webpack_require__(93);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var RatePage = /** @class */ (function () {
-    function RatePage(navCtrl, navParams, alertCtrl, http, feedbackService) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.http = http;
-        this.feedbackService = feedbackService;
-        this.count = 1;
-        this.totalPoints = 0;
-        this.finalPoint = 0;
-        this.userInfo = navParams.get('userInfo');
-        this.userID = navParams.get('userID');
-        console.log(this.userInfo);
-        console.log(this.userID);
-    }
-    RatePage.prototype.addFeedBack = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        if (this.feedback.value) {
-            console.log(this.feedback.value);
-            var body = {
-                empID: this.userID,
-                feedback: this.feedback.value,
-                ratePoint: this.ratepoint.value
-            };
-            this.http.post('http://localhost:3000/api/fixit/feedback', body, { headers: headers })
-                .subscribe(function (data) {
-                console.log(data);
-                _this.FeedBackDoneAlert();
-                _this.getFeedbacksandCalc().then(function () {
-                    _this.updateRatings();
-                });
-            }, function (error) {
-                console.log("opps");
-            });
-        }
-        else {
-            this.fillAllFields();
-        }
-    };
-    RatePage.prototype.fillAllFields = function () {
-        var alert = this.alertCtrl.create({
-            title: ':(',
-            subTitle: 'Please Type a Feedback',
-            buttons: ['Ok']
-        });
-        alert.present();
-    };
-    RatePage.prototype.FeedBackDoneAlert = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Thank You',
-            subTitle: 'Your Feedback Succeesessfully Submited',
-            buttons: ['Welcome']
-        });
-        alert.present();
-    };
-    RatePage.prototype.updateRatings = function () {
-        console.log("hansaka ", this.totalPoints);
-        var headers = new __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Headers */]();
-        console.log(this.feedback.value);
-        var body = {
-            ratings: this.finalPoint
-        };
-        this.http.put('http://localhost:3000/api/fixit/users/getid/' + this.userID + '', body, { headers: headers })
-            .subscribe(function (data) {
-            console.log(data);
-        });
-    };
-    RatePage.prototype.getFeedbacksandCalc = function () {
-        var _this = this;
-        var promise = new Promise(function (reslove, reject) {
-            _this.feedbackService.getFeedback(_this.userID).subscribe(function (response) {
-                _this.feedbacks = response;
-                response.forEach(function (element) {
-                    _this.count = _this.count + 1;
-                    _this.totalPoints = _this.totalPoints + Number(element.ratePoint);
-                    console.log(_this.totalPoints);
-                });
-                _this.finalPoint = (_this.totalPoints / _this.count).toFixed(2);
-                console.log(_this.finalPoint);
-                if (_this.finalPoint != 0) {
-                    reslove();
-                }
-            });
-        });
-        return promise;
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('feedback'),
-        __metadata("design:type", Object)
-    ], RatePage.prototype, "feedback", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('ratepoint'),
-        __metadata("design:type", Object)
-    ], RatePage.prototype, "ratepoint", void 0);
-    RatePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'rate',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/rate/rate.html"*/'\n<ion-header>\n    <ion-navbar>\n      <ion-title>\n        Feedback\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <br><br><br>\n\n    <ion-item>    Give Feedback and Rate this User</ion-item>\n    <ion-item> 1 is lowest and 10 is the Heighst </ion-item>\n    <ion-item>\n      <ion-label>Points</ion-label>\n      <ion-select #ratepoint>\n        <ion-option value="1">1</ion-option>\n        <ion-option value="2">2</ion-option>\n        <ion-option value="3">3</ion-option>\n        <ion-option value="4">4</ion-option>\n        <ion-option value="5">5</ion-option>\n        <ion-option value="6">6</ion-option>\n        <ion-option value="7">7</ion-option>\n        <ion-option value="8">8</ion-option>\n        <ion-option value="9">9</ion-option>\n        <ion-option value="10">10</ion-option>\n      </ion-select>\n    </ion-item>\n    <ion-list>\n      <ion-item>\n        <ion-input class="inputField" placeholder=\'Enter your Feedback here\' #feedback></ion-input>\n      </ion-item>\n    </ion-list>\n    <button ion-button color="secondary" (click)="addFeedBack();">Submit</button>\n  </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/rate/rate.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__["a" /* FeedBackService */]])
-    ], RatePage);
-    return RatePage;
-}());
-
-//# sourceMappingURL=rate.js.map
-
-/***/ }),
-
-/***/ 358:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__employee_employee__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__ = __webpack_require__(21);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var WorkPage = /** @class */ (function () {
-    function WorkPage(navCtrl, RoleService, userService, http, navParams, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.RoleService = RoleService;
-        this.userService = userService;
-        this.http = http;
-        this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.empID = navParams.get('userID');
-        this.userInfo = navParams.get('userInfo');
-        console.log(this.empID);
-        console.log(this.userService.userDetails[0]._id);
-    }
-    WorkPage.prototype.sendJobReq = function () {
-        var _this = this;
-        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'Application/json');
-        if (this.description.value != "" && this.title.value != "") {
-            var body = {
-                empID: this.empID,
-                userID: this.userService.userDetails[0]._id,
-                workTitle: this.title.value,
-                description: this.description.value,
-                state: "pending"
-            };
-            this.http.post('http://localhost:3000/api/fixit/work', JSON.stringify(body), { headers: headers })
-                .map(function (res) { return res.json(); })
-                .subscribe(function (data) {
-                console.log(data);
-                _this.sucesess();
-                _this.toEmpPage();
-            }, function (error) {
-                console.log("opps");
-            });
-        }
-        else {
-            this.fillAllFields();
-        }
-    };
-    WorkPage.prototype.sucesess = function () {
-        var alert = this.alertCtrl.create({
-            title: ':)',
-            subTitle: 'Successesfully Sent the Job Request to the Worker',
-            buttons: ['Ok']
-        });
-        alert.present();
-    };
-    WorkPage.prototype.fillAllFields = function () {
-        var alert = this.alertCtrl.create({
-            title: ':(',
-            subTitle: 'Please add a Job Description',
-            buttons: ['Ok']
-        });
-        alert.present();
-    };
-    WorkPage.prototype.toEmpPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__employee_employee__["a" /* EmployeePage */], {
-            userInfo: this.userInfo,
-            userID: this.empID
-        });
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('title'),
-        __metadata("design:type", Object)
-    ], WorkPage.prototype, "title", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('description'),
-        __metadata("design:type", Object)
-    ], WorkPage.prototype, "description", void 0);
-    WorkPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'work',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/work/work.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n          Send a Job Request\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      <ion-content padding>  \n                <form >\n                    <ion-item >\n                        <ion-label floating>Title</ion-label>\n                        <ion-input type="text"  #title ></ion-input>\n                      </ion-item>\n                  <ion-item >\n                    <ion-label floating>Job Description</ion-label>\n                    <ion-input type="text"  #description ></ion-input>\n                  </ion-item>\n                  <button (click)="sendJobReq()" ion-button type="submit" block> Send Request </button>\n                </form>\n      </ion-content>\n            \n          '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/work/work.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__["a" /* RoleService */],
-            __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__["a" /* UserService */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], WorkPage);
-    return WorkPage;
-}()); //class end
-
-//# sourceMappingURL=work.js.map
-
-/***/ }),
-
 /***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1034,9 +933,10 @@ var WorkPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddJobPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1051,12 +951,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AddJobPage = /** @class */ (function () {
-    function AddJobPage(navCtrl, RoleService, http, alertCtrl) {
+    function AddJobPage(navCtrl, RoleService, http, alertCtrl, userService) {
         this.navCtrl = navCtrl;
         this.RoleService = RoleService;
         this.http = http;
         this.alertCtrl = alertCtrl;
+        this.userService = userService;
     }
     AddJobPage.prototype.addjob = function () {
         var _this = this;
@@ -1069,6 +971,7 @@ var AddJobPage = /** @class */ (function () {
             this.contact.value &&
             this.description.value) {
             var body = {
+                userID: this.userService.userDetails[0]._id,
                 jobTitle: this.jobTitle.value,
                 jobOrg: this.jobOrg.value,
                 email: this.email.value,
@@ -1140,7 +1043,8 @@ var AddJobPage = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__["a" /* RoleService */],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__["a" /* UserService */]])
     ], AddJobPage);
     return AddJobPage;
 }());
@@ -1156,7 +1060,10 @@ var AddJobPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobInfoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_job_service__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_job_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1169,16 +1076,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var JobInfoPage = /** @class */ (function () {
-    function JobInfoPage(navCtrl, navParams, JobService) {
+    function JobInfoPage(navCtrl, navParams, http, alertCtrl, JobService, userService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.http = http;
+        this.alertCtrl = alertCtrl;
         this.JobService = JobService;
+        this.userService = userService;
         this.jobID = navParams.get('jobID');
         console.log(this.jobID);
     }
     JobInfoPage.prototype.ngOnInit = function () {
         this.getjobInfo();
+        console.log(this.userService.userDetails[0].name);
     };
     JobInfoPage.prototype.getjobInfo = function () {
         var _this = this;
@@ -1187,11 +1101,49 @@ var JobInfoPage = /** @class */ (function () {
             console.log(_this.jobInfo);
         });
     };
+    JobInfoPage.prototype.tojobPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__jobs_job__["a" /* JobPage */]);
+    };
+    JobInfoPage.prototype.deleteJob = function (id) {
+        var _this = this;
+        this.JobService.deletejobbyid(this.jobID).subscribe(function (response) {
+            _this.dltjob = response;
+            _this.tojobPage();
+            _this.dltDoneAlert();
+            console.log(_this.dltjob);
+        });
+    };
+    JobInfoPage.prototype.dltDoneAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Deleted',
+            subTitle: 'Successessfuly Deleted',
+            buttons: ['ok']
+        });
+        alert.present();
+    };
+    JobInfoPage.prototype.sendjobreq = function (id) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'Application/json');
+        var body = {
+            jobid: id,
+            userid: this.userService.userDetails[0]._id,
+            userName: this.userService.userDetails[0].name
+        };
+        this.http.post('http://localhost:3000/api/fixit/jobreq', JSON.stringify(body), { headers: headers })
+            .map(function (res) { return res.json(); })
+            .subscribe(function (data) {
+            console.log(data);
+        }, function (error) {
+            console.log("oops");
+        });
+    };
     JobInfoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'jobinfo',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/jobdinfo/jobinfo.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title >\n             Job Info\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      \n      <ion-content align = "Center" padding="true">\n        <b> Job Information </b><br><br>\n        \n     \n     <ion-thumbnail item-start>\n       <img class = "useravat" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">\n     </ion-thumbnail>\n     <br><br><br>\n     <span *ngFor="let job of jobInfo">\n     <h2 class="name" > {{job.jobTitle}} </h2>\n     <span>\n       <b> {{job.jobOrg}} </b><br>\n       {{ job.contact }} <br>\n       {{ job.email }} <br>\n       {{ job.description }} <br>\n     </span>\n     \n    <br>\n  </span>\n  <button ion-button (click)="presentConfirm()">\n    Delete Job \n  </button>\n  <button ion-button (click)="presentConfirm()">\n    Send Job Request \n  </button>\n  \n    \n    <!-- <form align="center">\n        <ion-item>\n            <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n          </ion-item>\n    </form> -->\n</ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/jobdinfo/jobinfo.html"*/
+            selector: 'jobinfo',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/jobdinfo/jobinfo.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title >\n             Job Info\n          </ion-title>\n        </ion-navbar>\n      </ion-header>\n      \n      <ion-content align = "Center" padding="true">\n        <b> Job Information </b><br><br>\n        \n     \n     <ion-thumbnail item-start>\n       <img class = "useravat" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">\n     </ion-thumbnail>\n     <br><br><br>\n     <span *ngFor="let job of jobInfo">\n     <h2 class="name" > {{job.jobTitle}} </h2>\n     <span>\n       <b> {{job.jobOrg}} </b><br>\n       {{ job.contact }} <br>\n       {{ job.email }} <br>\n       {{ job.description }} <br>\n     </span>\n     \n    <br>\n \n  <!-- <button ion-button (click)="deleteJob(job._id)">\n    Delete Job \n  </button> -->\n  <button ion-button (click)="sendjobreq(job._id)">\n    Send Job Request \n  </button>\n</span>\n  \n    \n    <!-- <form align="center">\n        <ion-item>\n            <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n          </ion-item>\n    </form> -->\n</ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/jobdinfo/jobinfo.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__app_services_job_service__["a" /* JobService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__app_services_job_service__["a" /* JobService */],
+            __WEBPACK_IMPORTED_MODULE_5__app_services_users_service__["a" /* UserService */]])
     ], JobInfoPage);
     return JobInfoPage;
 }());
@@ -1211,7 +1163,7 @@ var JobInfoPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shopinfo_shopinfo__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1269,7 +1221,7 @@ var ShopPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopInfoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1321,9 +1273,10 @@ var ShopInfoPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__userWorkReqs_workreq__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__requestedWorks_requestedworks__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__JobRequest_JobRequest__ = __webpack_require__(367);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1336,6 +1289,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 // import { GlobalProvider } from '../../providers/global/global'
+
 
 
 
@@ -1355,6 +1309,10 @@ var UserPage = /** @class */ (function () {
     UserPage.prototype.toRequestedWorkPage = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__requestedWorks_requestedworks__["a" /* RequestedWorkPage */]);
     };
+    UserPage.prototype.tojobreq = function () {
+        console.log("navigating to job request page");
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__JobRequest_JobRequest__["a" /* JobRequestPage */]);
+    };
     UserPage.prototype.checkShop = function (role) {
         if (role == "shop" || role == "Shop") {
             return true;
@@ -1365,7 +1323,7 @@ var UserPage = /** @class */ (function () {
     };
     UserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'user',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/user/user.html"*/'<ion-header >\n  <ion-navbar color="primary">\n    <ion-title >\n      User Profile\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content align = "Center" padding="true">\n <b>User Information</b><br><br>\n \n<span *ngFor="let detail of details ">\n<ion-thumbnail item-start>\n<img *ngIf="checkShop(detail.role)" class = "useravat" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">\n<img *ngIf="!checkShop(detail.role)" class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n\n</ion-thumbnail>\n\n<h2 class="name" > {{detail.name}} </h2>\n<span>\n<b *ngIf="checkShop(detail.role)"> {{ detail.shopType }}</b>\n<b *ngIf="!checkShop(detail.role)"> {{ detail.role }}</b><br>\nRatings : {{ detail.ratings }} <br>\n{{ detail.nearTown }}\n \n</span>\n\n<br> <br><br><br>\n<button *ngIf="!checkShop(detail.role)" (click)= "toWorkReqPage()" ion-button >\n  Work Requests  \n</button>\n\n<button  (click)= "toRequestedWorkPage()" ion-button >\n  Requested Works\n</button>\n\n<button *ngIf="checkShop(detail.role)" (click)= "toRequestedWorkPage()" ion-button >\n   Order Requests\n  </button>\n</span>\n</ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/user/user.html"*/,
+            selector: 'user',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/user/user.html"*/'<ion-header >\n  <ion-navbar color="primary">\n    <ion-title >\n      User Profile\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content align = "Center" padding="true">\n <b>User Information</b><br><br>\n \n<span *ngFor="let detail of details ">\n<ion-thumbnail item-start>\n<img *ngIf="checkShop(detail.role)" class = "useravat" src="https://cdn1.iconfinder.com/data/icons/business-items/512/market_store_local_shop_cafe_commerce_retail_shopping_grocery_facade_fastfood_small_building_flat_design_icon-512.png">\n<img *ngIf="!checkShop(detail.role)" class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n\n</ion-thumbnail>\n\n<h2 class="name" > {{detail.name}} </h2>\n<span>\n<b *ngIf="checkShop(detail.role)"> {{ detail.shopType }}</b>\n<b *ngIf="!checkShop(detail.role)"> {{ detail.role }}</b><br>\nRatings : {{ detail.ratings }} <br>\n{{ detail.nearTown }}\n \n</span>\n\n<br> <br><br><br>\n<button *ngIf="!checkShop(detail.role)" (click)= "toWorkReqPage()" ion-button >\n  Work Requests  \n</button>\n\n<button  (click)= "toRequestedWorkPage()" ion-button >\n  Requested Works\n</button>\n\n<button  (click)= "tojobreq()" ion-button >\n  Posted Jobs\n</button>\n\n<button *ngIf="checkShop(detail.role)" (click)= "toRequestedWorkPage()" ion-button >\n   Order Requests\n  </button>\n</span>\n</ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/user/user.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */]])
     ], UserPage);
@@ -1383,11 +1341,11 @@ var UserPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SingleWork; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_work_service__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_work_service__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__userWorkReqs_workreq__ = __webpack_require__(162);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_services_feedback_service__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__derections_derections__ = __webpack_require__(365);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1550,7 +1508,7 @@ var SingleWork = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(17);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1591,22 +1549,33 @@ var DerectionsPage = /** @class */ (function () {
         console.log("starting Derecion");
         this.getCurrentCordinates().then(function () {
             console.log("inside");
-            _this.startNavigating();
-            _this.addDestinationMarker(_this.userInfo[0].lat, _this.userInfo[0].lang);
-            _this.addStartMarker(_this.myLatitude, _this.mylongitude);
+            _this.loadMap().then(function () {
+                _this.startNavigating();
+                _this.addDestinationMarker(_this.userInfo[0].lat, _this.userInfo[0].lang);
+                _this.addStartMarker(_this.myLatitude, _this.mylongitude);
+            });
         }, function () {
             _this.cantgetLocationAlert();
-            _this.derectionsFromDefaultLocation();
+            _this.loadMap().then(function () {
+                _this.derectionsFromDefaultLocation();
+                _this.addDestinationMarker(_this.userInfo[0].lat, _this.userInfo[0].lang);
+                _this.addStartMarker(_this.userService.userDetails[0].lat, _this.userService.userDetails[0].lang);
+            });
         });
     };
     DerectionsPage.prototype.loadMap = function () {
-        var latLng = new google.maps.LatLng(6.927079, 79.861244);
-        var mapOptions = {
-            center: latLng,
-            zoom: 15,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        var _this = this;
+        var promise = new Promise(function (reslove, reject) {
+            var latLng = new google.maps.LatLng(6.927079, 79.861244);
+            var mapOptions = {
+                center: latLng,
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            _this.map = new google.maps.Map(_this.mapElement.nativeElement, mapOptions);
+            reslove();
+        });
+        return promise;
     };
     DerectionsPage.prototype.startNavigating = function () {
         var directionsService = new google.maps.DirectionsService;
@@ -1757,7 +1726,7 @@ var DerectionsPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], DerectionsPage.prototype, "mapElement", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('searchLocation'),
@@ -1765,16 +1734,20 @@ var DerectionsPage = /** @class */ (function () {
     ], DerectionsPage.prototype, "searchLocation", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('directionsPanel'),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], DerectionsPage.prototype, "directionsPanel", void 0);
     DerectionsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'derections',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/derections/derections.html"*/'<ion-header >\n        <ion-navbar color="primary">\n          <ion-title>\n            Map\n          </ion-title>\n        </ion-navbar>\n        <ion-toolbar color="primary">	\n          <ion-searchbar #searchLocation placeholder="Seach Places"  (keyup.eneter)="SearchPlace();"   (input)="SearchPlace()">\n          </ion-searchbar>\n          <ion-card class="derections">\n            <ion-card-content class="derection-panel"> \n                <div #directionsPanel></div>\n            </ion-card-content>\n        </ion-card>\n        </ion-toolbar>\n      </ion-header>\n      \n      <ion-content padding>\n        <!-- <div class="Map-Search-Bar">\n            <ion-item>\n              <ion-label> Search Places  </ion-label>\n              <ion-input #searchLocation (input)="SearchPlace()"> \n                  <ion-option> ha ha</ion-option>\n              </ion-input>\n            </ion-item>\n        </div> -->\n        <!-- <ion-searchbar  #searchLocation (input)="SearchPlace();xss();" placeholder="Search"></ion-searchbar>\n        <ion-list>\n        <button  class="sList" ion-item *ngFor="let location of locations">\n            {{location.name}}\n        </button>\n        </ion-list> -->\n        <ion-grid ion-fixed no-padding>\n            <ion-scroll style="width:100%;height:120px" scrollY="true">\n          <ion-list scroll="true" style="position: absolute;z-index:1;width:100%;">\n            <ion-item (click)="setCustomDerections(location.geometry.location.lat(),location.geometry.location.lng())"  *ngFor="let location of locations" color="silver" >\n              {{location.name}}\n            </ion-item>\n          </ion-list>\n          </ion-scroll>\n        </ion-grid>\n\n\n        <div  #map id="map" style="height: 100%;" class="please-work"></div>\n            <ion-fab  class="fabMap" bottom right>\n              <!-- <ion-label (click)="toMapPage" class="labelMap" >Click Here to Map view</ion-label> -->\n              <button (click)=" markDerectionsonmap();" ion-fab> <ion-icon  name="locate"></ion-icon></button>\n            </ion-fab>\n      </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/derections/derections.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */]) === "function" && _h || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ViewController */]])
     ], DerectionsPage);
     return DerectionsPage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
 }()); //class ends
 
 //# sourceMappingURL=derections.js.map
@@ -1788,10 +1761,10 @@ var DerectionsPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SingleWorkUser; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_work_service__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_work_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(22);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__requestedWorks_requestedworks__ = __webpack_require__(163);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1952,12 +1925,217 @@ var SingleWorkUser = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobRequestPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_job_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__jobinfoUser_jobinfouser__ = __webpack_require__(368);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+// import { GlobalProvider } from '../../providers/global/global'
+
+
+
+
+var JobRequestPage = /** @class */ (function () {
+    function JobRequestPage(navCtrl, userService, workService, jobService) {
+        this.navCtrl = navCtrl;
+        this.userService = userService;
+        this.workService = workService;
+        this.jobService = jobService;
+        this.details = this.userService.userDetails;
+    }
+    JobRequestPage.prototype.ngOnInit = function () {
+        this.getJobsByUser();
+    };
+    // toSingleJob(id){
+    //     this.navCtrl.push(SingleWorkUser,{
+    //       id : id
+    //     });
+    //   }
+    JobRequestPage.prototype.toJobinfoUser = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__jobinfoUser_jobinfouser__["a" /* JobInfoPageUser */], {
+            jobid: id
+        });
+    };
+    JobRequestPage.prototype.getJobsByUser = function () {
+        var _this = this;
+        this.jobService.getJobByUserId(this.userService.userDetails[0]._id).subscribe(function (response) {
+            _this.urJobs = response;
+            console.log(_this.urJobs);
+        });
+    };
+    JobRequestPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'JobRequest',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/JobRequest/JobRequest.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n         Job Requests\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <ion-list >\n      <ion-item *ngFor="let job of urJobs" (click)="toJobinfoUser(job._id)" >             \n        <ion-thumbnail item-start>\n          <img class="avatar" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">\n        </ion-thumbnail>\n        <h2 class="name" >{{job.jobTitle}} </h2>\n          <span class="rate" >\n            {{job.jobOrg}}  <br>\n            {{ job.contact }}\n          </span>\n    </ion-item> \n       \n    </ion-list>  \n  </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/JobRequest/JobRequest.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__["a" /* WorkService */],
+            __WEBPACK_IMPORTED_MODULE_4__app_services_job_service__["a" /* JobService */]])
+    ], JobRequestPage);
+    return JobRequestPage;
+}()); //end of the class
+
+//# sourceMappingURL=JobRequest.js.map
+
+/***/ }),
+
+/***/ 368:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobInfoPageUser; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_job_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_jobreq_service__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__JobRequest_JobRequest__ = __webpack_require__(367);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var JobInfoPageUser = /** @class */ (function () {
+    function JobInfoPageUser(navCtrl, navParams, JobService, jobreqService, alertCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.JobService = JobService;
+        this.jobreqService = jobreqService;
+        this.alertCtrl = alertCtrl;
+        this.jobid = navParams.get('jobid');
+        console.log(this.jobid);
+    }
+    JobInfoPageUser.prototype.ngOnInit = function () {
+        this.getjobInfo();
+        this.getApplicants();
+    };
+    JobInfoPageUser.prototype.getjobInfo = function () {
+        var _this = this;
+        this.JobService.getjobByID(this.jobid).subscribe(function (response) {
+            _this.jobInfo = response;
+            console.log(_this.jobInfo);
+        });
+    };
+    JobInfoPageUser.prototype.getApplicants = function () {
+        var _this = this;
+        this.jobreqService.getReqByJobId(this.jobid).subscribe(function (response) {
+            _this.applicants = response;
+            console.log(_this.applicants);
+        });
+    };
+    JobInfoPageUser.prototype.toemppage = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__employee_employee__["a" /* EmployeePage */], {
+            isFromJob: true,
+            userID: id
+        });
+    };
+    JobInfoPageUser.prototype.deleteJob = function (id) {
+        var _this = this;
+        this.JobService.deletejobbyid(this.jobid).subscribe(function (response) {
+            _this.dltDoneAlert();
+            _this.toJobRequst();
+        });
+    };
+    JobInfoPageUser.prototype.dltDoneAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Deleted',
+            subTitle: 'Successessfuly Deleted',
+            buttons: ['ok']
+        });
+        alert.present();
+    };
+    JobInfoPageUser.prototype.toJobRequst = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__JobRequest_JobRequest__["a" /* JobRequestPage */]);
+    };
+    JobInfoPageUser = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'jobinfouser',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/jobinfoUser/jobinforuser.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title >\n         Job Info\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n  <b> Job Information </b><br><br>\n <ion-thumbnail item-start>\n   <img class = "useravat" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">\n </ion-thumbnail>\n <br><br><br>\n <span *ngFor="let job of jobInfo">\n <h2 class="name" > {{job.jobTitle}} </h2>\n <span>\n   <b> {{job.jobOrg}} </b><br>\n   {{ job.contact }} <br>\n   {{ job.email }} <br>\n   {{ job.description }} <br>\n </span>\n<br>\n<button ion-button (click)="deleteJob(job._id)">\n  Delete Job \n</button>\n</span>\n<br><br><br>\n\n  <span class="title"> Job Applicants </span> <br><br><br>\n  <ion-item *ngFor="let a of applicants" (click)="toemppage(a.userid);" >           \n    <ion-thumbnail item-start>\n      <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n    </ion-thumbnail>\n    <h2 class="name" >{{a.userName}} </h2>\n</ion-item> \n\n\n<!-- <form align="center">\n    <ion-item>\n        <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n      </ion-item>\n</form> -->\n</ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/jobinfoUser/jobinforuser.html"*/
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_job_service__["a" /* JobService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_job_service__["a" /* JobService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_jobreq_service__["a" /* JobReqService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_jobreq_service__["a" /* JobReqService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object])
+    ], JobInfoPageUser);
+    return JobInfoPageUser;
+    var _a, _b, _c, _d, _e;
+}());
+
+// job(){
+//     this.navCtrl.push(JobPage);
+// }
+//# sourceMappingURL=jobinfouser.js.map
+
+/***/ }),
+
+/***/ 369:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobReqService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var JobReqService = /** @class */ (function () {
+    function JobReqService(http) {
+        this.http = http;
+        this.baseUrl = 'http://localhost:3000/api/fixit/jobreq';
+    }
+    JobReqService.prototype.getReqByJobId = function (id) {
+        return this.http.get(this.baseUrl + '/jobid/' + id + '').map(function (res) { return res.json(); });
+    };
+    JobReqService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    ], JobReqService);
+    return JobReqService;
+}());
+
+//# sourceMappingURL=jobreq.service.js.map
+
+/***/ }),
+
+/***/ 370:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginShopPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs_tabs__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2012,13 +2190,13 @@ var LoginShopPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 368:
+/***/ 371:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(369);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(376);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2026,7 +2204,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 373:
+/***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2034,29 +2212,29 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(410);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(699);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(700);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(701);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_service_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(413);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(702);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(703);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(704);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_service_service__ = __webpack_require__(96);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_shops_shop__ = __webpack_require__(361);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jobs_job__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jobs_job__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_user_user__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_tabs_tabs__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_tabs_tabs__ = __webpack_require__(161);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_servicelist_servicelist__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_map_map__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_servicelist_servicelist__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_map_map__ = __webpack_require__(358);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_geolocation__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_http__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_login_login__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_login_login__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_signin_signin__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_employee_employee__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_rate_rate__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_employee_employee__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_rate_rate__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_shopinfo_shopinfo__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_welcome_welcome__ = __webpack_require__(702);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_loginShop_loginShop__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_work_work__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_welcome_welcome__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_loginShop_loginShop__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_work_work__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_addjob_addjob__ = __webpack_require__(359);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_userWorkReqs_workreq__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_singleWork_singlework__ = __webpack_require__(364);
@@ -2064,12 +2242,16 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_singleworkuser_singleworkuser__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_derections_derections__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_jobdinfo_jobinfo__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_JobRequest_JobRequest__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_jobinfoUser_jobinfouser__ = __webpack_require__(368);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -2126,7 +2308,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_21__pages_rate_rate__["a" /* RatePage */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_shopinfo_shopinfo__["a" /* ShopInfoPage */],
                 __WEBPACK_IMPORTED_MODULE_23__pages_welcome_welcome__["a" /* WelcomePage */], __WEBPACK_IMPORTED_MODULE_24__pages_loginShop_loginShop__["a" /* LoginShopPage */], __WEBPACK_IMPORTED_MODULE_25__pages_work_work__["a" /* WorkPage */], __WEBPACK_IMPORTED_MODULE_26__pages_addjob_addjob__["a" /* AddJobPage */], __WEBPACK_IMPORTED_MODULE_27__pages_userWorkReqs_workreq__["a" /* WorkReqPage */], __WEBPACK_IMPORTED_MODULE_28__pages_singleWork_singlework__["a" /* SingleWork */], __WEBPACK_IMPORTED_MODULE_29__pages_requestedWorks_requestedworks__["a" /* RequestedWorkPage */], __WEBPACK_IMPORTED_MODULE_30__pages_singleworkuser_singleworkuser__["a" /* SingleWorkUser */], __WEBPACK_IMPORTED_MODULE_32__pages_jobdinfo_jobinfo__["a" /* JobInfoPage */],
-                __WEBPACK_IMPORTED_MODULE_31__pages_derections_derections__["a" /* DerectionsPage */]
+                __WEBPACK_IMPORTED_MODULE_31__pages_derections_derections__["a" /* DerectionsPage */], __WEBPACK_IMPORTED_MODULE_33__pages_JobRequest_JobRequest__["a" /* JobRequestPage */], __WEBPACK_IMPORTED_MODULE_34__pages_jobinfoUser_jobinfouser__["a" /* JobInfoPageUser */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -2152,7 +2334,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_19__pages_signin_signin__["a" /* SigninPage */],
                 __WEBPACK_IMPORTED_MODULE_20__pages_employee_employee__["a" /* EmployeePage */],
                 __WEBPACK_IMPORTED_MODULE_21__pages_rate_rate__["a" /* RatePage */], __WEBPACK_IMPORTED_MODULE_22__pages_shopinfo_shopinfo__["a" /* ShopInfoPage */], __WEBPACK_IMPORTED_MODULE_23__pages_welcome_welcome__["a" /* WelcomePage */], __WEBPACK_IMPORTED_MODULE_24__pages_loginShop_loginShop__["a" /* LoginShopPage */], __WEBPACK_IMPORTED_MODULE_25__pages_work_work__["a" /* WorkPage */], __WEBPACK_IMPORTED_MODULE_26__pages_addjob_addjob__["a" /* AddJobPage */], __WEBPACK_IMPORTED_MODULE_27__pages_userWorkReqs_workreq__["a" /* WorkReqPage */], __WEBPACK_IMPORTED_MODULE_28__pages_singleWork_singlework__["a" /* SingleWork */], __WEBPACK_IMPORTED_MODULE_30__pages_singleworkuser_singleworkuser__["a" /* SingleWorkUser */], __WEBPACK_IMPORTED_MODULE_31__pages_derections_derections__["a" /* DerectionsPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_requestedWorks_requestedworks__["a" /* RequestedWorkPage */], __WEBPACK_IMPORTED_MODULE_32__pages_jobdinfo_jobinfo__["a" /* JobInfoPage */]
+                __WEBPACK_IMPORTED_MODULE_29__pages_requestedWorks_requestedworks__["a" /* RequestedWorkPage */], __WEBPACK_IMPORTED_MODULE_32__pages_jobdinfo_jobinfo__["a" /* JobInfoPage */], __WEBPACK_IMPORTED_MODULE_33__pages_JobRequest_JobRequest__["a" /* JobRequestPage */], __WEBPACK_IMPORTED_MODULE_34__pages_jobinfoUser_jobinfouser__["a" /* JobInfoPageUser */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__["a" /* StatusBar */],
@@ -2169,7 +2351,7 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 410:
+/***/ 413:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2178,13 +2360,14 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(259);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(263);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_role_service__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_role_service__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_feedback_service__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_shop_service__ = __webpack_require__(698);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_work_service__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_job_service__ = __webpack_require__(159);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_shop_service__ = __webpack_require__(701);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_work_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_job_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_jobreq_service__ = __webpack_require__(369);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2194,6 +2377,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -2217,7 +2401,7 @@ var MyApp = /** @class */ (function () {
     }
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/hansand/projects/fixit/src/app/app.html"*/'<!-- <ion-nav [root]="rootPage"></ion-nav> -->\n\n<ion-menu [content]="content">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n    <ion-content>\n      <ion-list>\n        <button ion-item (click)="openPage(homePage)">\n          Home\n        </button>\n        <button ion-item (click)="openPage(friendsPage)">\n          Friends\n        </button>\n        <button ion-item (click)="openPage(eventsPage)">\n          Events\n        </button>\n        <button ion-item (click)="closeMenu()">\n          Close Menu\n        </button>\n      </ion-list>\n    </ion-content>\n  </ion-menu>\n  \n  <ion-nav id="nav" #content [root]="rootPage"></ion-nav>'/*ion-inline-end:"/home/hansand/projects/fixit/src/app/app.html"*/,
-            providers: [__WEBPACK_IMPORTED_MODULE_4__services_users_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_5__services_role_service__["a" /* RoleService */], __WEBPACK_IMPORTED_MODULE_6__services_feedback_service__["a" /* FeedBackService */], __WEBPACK_IMPORTED_MODULE_7__services_shop_service__["a" /* ShopService */], __WEBPACK_IMPORTED_MODULE_8__services_work_service__["a" /* WorkService */], __WEBPACK_IMPORTED_MODULE_9__services_job_service__["a" /* JobService */]]
+            providers: [__WEBPACK_IMPORTED_MODULE_4__services_users_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_5__services_role_service__["a" /* RoleService */], __WEBPACK_IMPORTED_MODULE_6__services_feedback_service__["a" /* FeedBackService */], __WEBPACK_IMPORTED_MODULE_7__services_shop_service__["a" /* ShopService */], __WEBPACK_IMPORTED_MODULE_8__services_work_service__["a" /* WorkService */], __WEBPACK_IMPORTED_MODULE_9__services_job_service__["a" /* JobService */], __WEBPACK_IMPORTED_MODULE_11__services_jobreq_service__["a" /* JobReqService */]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -2228,55 +2412,15 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 64:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoleService; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(23);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var RoleService = /** @class */ (function () {
-    function RoleService(http) {
-        this.http = http;
-        this.baseUrl = 'http://localhost:3000/api/fixit/roles';
-    }
-    RoleService.prototype.getAllRoles = function () {
-        return this.http.get(this.baseUrl).map(function (res) { return res.json(); });
-    };
-    RoleService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
-    ], RoleService);
-    return RoleService;
-}());
-
-//# sourceMappingURL=role.service.js.map
-
-/***/ }),
-
-/***/ 65:
+/***/ 47:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WorkService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2314,7 +2458,7 @@ var WorkService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 66:
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2322,9 +2466,9 @@ var WorkService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tabs_tabs__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__service_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__tabs_tabs__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2383,7 +2527,7 @@ var LoginPage = /** @class */ (function () {
     ], LoginPage.prototype, "password", void 0);
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'login',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/login/login.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        Login as Person\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>   \n       <form >\n    <ion-item>\n      <!-- <ion-label>Username</ion-label> -->\n      <ion-label  floating>Email</ion-label>\n      <ion-input  #email type="email" ></ion-input>\n    </ion-item>\n    <ion-item>\n      <!-- <ion-label>Password</ion-label> -->\n      <ion-label floating>Password</ion-label>\n      <ion-input #password type="password" ></ion-input>\n    </ion-item>\n   \n    <button (click)="getUserDetails();" ion-button type="submit" block> Login </button>\n    <button (click)="Signin();" ion-button type="submit" block> Sign In</button>\n  </form>\n  '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/login/login.html"*/,
+            selector: 'login',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/login/login.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        Login\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>   \n       <form >\n    <ion-item>\n      <!-- <ion-label>Username</ion-label> -->\n      <ion-label  floating>Email</ion-label>\n      <ion-input  #email type="email" ></ion-input>\n    </ion-item>\n    <ion-item>\n      <!-- <ion-label>Password</ion-label> -->\n      <ion-label floating>Password</ion-label>\n      <ion-input #password type="password" ></ion-input>\n    </ion-item>\n   \n    <button (click)="getUserDetails();" ion-button type="submit" block> Login </button>\n    <button (click)="Signin();" ion-button type="submit" block> Sign In</button>\n  </form>\n  '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/login/login.html"*/,
         }),
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__["a" /* UserService */],
@@ -2396,76 +2540,17 @@ var LoginPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 67:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServicePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__ = __webpack_require__(355);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__ = __webpack_require__(21);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ServicePage = /** @class */ (function () {
-    function ServicePage(userService, navCtrl, RoleService) {
-        this.userService = userService;
-        this.navCtrl = navCtrl;
-        this.RoleService = RoleService;
-        console.log(this.userService.userDetails);
-    }
-    ServicePage.prototype.ionViewDidLoad = function () {
-        this.getAllRoles();
-    };
-    ServicePage.prototype.serviceList = function (role) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__["a" /* ServiceListPage */], {
-            role: role
-        });
-    };
-    ServicePage.prototype.getAllRoles = function () {
-        var _this = this;
-        this.RoleService.getAllRoles().subscribe(function (response) {
-            _this.roles = response;
-            // console.log(this.roles);
-        });
-    };
-    ServicePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'service',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/service/service.html"*/'<ion-header >\n    <ion-navbar color="primary">\n            \n      <ion-title >\n        Welcome to FixIt\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content class="background" padding="true">\n    <ion-content class="card-background-page" padding="true">\n      <h4 align = "center"><b>Select a Service</b></h4>\n\n      <ion-card  *ngFor="let role of roles"  (click)="serviceList(role.roleName);" >\n        <img src="https://i.pinimg.com/originals/49/31/2b/49312bb613a671f9e41c3c51aaaf77f6.jpg"/>\n        <div class="card-title"> {{role.roleName}}</div>\n      </ion-card>\n   \n  </ion-content>\n  '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/service/service.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__app_services_users_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__["a" /* RoleService */]])
-    ], ServicePage);
-    return ServicePage;
-}());
-
-//# sourceMappingURL=service.js.map
-
-/***/ }),
-
-/***/ 68:
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmployeePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rate_rate__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__work_work__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rate_rate__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__work_work__ = __webpack_require__(356);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2489,6 +2574,8 @@ var EmployeePage = /** @class */ (function () {
         this.userService = userService;
         this.feedbackService = feedbackService;
         this.userID = navParams.get('userID');
+        this.isFromJob = navParams.get('isFromJob');
+        console.log(this.isFromJob);
     }
     EmployeePage.prototype.ngOnInit = function () {
         console.log(this.userID);
@@ -2523,7 +2610,7 @@ var EmployeePage = /** @class */ (function () {
     };
     EmployeePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'employee',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title >\n        Employee Profile\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    <b> Employee Information </b><br><br>\n    \n \n <ion-thumbnail item-start>\n   <img class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n </ion-thumbnail>\n <br><br>\n <span class="empInfoWrapper" *ngFor="let user of userInfo" >\n <h2 class="name" >{{user.fname}} {{user.lname}} </h2>\n <span>\n   <b> {{ user.role }} </b><br>\n   Ratings:{{ user.ratings }}   <br>\n   {{ user.nearTown}}  <br>\n   Contact Number : {{ user.telephone }} \n </span>\n<br>\n<button ion-button icon-start (click)="toRatePage()">\n  <ion-icon name="star-half"></ion-icon>\n  Give Feedback\n</button>\n<button ion-button (click)="toWorkPage()" >\n  <ion-icon name="star-half"></ion-icon>\n  Send a Job Request  \n</button>\n</span>\n<br><br>\n<b>Feed Backs By Users </b>\n\n<ion-list>\n  <ion-item class="singleFeedback" *ngFor="let feedback of feedbacks">\n    {{feedback.feedback}} <br>\n    <span> By Customer x </span>\n  </ion-item>\n</ion-list>\n<!-- <form align="center">\n    <ion-item>\n        <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n      </ion-item>\n</form> -->\n   </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/
+            selector: 'employee',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title >\n        Employee Profile\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    <b> Employee Information </b><br><br>\n    \n \n <ion-thumbnail item-start>\n   <img class = "useravat" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">\n </ion-thumbnail>\n <br><br>\n <span class="empInfoWrapper" *ngFor="let user of userInfo" >\n <h2 class="name" >{{user.name}} </h2>\n <span>\n   <b> {{ user.role }} </b><br>\n   Ratings:{{ user.ratings }}   <br>\n   {{ user.nearTown}}  <br>\n   Contact Number : {{ user.telephone }} \n </span>\n<br>\n<button *ngIf="!isFromJob" ion-button icon-start (click)="toRatePage()">\n  <ion-icon name="star-half"></ion-icon>\n  Give Feedback\n</button>\n<button *ngIf="!isFromJob" ion-button (click)="toWorkPage()" >\n  <ion-icon name="star-half"></ion-icon>\n  Send a Job Request  \n</button>\n</span>\n<br><br>\n<b>Feed Backs By Users </b>\n<br><br>\n<ion-list>\n  <ion-item class="singleFeedback" *ngFor="let feedback of feedbacks">\n    {{feedback.feedback}} <br>\n   <span> {{feedback.ratePoint}}/10 </span> <br>\n   <span> by {{feedback.userName}} </span>     \n  </ion-item>\n</ion-list>\n<!-- <form align="center">\n    <ion-item>\n        <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>\n      </ion-item>\n</form> -->\n   </ion-content>'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/employee/employee.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
@@ -2537,15 +2624,107 @@ var EmployeePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 698:
+/***/ 67:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoleService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var RoleService = /** @class */ (function () {
+    function RoleService(http) {
+        this.http = http;
+        this.baseUrl = 'http://localhost:3000/api/fixit/roles';
+    }
+    RoleService.prototype.getAllRoles = function () {
+        return this.http.get(this.baseUrl).map(function (res) { return res.json(); });
+    };
+    RoleService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    ], RoleService);
+    return RoleService;
+}());
+
+//# sourceMappingURL=role.service.js.map
+
+/***/ }),
+
+/***/ 68:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var JobService = /** @class */ (function () {
+    function JobService(http) {
+        this.http = http;
+        this.baseUrl = 'http://localhost:3000/api/fixit/jobs';
+    }
+    JobService.prototype.getAllJobs = function () {
+        return this.http.get(this.baseUrl).map(function (res) { return res.json(); });
+    };
+    JobService.prototype.getjobByID = function (id) {
+        return this.http.get(this.baseUrl + '/' + id + '').map(function (res) { return res.json(); });
+    };
+    //   getJobByID(id){
+    //     return this.http.get(this.baseUrl+'/getid/'+id+'').map(res=> res.json());
+    // }
+    JobService.prototype.getJobByUserId = function (id) {
+        return this.http.get(this.baseUrl + '/empid/' + id + '').map(function (res) { return res.json(); });
+    };
+    JobService.prototype.deletejobbyid = function (id) {
+        return this.http.delete(this.baseUrl + '/' + id + '').map(function (res) { return res.json(); });
+    };
+    JobService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
+    ], JobService);
+    return JobService;
+}());
+
+//# sourceMappingURL=job.service.js.map
+
+/***/ }),
+
+/***/ 701:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ShopService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2580,7 +2759,7 @@ var ShopService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 699:
+/***/ 702:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2615,7 +2794,7 @@ var AboutPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 700:
+/***/ 703:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2650,7 +2829,7 @@ var ContactPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 701:
+/***/ 704:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2685,7 +2864,7 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 702:
+/***/ 705:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2693,8 +2872,8 @@ var HomePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loginShop_loginShop__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loginShop_loginShop__ = __webpack_require__(370);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2741,9 +2920,9 @@ var WelcomePage = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FeedBackService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2785,10 +2964,10 @@ var FeedBackService = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__service_service__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__employee_employee__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_role_service__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__employee_employee__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_geolocation__ = __webpack_require__(95);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2821,14 +3000,14 @@ var SigninPage = /** @class */ (function () {
     SigninPage.prototype.ngOnInit = function () {
         this.getAllRoles();
     };
-    SigninPage.prototype.ServiceList = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__service_service__["a" /* ServicePage */]);
+    SigninPage.prototype.toLoginPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
     };
     SigninPage.prototype.UsersignIn = function () {
         this.navCtrl.push(SigninPage_1);
     };
     SigninPage.prototype.EmployeePage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__employee_employee__["a" /* EmployeePage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__employee_employee__["a" /* EmployeePage */]);
     };
     SigninPage.prototype.getAllRoles = function () {
         var _this = this;
@@ -2840,7 +3019,7 @@ var SigninPage = /** @class */ (function () {
     SigninPage.prototype.signIn = function () {
         var _this = this;
         console.log(this.rolex.value);
-        var headers = new __WEBPACK_IMPORTED_MODULE_5__angular_http__["a" /* Headers */]();
+        var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'Application/json');
         if (this.name.value &&
             this.email.value &&
@@ -2865,7 +3044,7 @@ var SigninPage = /** @class */ (function () {
                 .subscribe(function (data) {
                 console.log(data);
                 _this.signDoneAlert();
-                _this.ServiceList();
+                _this.toLoginPage();
             }, function (error) {
                 console.log("opps");
             });
@@ -2937,11 +3116,11 @@ var SigninPage = /** @class */ (function () {
     ], SigninPage.prototype, "ShopType", void 0);
     SigninPage = SigninPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'signin',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        Sign In\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  <ion-content padding>  \n\n    Register as an User or a Shop\n      <ion-segment class="segmentBase" [(ngModel)]="tab" color="primary" >\n          <ion-segment-button value="SigninPage">\n              User\n            </ion-segment-button>\n            <ion-segment-button value="list">\n              Shop\n            </ion-segment-button>\n      </ion-segment>\n   \n          <div [ngSwitch]="tab">\n     \n            <form *ngSwitchCase="\'SigninPage\'" >\n              <ion-item >\n\n                <ion-label floating>User Name/Shop Name</ion-label>\n                <ion-input type="text"  #name ></ion-input>\n              </ion-item>\n              <ion-item>\n \n                <ion-label floating>Email</ion-label>\n                <ion-input #email type="text"  name="email"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Password</ion-label>\n                <ion-input #password type="password"  name="password"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Mobile Number</ion-label>\n                <ion-input #telephone  type="number"  name="telephone"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Address</ion-label>\n                <ion-input #address type="text"  name="address"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>User Type</ion-label>\n                \n                  <ion-select   #rolex>\n                      <ion-option value="Customer">Customer</ion-option>\n                      <ion-option value="Shop">Shop</ion-option>\n                    <ion-option *ngFor="let role of roles" value="{{role.roleName}}">{{role.roleName}}</ion-option>\n                  </ion-select>\n              </ion-item>\n              <ion-item>\n                  <ion-label floating> Shop Type(you can Skip this if your not Sing In as a Shop) </ion-label>\n                <ion-select   #shopType>\n                <ion-option value="Hardware">Harware</ion-option>\n                <ion-option value="AC">AC</ion-option>\n                <ion-option value="Electric">Electric</ion-option>\n            </ion-select>\n        </ion-item>\n<br><br><br>\n              <span>  Your Current Location Wll be Saved as Your Location.</span>\n              <button (click)="signIn()" ion-button type="submit" block> Sign In </button>\n\n            </form>\n\n            <!-- <form *ngSwitchCase="\'list\'">\n              <ion-item>           \n                <ion-label floating>Shop Name</ion-label>\n                <ion-input type="text"  name="sname"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                  <ion-label floating>Email</ion-label>\n                  <ion-input type="email"  name="email"></ion-input>\n                </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Password</ion-label>\n                <ion-input type="text"  name="spassword"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Contact Number</ion-label>\n                <ion-input type="text"  name="scontact"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Address</ion-label>\n                <ion-input type="text"  name="saddress"></ion-input>\n              </ion-item>\n\n              \n              <button (click)="ServiceList();" ion-button type="submit" block> Register </button>\n\n            </form> -->\n          </div>\n  </ion-content>\n        \n      '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/
+            selector: 'signin',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n        Sign In\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  <ion-content padding>  \n\n\n\n  <b class="title"> Register as an User or a Shop </b> \n    \n            <div>\n              <form  >\n              <ion-item >\n\n                <ion-label floating>User Name/Shop Name</ion-label>\n                <ion-input type="text"  #name ></ion-input>\n              </ion-item>\n              <ion-item>\n \n                <ion-label floating>Email</ion-label>\n                <ion-input #email type="text"  name="email"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Password</ion-label>\n                <ion-input #password type="password"  name="password"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Mobile Number</ion-label>\n                <ion-input #telephone  type="number"  name="telephone"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>Address</ion-label>\n                <ion-input #address type="text"  name="address"></ion-input>\n              </ion-item>\n\n              <ion-item>\n                <ion-label floating>User Type</ion-label>\n                \n                  <ion-select   #rolex>\n                      <ion-option value="Customer">Customer</ion-option>\n                      <ion-option value="Shop">Shop</ion-option>\n                    <ion-option *ngFor="let role of roles" value="{{role.roleName}}">{{role.roleName}}</ion-option>\n                  </ion-select>\n              </ion-item>\n              <ion-item>\n                  <ion-label floating> Shop Type(you can Skip this if your not Sing In as a Shop) </ion-label>\n                <ion-select   #shopType>\n                <ion-option value="Hardware">Harware</ion-option>\n                <ion-option value="AC">AC</ion-option>\n                <ion-option value="Electric">Electric</ion-option>\n            </ion-select>\n        </ion-item>\n<br><br><br>\n              <span>  Your Current Location Wll be Saved as Your Location.</span>\n              <button (click)="signIn()" ion-button type="submit" block> Sign In </button>\n\n            </form>\n\n            <!-- <form *ngSwitchCase="\'list\'">\n              <ion-item>           \n                <ion-label floating>Shop Name</ion-label>\n                <ion-input type="text"  name="sname"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                  <ion-label floating>Email</ion-label>\n                  <ion-input type="email"  name="email"></ion-input>\n                </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Password</ion-label>\n                <ion-input type="text"  name="spassword"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Contact Number</ion-label>\n                <ion-input type="text"  name="scontact"></ion-input>\n              </ion-item>\n\n              <ion-item>           \n                <ion-label floating>Address</ion-label>\n                <ion-input type="text"  name="saddress"></ion-input>\n              </ion-item>\n\n              \n              <button (click)="ServiceList();" ion-button type="submit" block> Register </button>\n\n            </form> -->\n          </div>\n  </ion-content>\n        \n      '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/signin/signin.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_4__app_services_role_service__["a" /* RoleService */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__["a" /* RoleService */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */],
             __WEBPACK_IMPORTED_MODULE_6__ionic_native_geolocation__["a" /* Geolocation */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], SigninPage);
@@ -2951,7 +3130,145 @@ var SigninPage = /** @class */ (function () {
 
 //# sourceMappingURL=signin.js.map
 
+/***/ }),
+
+/***/ 96:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServicePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__ = __webpack_require__(17);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ServicePage = /** @class */ (function () {
+    function ServicePage(userService, navCtrl, RoleService) {
+        this.userService = userService;
+        this.navCtrl = navCtrl;
+        this.RoleService = RoleService;
+        console.log(this.userService.userDetails);
+    }
+    ServicePage.prototype.ionViewDidLoad = function () {
+        this.getAllRoles();
+    };
+    ServicePage.prototype.serviceList = function (role) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__["a" /* ServiceListPage */], {
+            role: role
+        });
+    };
+    ServicePage.prototype.getAllRoles = function () {
+        var _this = this;
+        this.RoleService.getAllRoles().subscribe(function (response) {
+            _this.roles = response;
+            // console.log(this.roles);
+        });
+    };
+    ServicePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'service',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/service/service.html"*/'<ion-header >\n    <ion-navbar color="primary">\n            \n      <ion-title >\n        Welcome to FixIt\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content class="background" padding="true">\n    <ion-content class="card-background-page" padding="true">\n      <h4 align = "center"><b>Select a Service</b></h4>\n\n      <ion-card  *ngFor="let role of roles"  (click)="serviceList(role.roleName);" >\n        <img src="https://i.pinimg.com/originals/49/31/2b/49312bb613a671f9e41c3c51aaaf77f6.jpg"/>\n        <div class="card-title"> {{role.roleName}}</div>\n      </ion-card>\n   \n  </ion-content>\n  '/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/service/service.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__app_services_users_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__["a" /* RoleService */]])
+    ], ServicePage);
+    return ServicePage;
+}());
+
+//# sourceMappingURL=service.js.map
+
+/***/ }),
+
+/***/ 97:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addjob_addjob__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_job_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jobdinfo_jobinfo__ = __webpack_require__(360);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var JobPage = /** @class */ (function () {
+    function JobPage(navCtrl, navParams, JobService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.JobService = JobService;
+        // this.job=navParams.get('jobID');
+    }
+    JobPage.prototype.ngOnInit = function () {
+        console.log("working");
+        // this.getJobInfo();
+    };
+    // getJobInfo(){
+    //   this.JobService.getAllJobs().subscribe(response=> {
+    //     this.jobInfo=response;
+    //     console.log(this.jobInfo);
+    //    })
+    // }
+    //   getJobInfo(){
+    //     this.JobService.getjobByID(this.jobID).subscribe(response=> {
+    //       this.jobInfo=response;
+    //       console.log(this.jobInfo);
+    //      })
+    //   }
+    JobPage.prototype.tojobInfoPage = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__jobdinfo_jobinfo__["a" /* JobInfoPage */], {
+            jobID: id
+        });
+    };
+    JobPage.prototype.addNewJob = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__addjob_addjob__["a" /* AddJobPage */]);
+    };
+    JobPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AboutPage');
+        this.getJobs();
+    };
+    JobPage.prototype.getJobs = function () {
+        var _this = this;
+        this.JobService.getAllJobs().subscribe(function (response) {
+            _this.jobInfo = response;
+            console.log(_this.jobInfo);
+        });
+    };
+    JobPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'job',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/'<ion-header >\n  <ion-navbar color="primary">\n    <ion-title>\n      Jobs\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding align="center">\n    <b>Available Jobs</b><br><br>\n\n          <ion-list >\n            <ion-item *ngFor="let job of jobInfo" (click)="tojobInfoPage(job._id)" >             \n              <ion-thumbnail item-start>\n                <img class="avatar" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">\n              </ion-thumbnail>\n              <h2 class="name" >{{job.jobTitle}} </h2>\n                <span class="rate" >\n                  {{job.jobOrg}}  <br>\n                  {{ job.contact }}\n                </span>\n          </ion-item> \n             \n          </ion-list>  \n          <ion-fab bottom left  >\n              <button ion-fab transition-delay ="20ms"><ion-icon name="add"></ion-icon></button>\n              <ion-fab-list side=top>\n                  <button ion-button round mini (click)="addNewJob()" > Add job</button>\n                  <button ion-button round mini> Update job</button>\n                  <button ion-button round mini> Delete job</button>\n              </ion-fab-list>\n            </ion-fab>     \n</ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/jobs/job.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__app_services_job_service__["a" /* JobService */]])
+    ], JobPage);
+    return JobPage;
+}());
+
+//# sourceMappingURL=job.js.map
+
 /***/ })
 
-},[368]);
+},[371]);
 //# sourceMappingURL=main.js.map

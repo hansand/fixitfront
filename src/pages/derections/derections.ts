@@ -69,23 +69,36 @@ export class DerectionsPage {
       console.log("starting Derecion");
     this.getCurrentCordinates().then(()=>{
       console.log("inside");
+      this.loadMap().then(()=>{
         this.startNavigating();
         this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
         this.addStartMarker(this.myLatitude,this.mylongitude);
+      })
+        
     },()=>{
       this.cantgetLocationAlert();
-      this.derectionsFromDefaultLocation();
+      this.loadMap().then(()=>{
+      this.derectionsFromDefaultLocation();    
+      this.addDestinationMarker(this.userInfo[0].lat,this.userInfo[0].lang);
+      this.addStartMarker(this.userService.userDetails[0].lat,this.userService.userDetails[0].lang);    
+      })
     });
   }
 
   loadMap(){
-    let latLng = new google.maps.LatLng(6.927079, 79.861244);
-    let mapOptions = {
-      center: latLng,
-      zoom: 15,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+
+    var promise = new Promise((reslove,reject)=>{
+      let latLng = new google.maps.LatLng(6.927079, 79.861244);
+      let mapOptions = {
+        center: latLng,
+        zoom: 15,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+      reslove();
+    })
+    return promise;
+
 }
 
 startNavigating(){

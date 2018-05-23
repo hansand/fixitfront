@@ -19,6 +19,7 @@ import { WorkPage } from '../work/work'
     userID:any;
     userInfo:any;
     feedbacks:any;
+    isFromJob:boolean;
 
     constructor(
         public navCtrl: NavController,
@@ -26,6 +27,9 @@ import { WorkPage } from '../work/work'
         private userService:UserService,
         private feedbackService:FeedBackService) {
       this.userID=navParams.get('userID');
+      this.isFromJob=navParams.get('isFromJob');
+      console.log(this.isFromJob);
+      
     }
     ngOnInit(){
       console.log(this.userID);

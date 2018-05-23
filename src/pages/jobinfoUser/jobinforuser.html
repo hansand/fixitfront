@@ -1,0 +1,44 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title >
+         Job Info
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content align = "Center" padding="true">
+  <b> Job Information </b><br><br>
+ <ion-thumbnail item-start>
+   <img class = "useravat" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">
+ </ion-thumbnail>
+ <br><br><br>
+ <span *ngFor="let job of jobInfo">
+ <h2 class="name" > {{job.jobTitle}} </h2>
+ <span>
+   <b> {{job.jobOrg}} </b><br>
+   {{ job.contact }} <br>
+   {{ job.email }} <br>
+   {{ job.description }} <br>
+ </span>
+<br>
+<button ion-button (click)="deleteJob(job._id)">
+  Delete Job 
+</button>
+</span>
+<br><br><br>
+
+  <span class="title"> Job Applicants </span> <br><br><br>
+  <ion-item *ngFor="let a of applicants" (click)="toemppage(a.userid);" >           
+    <ion-thumbnail item-start>
+      <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
+    </ion-thumbnail>
+    <h2 class="name" >{{a.userName}} </h2>
+</ion-item> 
+
+
+<!-- <form align="center">
+    <ion-item>
+        <ion-textarea placeholder="Give Me Your Review!!"></ion-textarea>
+      </ion-item>
+</form> -->
+</ion-content>

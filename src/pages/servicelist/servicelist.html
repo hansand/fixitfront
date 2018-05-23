@@ -15,7 +15,7 @@
                 <ion-thumbnail item-start>
                   <img class="avatar" src="http://res.cloudinary.com/dhglhpsmu/image/upload/c_scale,w_166/v1524171287/man.png">
                 </ion-thumbnail>
-                <h2 class="name" >{{user.name}}  </h2> <img *ngIf="checkRate()" src="../../assets/imgs/like.png" alt="">
+                <h2 class="name" >{{user.name}}  </h2> <img *ngIf="checkRate(user.ratings)" src="../../assets/imgs/like.png" alt="">
                 <span class="rate" >
                   Ratings: {{user.ratings}}/10  <br>
                   {{ user.nearTown }}

@@ -25719,12 +25719,17 @@ ion-navbar.toolbar {
 .singleFeedback {
   border-bottom: solid 1px;
   border-bottom-color: gainsboro;
+  font-size: 15px;
 }
 
 .singleFeedback span {
   margin-left: 60%;
   color: gainsboro;
   font-size: 15px;
+}
+
+.title {
+  font-size: 20px;
 }
 
 .segmentBase {
@@ -25899,6 +25904,10 @@ ion-card.service-list {
 
 .fab {
   contain: layout;
+}
+
+.title {
+  font-size: 20px;
 }
 
 .title {

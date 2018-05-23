@@ -5,6 +5,7 @@ import {LoginPage} from '../login/login'
 import { UserService } from '../../app/services/users.service';
 import { WorkReqPage } from '../userWorkReqs/workreq';
 import { RequestedWorkPage } from '../requestedWorks/requestedworks';
+import { JobRequestPage } from '../JobRequest/JobRequest';
 
 
 
@@ -33,6 +34,10 @@ toWorkReqPage(){
     this.navCtrl.push(RequestedWorkPage);
   }
 
+  tojobreq(){
+    console.log("navigating to job request page");
+      this.navCtrl.push(JobRequestPage);
+    }
   checkShop(role){
     if(role == "shop" || role=="Shop"){
       return true;

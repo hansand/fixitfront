@@ -34,6 +34,8 @@ import { RequestedWorkPage } from '../pages/requestedWorks/requestedworks';
 import { SingleWorkUser } from '../pages/singleworkuser/singleworkuser';
 import { DerectionsPage } from '../pages/derections/derections';
 import { JobInfoPage } from '../pages/jobdinfo/jobinfo';
+import { JobRequestPage } from '../pages/JobRequest/JobRequest';
+import { JobInfoPageUser } from '../pages/jobinfoUser/jobinfouser';
 
 
 
@@ -56,7 +58,7 @@ import { JobInfoPage } from '../pages/jobdinfo/jobinfo';
     RatePage,
     ShopInfoPage,
     WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork,RequestedWorkPage,SingleWorkUser,JobInfoPage,
-    DerectionsPage
+    DerectionsPage,JobRequestPage,JobInfoPageUser
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,7 @@ import { JobInfoPage } from '../pages/jobdinfo/jobinfo';
     SigninPage,
     EmployeePage,
     RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork,SingleWorkUser,DerectionsPage,
-    RequestedWorkPage,JobInfoPage
+    RequestedWorkPage,JobInfoPage,JobRequestPage,JobInfoPageUser
   ],
   providers: [
     StatusBar,

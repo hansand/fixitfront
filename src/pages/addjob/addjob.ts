@@ -3,6 +3,7 @@ import { NavController,NavParams,AlertController,ViewController } from 'ionic-an
 import { JobPage } from '../jobs/job';
 import { RoleService } from '../../app/services/role.service';
 import { Http,Headers} from '@angular/http'
+import { UserService } from '../../app/services/users.service';
 
 
 @Component({
@@ -23,7 +24,8 @@ import { Http,Headers} from '@angular/http'
     constructor(public navCtrl: NavController,
       private RoleService:RoleService,
       public http:Http,
-      private alertCtrl: AlertController) {
+      private alertCtrl: AlertController,
+     private userService:UserService) {
   
     }
 
@@ -40,6 +42,7 @@ import { Http,Headers} from '@angular/http'
          this.contact.value &&
          this.description.value){
       let body={
+        userID:this.userService.userDetails[0]._id,
         jobTitle:this.jobTitle.value,
         jobOrg:this.jobOrg.value,
         email:this.email.value,

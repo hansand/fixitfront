@@ -15,7 +15,7 @@
  </ion-thumbnail>
  <br><br>
  <span class="empInfoWrapper" *ngFor="let user of userInfo" >
- <h2 class="name" >{{user.fname}} {{user.lname}} </h2>
+ <h2 class="name" >{{user.name}} </h2>
  <span>
    <b> {{ user.role }} </b><br>
    Ratings:{{ user.ratings }}   <br>
@@ -23,22 +23,23 @@
    Contact Number : {{ user.telephone }} 
  </span>
 <br>
-<button ion-button icon-start (click)="toRatePage()">
+<button *ngIf="!isFromJob" ion-button icon-start (click)="toRatePage()">
   <ion-icon name="star-half"></ion-icon>
   Give Feedback
 </button>
-<button ion-button (click)="toWorkPage()" >
+<button *ngIf="!isFromJob" ion-button (click)="toWorkPage()" >
   <ion-icon name="star-half"></ion-icon>
   Send a Job Request  
 </button>
 </span>
 <br><br>
 <b>Feed Backs By Users </b>
-
+<br><br>
 <ion-list>
   <ion-item class="singleFeedback" *ngFor="let feedback of feedbacks">
     {{feedback.feedback}} <br>
-    <span> By Customer x </span>
+   <span> {{feedback.ratePoint}}/10 </span> <br>
+   <span> by {{feedback.userName}} </span>     
   </ion-item>
 </ion-list>
 <!-- <form align="center">

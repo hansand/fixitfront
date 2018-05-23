@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angul
 import { ShopPage } from '../shops/shop';
 import { Http,Headers} from '@angular/http';
 import { FeedBackService } from '../../app/services/feedback.service';
+import { UserService } from '../../app/services/users.service';
 
 
 
@@ -27,7 +28,8 @@ export class RatePage {
     public navParams: NavParams,
     private alertCtrl: AlertController,
     public http:Http,
-    private feedbackService:FeedBackService) {
+    private feedbackService:FeedBackService,
+    private userService:UserService) {
 
     this.userInfo=navParams.get('userInfo');
     this.userID=navParams.get('userID');
@@ -44,6 +46,8 @@ export class RatePage {
         let body={
             empID:this.userID,
             feedback:this.feedback.value,
+            userID:this.userService.userDetails[0]._id,
+            userName:this.userService.userDetails[0].name,
             ratePoint:this.ratepoint.value
         };
         this.http.post('http://localhost:3000/api/fixit/feedback',body,{headers:headers})

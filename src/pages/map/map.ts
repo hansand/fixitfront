@@ -58,28 +58,42 @@ export class MapPage {
   ngOnInit(){
     this.loadMap();
     this.addMarkers();
-    // this.nullLocation();
-    this.addCurrentLocation();
+    this.nullLocation();
+    // this.addCurrentLocation();
     console.log("map ngOnit");
   }
 
   getCurrentCordinates(){
-      var promise = new Promise((reslove,reject)=>{
-        Geolocation.getPlugin().getCurrentPosition(response => {
-          this.myLatitude=parseFloat(response.coords.latitude);
-          this.mylongitude=parseFloat(response.coords.longitude);
-          // this.position.push(this.myLatitude);
-          // this.position.push(this.mylongitude);
-          reslove();
-        });
+    var done:boolean=false;
+    var promise = new Promise((reslove,reject)=>{
+        // reject();
+    
+            Geolocation.getPlugin().getCurrentPosition(response => {
+                this.myLatitude=parseFloat(response.coords.latitude);
+                this.mylongitude=parseFloat(response.coords.longitude);
+                console.log(this.myLatitude);
+                var done=true;
+                console.log("1234","done" );
+                reslove();
+                // if(this.myLatitude.length>0 && this.mylongitude.length>0){
+                //     reslove();
+                // }else{
+                //     reject();
+                // }
+              })
 
-        setTimeout(()=>{
-          reject();
-        },5000)
-      })
-      return promise;
-  }
-
+              setTimeout(()=>{
+                console.log("waited");
+                  // reject();
+                  
+              },5000)
+        
+ 
+    //  reject()
+    });
+    console.log(promise);
+    return promise;
+}
 
 
   addMarkers(){

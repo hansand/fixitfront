@@ -58,8 +58,8 @@ export class SigninPage {
   }
 
  
-  ServiceList(){
-    this.navCtrl.push(ServicePage);
+  toLoginPage(){
+    this.navCtrl.push(LoginPage);
   }
   UsersignIn()
   {
@@ -105,7 +105,7 @@ export class SigninPage {
     .subscribe(data=>{
       console.log(data);
       this.signDoneAlert();
-      this.ServiceList();
+      this.toLoginPage();
     },error=>{
       console.log("opps")
     })

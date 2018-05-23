@@ -7,19 +7,12 @@
   </ion-header>
   <ion-content padding>  
 
-    Register as an User or a Shop
-      <ion-segment class="segmentBase" [(ngModel)]="tab" color="primary" >
-          <ion-segment-button value="SigninPage">
-              User
-            </ion-segment-button>
-            <ion-segment-button value="list">
-              Shop
-            </ion-segment-button>
-      </ion-segment>
-   
-          <div [ngSwitch]="tab">
-     
-            <form *ngSwitchCase="'SigninPage'" >
+
+
+  <b class="title"> Register as an User or a Shop </b> 
+    
+            <div>
+              <form  >
               <ion-item >
 
                 <ion-label floating>User Name/Shop Name</ion-label>

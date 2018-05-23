@@ -49,7 +49,7 @@ export class ServiceListPage {
   }
 
   checkRate(rate){
-    if(parseFloat(rate)>7.0){
+    if(parseFloat(rate)>=7.0){
       return true;
   }else{
     return false;

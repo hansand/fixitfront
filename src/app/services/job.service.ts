@@ -24,4 +24,13 @@ export class JobService{
     //     return this.http.get(this.baseUrl+'/getid/'+id+'').map(res=> res.json());
     // }
 
+    getJobByUserId(id){
+        return this.http.get(this.baseUrl+'/empid/'+id+'').map(res=> res.json());
+    }
+
+    deletejobbyid(id){
+        return this.http.delete(this.baseUrl+'/'+id+'').map(res=> res.json());
+    }
+    
+
 }

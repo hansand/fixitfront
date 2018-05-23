@@ -1,0 +1,23 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         Job Requests
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list >
+      <ion-item *ngFor="let job of urJobs" (click)="toJobinfoUser(job._id)" >             
+        <ion-thumbnail item-start>
+          <img class="avatar" src="https://cdn.iconscout.com/public/images/icon/premium/png-512/office-employees-team-company-culture-corporate-people-3292b2e7a208948e-512x512.png">
+        </ion-thumbnail>
+        <h2 class="name" >{{job.jobTitle}} </h2>
+          <span class="rate" >
+            {{job.jobOrg}}  <br>
+            {{ job.contact }}
+          </span>
+    </ion-item> 
+       
+    </ion-list>  
+  </ion-content>

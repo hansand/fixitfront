@@ -1,0 +1,34 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         Review Order
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content align = "Center" padding="true">
+    
+            <br><br>
+
+            <div *ngFor="let o of order" class="single-worker" >
+                <b class="title">{{o.orderTitle}}</b>     <br> <br><br>
+                <span>{{o.description}}</span> 
+                <span></span> 
+                
+         <div *ngIf="checkDone(o.state);">
+            <button ion-button  (click)="toDerectionPage();" class="accept" color="secondary">See On map</button>           
+            <button ion-button *ngIf="checkPending(o.state)"  (click)="changeState('Accepted')" class="accept" color="secondary">Accept</button>
+            <button ion-button *ngIf="checkRejected(o.state)"  (click)="changeState('Rejected')" class="reject" color="danger">Reject</button>
+        </div>  
+        <br><br><br>
+        <div  *ngIf="!checkDone(o.state)">
+          <span class="accept"> This Job is Done </span> <br> <br>
+          <!-- <span> Feedback By the Customer About this Job </span> <br> <br> -->
+          <span *ngFor="let feed of feedback"> 
+            {{feed.feedback}}
+          </span>
+        </div>
+
+     
+        </div>      
+  </ion-content>

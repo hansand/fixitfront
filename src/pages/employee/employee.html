@@ -37,11 +37,11 @@
 <div *ngIf="!isFromJob"> 
 <button *ngIf="!isShop" ion-button (click)="toWorkPage()" >
   <ion-icon name="star-half"></ion-icon>
-  Send a Job Request  
+  Send a Work Request  
 </button>
 </div>
 <div *ngIf="!isFromJob"> 
-    <button *ngIf="isShop" ion-button (click)="toWorkPage()" >
+    <button *ngIf="isShop" ion-button (click)="toReqOrederPage()" >
       <ion-icon name="star-half"></ion-icon>
        Request a Order 
     </button>

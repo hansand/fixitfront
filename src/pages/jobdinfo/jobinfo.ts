@@ -48,14 +48,14 @@ deleteJob(id){
   this.JobService.deletejobbyid(this.jobID).subscribe(response=> {
     this.dltjob=response;
     this.tojobPage()
-    this.dltDoneAlert()
+    // this.dltDoneAlert()
     console.log(this.dltjob);
    })
 }
-dltDoneAlert() {
+reqSent() {
   let alert = this.alertCtrl.create({
-    title: 'Deleted',
-    subTitle: 'Successessfuly Deleted',
+    title: 'Sent',
+    subTitle: 'Successessfuly Applied For the Job,Orgnaization Will Contact You',
     buttons: ['ok']
   });
   alert.present();
@@ -74,6 +74,8 @@ sendjobreq(id){
   .map(res=> res.json())
   .subscribe(data=>{
     console.log(data);
+    this.navCtrl.push(JobPage);
+    this.reqSent();
   },error=>{
     console.log("oops")
   })  
@@ -81,32 +83,28 @@ sendjobreq(id){
 
 
 
-    // presentConfirm() {
-    //     let alert = this.alertCtrl.create({
-    //       title: 'Confirm ',
-    //       message: 'Do you want toRemove this Job?',
-    //       buttons: [
-    //         {
-    //           text: 'Cancel',
-    //           role: 'cancel',
-    //           handler: () => {
-    //             console.log('Cancel clicked');
-    //           }
-    //         },
-    //         {
-    //           text: 'Delete',
-    //           handler: () => {
-    //             console.log('Buy clicked');
-    //           }
-    //         }
-    //       ]
-    //     });
-    //     alert.present();
-    //   }
+sendjobreqpresent(id) {
+        let alert = this.alertCtrl.create({
+          title: 'Confirm Send Request? ',
+          message: 'Do you want to Send a Job Request to This Job ?',
+          buttons: [
+            {
+              text: 'Cancel',
+              role: 'cancel',
+              handler: () => {
+                console.log('Cancel clicked');
+              }
+            },
+            {
+              text: 'Send',
+              handler: () => {
+                this.sendjobreq(id)
+              }
+            }
+          ]
+        });
+        alert.present();
+      }
     
   
     }
-
-    // job(){
-    //     this.navCtrl.push(JobPage);
-    // }

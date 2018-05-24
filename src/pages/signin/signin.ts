@@ -120,9 +120,9 @@ export class SigninPage {
 
   signDoneAlert() {
     let alert = this.alertCtrl.create({
-      title: 'gg',
-      subTitle: 'Successessfuly Regestered',
-      buttons: ['Awsome']
+      title: 'Success',
+      subTitle: 'Successfully Registered',
+      buttons: ['ok']
     });
     alert.present();
   }

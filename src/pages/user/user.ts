@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import {LoginPage} from '../login/login'
 // import { GlobalProvider } from '../../providers/global/global'
 import { UserService } from '../../app/services/users.service';
@@ -7,6 +7,9 @@ import { WorkReqPage } from '../userWorkReqs/workreq';
 import { RequestedWorkPage } from '../requestedWorks/requestedworks';
 import { JobRequestPage } from '../JobRequest/JobRequest';
 import { MyFeedBacksPage } from '../myfeedbacks/myfeedback';
+import { ReqOrderPage } from '../reqOrders/reqorders';
+import { OrderReqPage } from '../orderReq/orderreq';
+import { RequestedOrderPage } from '../requestedOrders/requestedorders';
 
 
 
@@ -18,7 +21,7 @@ import { MyFeedBacksPage } from '../myfeedbacks/myfeedback';
 export class UserPage {
 
   details:any;
-  constructor(public navCtrl: NavController,private userService:UserService) {
+  constructor(public navCtrl: NavController,private userService:UserService,private alertCtrl: AlertController) {
     this.details=this.userService.userDetails;
     console.log(this.details[0].fname);
   }
@@ -51,7 +54,39 @@ toWorkReqPage(){
     this.navCtrl.push(MyFeedBacksPage)
   }
 
+  signOutPresent() {
+    let alert = this.alertCtrl.create({
+      title: 'Confirm purchase',
+      message: 'Do you want to Log Out ?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Log Out',
+          handler: () => {
+           this.signOut();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
   signOut(){
     this.navCtrl.push(LoginPage);
   }
+
+  toOrderReqPage(){
+    this.navCtrl.push(OrderReqPage)
+  }
+
+  toRequestedOrderPage(){
+    this.navCtrl.push(RequestedOrderPage)
+  }
+
 }

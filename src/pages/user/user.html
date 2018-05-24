@@ -42,12 +42,16 @@ Ratings : {{ detail.ratings }} <br>
   My FeedBacks
 </button>
 
-<button *ngIf="checkShop(detail.role)" (click)= "toRequestedWorkPage()" ion-button >
-   Order Requests
+<button  (click)= "toRequestedOrderPage()" ion-button >
+   Requested Orders
   </button>
+
+  <button *ngIf="checkShop(detail.role)"  (click)= "toOrderReqPage()" ion-button >
+    Received Orders
+   </button>
 </span>
 <br><br>
-<button  (click)= "signOut()" ion-button >
+<button  (click)= "signOutPresent()" ion-button >
   Sign Out
  </button>
 </ion-content>

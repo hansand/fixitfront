@@ -120,7 +120,7 @@ serviceList(){
   stateUpdatedAlert(state) {
     let alert = this.alertCtrl.create({
       title: 'Done',
-      subTitle: 'A Job Has Been Marked as Completed',
+      subTitle: 'A Job Has Been Marked as Completed.Please Give Feedback to The User Himself',
       buttons: ['ok']
     });
     alert.present();
@@ -152,6 +152,29 @@ serviceList(){
          })
      })
      return promise;
+  }
+
+  completeReqPresent(id,empid) {
+    let alert = this.alertCtrl.create({
+      title: 'Mark This Work as Done',
+      message: 'Do you want to MArk This work as Done and Send this FeedBack to the Worker?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            this.completeReq(id,empid);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }

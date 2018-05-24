@@ -73,6 +73,31 @@ import { JobRequestPage } from '../JobRequest/JobRequest';
     toJobRequst(){
       this.navCtrl.push(JobRequestPage);
     }
+
+    deleteJobPresent(id) {
+      let alert = this.alertCtrl.create({
+        title: 'Confirm Delete',
+        message: 'Do you want to Remove this Job,All the Data Will be Removed ?',
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Delete',
+            handler: () => {
+            //  this.signOut();
+            this.deleteJob(id);
+            }
+          }
+        ]
+      });
+      alert.present();
+    }
+ 
     
 
 

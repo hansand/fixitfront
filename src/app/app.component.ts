@@ -15,10 +15,11 @@ import { WorkService } from './services/work.service';
 import { JobService } from './services/job.service';
 import { LoginPage } from '../pages/login/login';
 import { JobReqService } from './services/jobreq.service';
+import { OrderService } from './services/order.service';
 
 @Component({
   templateUrl: 'app.html',
-  providers:[UserService,RoleService,FeedBackService,ShopService,WorkService,JobService,JobReqService]
+  providers:[UserService,RoleService,FeedBackService,ShopService,WorkService,JobService,JobReqService,OrderService]
 })
 export class MyApp {
   rootPage:any = LoginPage;

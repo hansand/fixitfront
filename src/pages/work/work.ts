@@ -73,7 +73,7 @@ export class WorkPage {
   sucesess(){
     let alert = this.alertCtrl.create({
       title: ':)',
-      subTitle: 'Successesfully Sent the Job Request to the Worker',
+      subTitle: 'Successesfully Sent the Work Request to the Worker',
       buttons: ['Ok']
     });
     alert.present();
@@ -82,7 +82,7 @@ export class WorkPage {
   fillAllFields(){
     let alert = this.alertCtrl.create({
       title: ':(',
-      subTitle: 'Please add a Job Description',
+      subTitle: 'Please add a Work Description and Title ',
       buttons: ['Ok']
     });
     alert.present();
@@ -94,6 +94,29 @@ export class WorkPage {
       userID : this.empID
     });
   }
-
+  
+  sendJobReqPresent(id) {
+    let alert = this.alertCtrl.create({
+      title: 'Cinfirm Send JOb Request',
+      message: 'Do you want to Send This Request?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+          //  this.signOut();
+          this.sendJobReq();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 
 }//class end

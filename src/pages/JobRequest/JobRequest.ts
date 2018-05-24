@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,AlertController } from 'ionic-angular';
 import {LoginPage} from '../login/login'
 // import { GlobalProvider } from '../../providers/global/global'
 import { UserService } from '../../app/services/users.service';
@@ -21,7 +21,7 @@ export class JobRequestPage {
   details:any; //details of the logged User
   urJobs:any;
 
-  constructor(public navCtrl: NavController,private userService:UserService,
+  constructor(public navCtrl: NavController,private userService:UserService,private alertCtrl: AlertController,
     private workService:WorkService,
     private jobService:JobService
 ) {
@@ -50,6 +50,7 @@ ngOnInit(){
         console.log(this.urJobs);
        });
   }
+
 
   
 

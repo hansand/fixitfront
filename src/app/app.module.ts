@@ -36,8 +36,12 @@ import { DerectionsPage } from '../pages/derections/derections';
 import { JobInfoPage } from '../pages/jobdinfo/jobinfo';
 import { JobRequestPage } from '../pages/JobRequest/JobRequest';
 import { JobInfoPageUser } from '../pages/jobinfoUser/jobinfouser';
-import { DerectionPanelPage } from '../pages/derectionPanel/derectionpanel';
 import { MyFeedBacksPage } from '../pages/myfeedbacks/myfeedback';
+import { ReqOrderPage } from '../pages/reqOrders/reqorders';
+import { OrderReqPage } from '../pages/orderReq/orderreq';
+import { SingleOrderUser } from '../pages/singleOderUser/singleorderuser';
+import { OrederReviewPage } from '../pages/orderreview/orderreview';
+import { RequestedOrderPage } from '../pages/requestedOrders/requestedorders';
 
 
 
@@ -60,7 +64,8 @@ import { MyFeedBacksPage } from '../pages/myfeedbacks/myfeedback';
     RatePage,
     ShopInfoPage,
     WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork,RequestedWorkPage,SingleWorkUser,JobInfoPage,
-    DerectionsPage,JobRequestPage,JobInfoPageUser,DerectionPanelPage,MyFeedBacksPage
+    DerectionsPage,JobRequestPage,JobInfoPageUser,MyFeedBacksPage,ReqOrderPage,OrderReqPage,OrederReviewPage,
+    SingleOrderUser,RequestedOrderPage
   ],
   imports: [
     BrowserModule,
@@ -84,7 +89,8 @@ import { MyFeedBacksPage } from '../pages/myfeedbacks/myfeedback';
     SigninPage,
     EmployeePage,
     RatePage,ShopInfoPage,WelcomePage,LoginShopPage,WorkPage,AddJobPage,WorkReqPage,SingleWork,SingleWorkUser,DerectionsPage,
-    RequestedWorkPage,JobInfoPage,JobRequestPage,JobInfoPageUser,DerectionPanelPage,MyFeedBacksPage
+    RequestedWorkPage,JobInfoPage,JobRequestPage,JobInfoPageUser,MyFeedBacksPage,ReqOrderPage,
+    OrderReqPage,SingleOrderUser,OrederReviewPage,RequestedOrderPage
   ],
   providers: [
     StatusBar,

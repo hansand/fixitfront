@@ -28110,6 +28110,10 @@ ion-navbar.toolbar {
   height: 110px;
 }
 
+.fb {
+  font-size: 18px;
+}
+
 ion-card.service-list {
   font-size: 15px;
   color: black;

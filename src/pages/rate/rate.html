@@ -7,11 +7,12 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-content padding>
+  <ion-content align="center" padding="true">
     <br><br><br>
 
-    <ion-item class="title" >Give Feedback and Rate this User/Shop</ion-item>
-    1 is lowest and 10 is the Heighst
+    <ion-item class="fb"><b>Give Feedback and Rate this User/Shop </b></ion-item>
+    <br>
+    <b>-- 0 is the lowest and 10 is the Highest --</b>
     <ion-item>
       <ion-label>Points</ion-label>
       <ion-select #ratepoint>
@@ -33,5 +34,5 @@
         <ion-input class="inputField" placeholder='Enter your Feedback here' #feedback></ion-input>
       </ion-item>
     </ion-list>
-    <button ion-button color="secondary" (click)="addFeedBack();">Submit</button>
+    <button ion-button color="secondary" (click)="addFeedBackPresent();">Submit</button>
   </ion-content>

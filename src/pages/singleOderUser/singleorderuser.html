@@ -1,0 +1,39 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         Order
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content align = "Center" padding="true">
+    
+            <br><br>
+
+            <div *ngFor="let o of order" class="single-worker" >
+                <b class="title">{{o.orderTitle}}</b>     <br> <br><br>
+                <span>{{o.description}}</span> 
+                <span></span> 
+                <br><br><br>
+         <div *ngIf="checkDone(o.state);">
+            <span *ngIf="checkPending(o.state)"  class="accept" color="secondary">Waiting For Worker to Respond</span>
+            <span *ngIf="checkRejected(o.state)"  class="reject" color="secondary">Worker Rejected This Request </span>
+            <span *ngIf="checkAccepted(o.state)"  class="accept" color="secondary">Worker Accepted This Request</span>
+            <div *ngIf="checkAccepted(o.state)">
+
+                <form >
+                
+                  <ion-item >
+                    <ion-label floating>Give FeedBack About This Job </ion-label>
+                    <ion-input type="text"  #feedback ></ion-input>
+                  </ion-item>
+                  <button (click)="completeReqPresent(o._id,o.empID)" ion-button type="submit" block> Mark This Work Request as Completed </button>
+                </form>                
+            </div>
+        </div>  
+        <br><br><br>
+        <div class="accept" *ngIf="!checkDone(o.state)">
+          This Job is Done
+        </div>
+        </div>      
+  </ion-content>

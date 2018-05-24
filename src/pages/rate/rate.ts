@@ -123,4 +123,27 @@ export class RatePage {
 
      return promise;
   }
+
+  addFeedBackPresent() {
+    let alert = this.alertCtrl.create({
+      title: 'Confirm Ratings',
+      message: 'Do you want to Rate This User?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Confirm',
+          handler: () => {
+            this.addFeedBack();
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
 }

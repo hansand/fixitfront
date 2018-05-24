@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController,NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+
 // import { SigninPage } from '../signin/signin';
 import { UserService } from '../../app/services/users.service';
 import { FeedBackService } from '../../app/services/feedback.service';
 import { RatePage } from '../rate/rate'
 import { WorkPage } from '../work/work'
 import { MapPage } from '../map/map';
+import { ReqOrderPage } from '../reqOrders/reqorders';
 
 
 
@@ -27,7 +29,7 @@ import { MapPage } from '../map/map';
         public navCtrl: NavController,
         public navParams: NavParams,
         private userService:UserService,
-        private feedbackService:FeedBackService) {
+        private feedbackService:FeedBackService, private alertCtrl: AlertController) {
       this.userID=navParams.get('userID');
       this.isFromJob=navParams.get('isFromJob');
       this.isShop=navParams.get('isShop');
@@ -72,4 +74,14 @@ import { MapPage } from '../map/map';
         userInfo:this.userInfo
       })
     }
+
+    toReqOrederPage(){
+      this.navCtrl.push(ReqOrderPage,{
+        userInfo : this.userInfo,
+        userID : this.userID
+      });
+    }
+
+
+   
 }

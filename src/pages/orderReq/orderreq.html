@@ -1,0 +1,24 @@
+<ion-header >
+    <ion-navbar color="primary">
+      <ion-title>
+         order Requests
+         
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    
+            <ion-list >
+
+              <ion-item *ngFor="let order of orders" class="single-worker" (click)="toOrderReviewPage(order._id);" >
+                
+
+                <h2 class="name" > {{order.orderTitle}}  </h2> 
+                <span class="rate" >
+                  {{order.state}} <br>
+                </span>
+              </ion-item>
+
+            </ion-list>
+  </ion-content>

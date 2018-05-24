@@ -61,3 +61,8 @@ ion-card.service-list{
       }
     
 }
+
+.card{
+    background: map-get($colors, button);
+    
+}

@@ -1,3 +1,4 @@
-.button {
-    background-color: #020830;
+.myClass button{
+    // background: #0e353e;
+    background: map-get($colors, button);
 }

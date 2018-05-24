@@ -8,6 +8,7 @@ import { PENDING } from '@angular/forms/src/model';
 import { WorkReqPage } from '../userWorkReqs/workreq';
 import { Http,Headers} from '@angular/http';
 import { RequestedWorkPage } from '../requestedWorks/requestedworks';
+import { RatePage } from '../rate/rate';
 
 
 @Component({
@@ -125,11 +126,13 @@ serviceList(){
     alert.present();
   }
 
-  completeReq(workId){
+  completeReq(workId,empid){
         this.addfeedBack(workId).then(()=>{
             this.updateState('Done').then(()=>{
               this.stateUpdatedAlert('state');
-              this.navCtrl.push(RequestedWorkPage);
+              this.navCtrl.push(RatePage,{
+                userID:empid
+              })
             })
         })
   }

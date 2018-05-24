@@ -57,7 +57,7 @@ export class SigninPage {
 
   ngOnInit(){
     this.getAllRoles();
-    this.getCurrentCordinates()
+    this.getCurrentCordinates();
    
   }
 
@@ -100,8 +100,8 @@ export class SigninPage {
       nearTown:this.address.value,
       ratings:0,
       shopType:this.ShopType.value,
-      lat:5,
-      lang:6
+      lat:this.lat,
+      lang:this.lng
     };
     
     this.http.post('http://localhost:3000/api/fixit/users',JSON.stringify(body),{headers:headers})
@@ -147,9 +147,9 @@ export class SigninPage {
         console.log(resp.coords.longitude);
         this.lat=resp.coords.latitude;
         this.lat=resp.coords.longitude;
-        reslove();
+        // reslove();
        }).catch((error) => {
-         reject();
+        //  reject();
          console.log('Error getting location', error);
        });
     })

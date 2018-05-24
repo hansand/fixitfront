@@ -40,8 +40,9 @@ export class RatePage {
 
 
   addFeedBack(){
+    
     let headers = new Headers();
-    if(this.feedback.value){
+    if(this.feedback.value && this.ratepoint.value.length>0 ){
         
         console.log(this.feedback.value);
         let body={
@@ -73,7 +74,7 @@ export class RatePage {
   fillAllFields(){
     let alert = this.alertCtrl.create({
       title: ':(',
-      subTitle: 'Please Type a Feedback',
+      subTitle: 'Please Type a Feedback and Give a Rate',
       buttons: ['Ok']
     });
     alert.present();

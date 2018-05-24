@@ -11,8 +11,8 @@
     <ion-content class="card-background-page" padding="true">
       <h4 align = "center"><b>Select a Service</b></h4>
 
-      <ion-card  *ngFor="let role of roles"  (click)="serviceList(role.roleName);" >
-        <img src="https://i.pinimg.com/originals/49/31/2b/49312bb613a671f9e41c3c51aaaf77f6.jpg"/>
+      <ion-card class="card"  *ngFor="let role of roles"  (click)="serviceList(role.roleName);" >
+        <!-- <img src="https://i.pinimg.com/originals/49/31/2b/49312bb613a671f9e41c3c51aaaf77f6.jpg"/> -->
         <div class="card-title"> {{role.roleName}}</div>
       </ion-card>
    

@@ -30,6 +30,10 @@
   <ion-icon name="star-half"></ion-icon>
   Give Feedback
 </button>
+<button  ion-button icon-start (click)="toMapPage()">
+  <ion-icon name="map"></ion-icon>
+ See On Map
+</button>
 <div *ngIf="!isFromJob"> 
 <button *ngIf="!isShop" ion-button (click)="toWorkPage()" >
   <ion-icon name="star-half"></ion-icon>
@@ -39,7 +43,7 @@
 <div *ngIf="!isFromJob"> 
     <button *ngIf="isShop" ion-button (click)="toWorkPage()" >
       <ion-icon name="star-half"></ion-icon>
-       Request a Oreder 
+       Request a Order 
     </button>
     </div>
 </span>

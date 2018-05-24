@@ -28062,8 +28062,8 @@ ion-navbar.toolbar {
   contain: layout;
 }
 
-.button {
-  background-color: #020830;
+.myClass button {
+  background: #0e353e;
 }
 
 #map {
@@ -28165,6 +28165,10 @@ ion-card.service-list {
   width: 100%;
   font-weight: bold;
   color: white;
+}
+
+.card {
+  background: #0e353e;
 }
 
 .segmentBase {

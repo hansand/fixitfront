@@ -5,6 +5,7 @@ import { UserService } from '../../app/services/users.service';
 import { FeedBackService } from '../../app/services/feedback.service';
 import { RatePage } from '../rate/rate'
 import { WorkPage } from '../work/work'
+import { MapPage } from '../map/map';
 
 
 
@@ -65,4 +66,10 @@ import { WorkPage } from '../work/work'
           userID : this.userID
         });
       }
+  
+    toMapPage(){
+      this.navCtrl.push(MapPage,{
+        userInfo:this.userInfo
+      })
+    }
 }

@@ -1,6 +1,6 @@
 
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
       <ion-title>
         Feedback
       </ion-title>
@@ -10,11 +10,12 @@
   <ion-content padding>
     <br><br><br>
 
-    <ion-item>    Give Feedback and Rate this User/Shop</ion-item>
+    <ion-item class="title" >Give Feedback and Rate this User/Shop</ion-item>
     1 is lowest and 10 is the Heighst
     <ion-item>
       <ion-label>Points</ion-label>
       <ion-select #ratepoint>
+        <ion-option value="0">0</ion-option>
         <ion-option value="1">1</ion-option>
         <ion-option value="2">2</ion-option>
         <ion-option value="3">3</ion-option>

@@ -7,9 +7,9 @@ webpackJsonp([0],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addjob_addjob__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__addjob_addjob__ = __webpack_require__(364);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_job_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jobdinfo_jobinfo__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__jobdinfo_jobinfo__ = __webpack_require__(365);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -88,7 +88,7 @@ var JobPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleworkuser_singleworkuser__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleworkuser_singleworkuser__ = __webpack_require__(369);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -208,8 +208,8 @@ var UserService = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__service_service__ = __webpack_require__(99);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__jobs_job__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shops_shop__ = __webpack_require__(367);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_user__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shops_shop__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__user_user__ = __webpack_require__(367);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -257,7 +257,7 @@ var TabsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleWork_singlework__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleWork_singlework__ = __webpack_require__(368);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -654,7 +654,7 @@ var DerectionsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_work_service__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_job_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__jobinfoUser_jobinfouser__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__jobinfoUser_jobinfouser__ = __webpack_require__(370);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -724,7 +724,7 @@ var JobRequestPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_order_service__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__orderreview_orderreview__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__orderreview_orderreview__ = __webpack_require__(373);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -776,162 +776,7 @@ var OrderReqPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 170:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrederReviewPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_services_feedback_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__derections_derections__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__orderReq_orderreq__ = __webpack_require__(169);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-// import { GlobalProvider } from '../../providers/global/global'
-
-
-
-
-
-
-var OrederReviewPage = /** @class */ (function () {
-    function OrederReviewPage(navCtrl, userService, FeedBackService, orderService, navParams, alertCtrl, http) {
-        this.navCtrl = navCtrl;
-        this.userService = userService;
-        this.FeedBackService = FeedBackService;
-        this.orderService = orderService;
-        this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.http = http;
-        this.details = this.userService.userDetails;
-        this.orderID = navParams.get('id');
-    }
-    OrederReviewPage.prototype.ngOnInit = function () {
-        var _this = this;
-        this.getOrder().then(function () {
-            console.log(_this.order[0].userID);
-            _this.getUserInfo(_this.order[0].userID);
-        });
-    };
-    OrederReviewPage.prototype.serviceList = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
-    };
-    OrederReviewPage.prototype.toDerectionPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__derections_derections__["a" /* DerectionsPage */], {
-            userInfo: this.userInfo
-        });
-    };
-    OrederReviewPage.prototype.getUserInfo = function (userID) {
-        var _this = this;
-        var promise = new Promise(function (reslove, reject) {
-            _this.userService.getUserByID(userID).subscribe(function (response) {
-                _this.userInfo = response;
-                console.log(_this.userInfo);
-                reslove();
-            });
-        });
-        return promise;
-    };
-    OrederReviewPage.prototype.getOrder = function () {
-        var _this = this;
-        var promise = new Promise(function (reslove, reject) {
-            _this.orderService.getOrder(_this.orderID).subscribe(function (response) {
-                _this.order = response;
-                console.log(_this.order);
-                reslove();
-            });
-        });
-        return promise;
-    };
-    OrederReviewPage.prototype.checkPending = function (state) {
-        if (state == "Pending" || state == "Accepted") {
-            return false;
-        }
-        else {
-            return true;
-        }
-    };
-    OrederReviewPage.prototype.checkRejected = function (state) {
-        if (state == "Rejected") {
-            return false;
-        }
-        else {
-            return true;
-        }
-    };
-    OrederReviewPage.prototype.checkDone = function (state) {
-        if (state == "Done") {
-            return false;
-        }
-        else {
-            return true;
-        }
-    };
-    OrederReviewPage.prototype.toOrderReqPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__orderReq_orderreq__["a" /* OrderReqPage */]);
-    };
-    OrederReviewPage.prototype.updateState = function (state) {
-        var _this = this;
-        var promise = new Promise(function (reslove, reject) {
-            console.log("updating State");
-            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
-            console.log(state);
-            var body = {
-                state: state
-            };
-            _this.http.put('http://localhost:3000/api/fixit/order/' + _this.orderID + '', body, { headers: headers })
-                .subscribe(function (data) {
-                reslove();
-                console.log(data);
-            });
-        });
-        return promise;
-    };
-    OrederReviewPage.prototype.changeState = function (state) {
-        var _this = this;
-        this.updateState(state).then(function () {
-            _this.stateUpdatedAlert(state);
-            _this.toOrderReqPage();
-        });
-    };
-    OrederReviewPage.prototype.stateUpdatedAlert = function (state) {
-        var alert = this.alertCtrl.create({
-            title: 'Done',
-            subTitle: 'You ' + state + ' the Order',
-            buttons: ['OK']
-        });
-        alert.present();
-    };
-    OrederReviewPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'orderreview',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/orderreview/orderreview.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n         Review Order\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    \n            <br><br>\n\n            <div *ngFor="let o of order" class="single-worker" >\n                <b class="title">{{o.orderTitle}}</b>     <br> <br><br>\n                <span>{{o.description}}</span> \n                <span></span> \n                \n         <div *ngIf="checkDone(o.state);">\n            <button ion-button  (click)="toDerectionPage();" class="accept" color="secondary">See On map</button>           \n            <button ion-button *ngIf="checkPending(o.state)"  (click)="changeState(\'Accepted\')" class="accept" color="secondary">Accept</button>\n            <button ion-button *ngIf="checkRejected(o.state)"  (click)="changeState(\'Rejected\')" class="reject" color="danger">Reject</button>\n        </div>  \n        <br><br><br>\n        <div  *ngIf="!checkDone(o.state)">\n          <span class="accept"> This Job is Done </span> <br> <br>\n          <!-- <span> Feedback By the Customer About this Job </span> <br> <br> -->\n          <span *ngFor="let feed of feedback"> \n            {{feed.feedback}}\n          </span>\n        </div>\n\n     \n        </div>      \n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/orderreview/orderreview.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__app_services_feedback_service__["a" /* FeedBackService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__app_services_feedback_service__["a" /* FeedBackService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__["a" /* OrderService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _g || Object])
-    ], OrederReviewPage);
-    return OrederReviewPage;
-    var _a, _b, _c, _d, _e, _f, _g;
-}());
-
-//# sourceMappingURL=orderreview.js.map
-
-/***/ }),
-
-/***/ 181:
+/***/ 180:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -944,11 +789,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 181;
+webpackEmptyAsyncContext.id = 180;
 
 /***/ }),
 
-/***/ 226:
+/***/ 225:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -961,7 +806,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 226;
+webpackEmptyAsyncContext.id = 225;
 
 /***/ }),
 
@@ -1079,9 +924,9 @@ var LoginPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_feedback_service__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rate_rate__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__work_work__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__work_work__ = __webpack_require__(361);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__map_map__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reqOrders_reqorders__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reqOrders_reqorders__ = __webpack_require__(362);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1171,7 +1016,7 @@ var EmployeePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 362:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1308,7 +1153,7 @@ var WorkPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 363:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1446,7 +1291,7 @@ var ReqOrderPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 364:
+/***/ 363:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1520,7 +1365,7 @@ var ServiceListPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 365:
+/***/ 364:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1647,7 +1492,7 @@ var AddJobPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 366:
+/***/ 365:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1772,7 +1617,7 @@ var JobInfoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 367:
+/***/ 366:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1839,7 +1684,7 @@ var ShopPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 368:
+/***/ 367:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1851,7 +1696,7 @@ var ShopPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__userWorkReqs_workreq__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__requestedWorks_requestedworks__ = __webpack_require__(101);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__JobRequest_JobRequest__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__myfeedbacks_myfeedback__ = __webpack_require__(373);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__myfeedbacks_myfeedback__ = __webpack_require__(372);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__orderReq_orderreq__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__requestedOrders_requestedorders__ = __webpack_require__(374);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1951,7 +1796,7 @@ var UserPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 369:
+/***/ 368:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2117,7 +1962,7 @@ var SingleWork = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 370:
+/***/ 369:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2311,7 +2156,7 @@ var SingleWorkUser = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 371:
+/***/ 370:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2319,7 +2164,7 @@ var SingleWorkUser = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_job_service__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_jobreq_service__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_jobreq_service__ = __webpack_require__(371);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__employee_employee__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__JobRequest_JobRequest__ = __webpack_require__(168);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2430,7 +2275,7 @@ var JobInfoPageUser = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 372:
+/***/ 371:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2470,7 +2315,7 @@ var JobReqService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 373:
+/***/ 372:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2531,6 +2376,164 @@ var MyFeedBacksPage = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 373:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrederReviewPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_services_feedback_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__derections_derections__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__ = __webpack_require__(70);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__orderReq_orderreq__ = __webpack_require__(169);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+// import { GlobalProvider } from '../../providers/global/global'
+
+
+
+
+
+
+var OrederReviewPage = /** @class */ (function () {
+    function OrederReviewPage(navCtrl, userService, FeedBackService, orderService, navParams, alertCtrl, http) {
+        this.navCtrl = navCtrl;
+        this.userService = userService;
+        this.FeedBackService = FeedBackService;
+        this.orderService = orderService;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.http = http;
+        this.details = this.userService.userDetails;
+        this.orderID = navParams.get('id');
+    }
+    OrederReviewPage.prototype.ngOnInit = function () {
+        var _this = this;
+        this.getOrder().then(function () {
+            console.log(_this.order[0].userID);
+            _this.getUserInfo(_this.order[0].userID);
+        });
+    };
+    OrederReviewPage.prototype.serviceList = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
+    };
+    OrederReviewPage.prototype.toDerectionPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__derections_derections__["a" /* DerectionsPage */], {
+            userInfo: this.userInfo
+        });
+    };
+    OrederReviewPage.prototype.getUserInfo = function (userID) {
+        var _this = this;
+        var promise = new Promise(function (reslove, reject) {
+            _this.userService.getUserByID(userID).subscribe(function (response) {
+                _this.userInfo = response;
+                console.log(_this.userInfo);
+                reslove();
+            });
+        });
+        return promise;
+    };
+    OrederReviewPage.prototype.getOrder = function () {
+        var _this = this;
+        var promise = new Promise(function (reslove, reject) {
+            _this.orderService.getOrder(_this.orderID).subscribe(function (response) {
+                _this.order = response;
+                console.log(_this.order);
+                reslove();
+            });
+        });
+        return promise;
+    };
+    OrederReviewPage.prototype.checkPending = function (state) {
+        if (state == "Pending" || state == "Accepted") {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    OrederReviewPage.prototype.checkRejected = function (state) {
+        if (state == "Rejected") {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    OrederReviewPage.prototype.checkDone = function (state) {
+        if (state == "Done") {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    OrederReviewPage.prototype.toOrderReqPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_8__orderReq_orderreq__["a" /* OrderReqPage */]);
+    };
+    OrederReviewPage.prototype.updateState = function (state) {
+        var _this = this;
+        var promise = new Promise(function (reslove, reject) {
+            console.log("updating State");
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
+            console.log(state);
+            var body = {
+                state: state
+            };
+            _this.http.put('http://localhost:3000/api/fixit/order/' + _this.orderID + '', body, { headers: headers })
+                .subscribe(function (data) {
+                reslove();
+                console.log(data);
+            });
+        });
+        return promise;
+    };
+    OrederReviewPage.prototype.changeState = function (state) {
+        var _this = this;
+        this.updateState(state).then(function () {
+            _this.stateUpdatedAlert(state);
+            _this.toOrderReqPage();
+        });
+    };
+    OrederReviewPage.prototype.stateUpdatedAlert = function (state) {
+        var alert = this.alertCtrl.create({
+            title: 'Done',
+            subTitle: 'You ' + state + ' the Order',
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    OrederReviewPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'orderreview',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/orderreview/orderreview.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n         Review Order\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    \n            <br><br>\n\n            <div *ngFor="let o of order" class="single-worker" >\n                <b class="title">{{o.orderTitle}}</b>     <br> <br><br>\n                <span>{{o.description}}</span> \n                <span></span> \n                \n         <div *ngIf="checkDone(o.state);">\n            <button ion-button  (click)="toDerectionPage();" class="accept" color="secondary">See On map</button>           \n            <button ion-button *ngIf="checkPending(o.state)"  (click)="changeState(\'Accepted\')" class="accept" color="secondary">Accept</button>\n            <button ion-button *ngIf="checkRejected(o.state)"  (click)="changeState(\'Rejected\')" class="reject" color="danger">Reject</button>\n        </div>  \n        <br><br><br>\n        <div  *ngIf="!checkDone(o.state)">\n          <span class="accept"> This Job is Done </span> <br> <br>\n          <!-- <span> Feedback By the Customer About this Job </span> <br> <br> -->\n          <span *ngFor="let feed of feedback"> \n            {{feed.feedback}}\n          </span>\n        </div>\n\n     \n        </div>      \n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/orderreview/orderreview.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_5__app_services_feedback_service__["a" /* FeedBackService */],
+            __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__["a" /* OrderService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
+    ], OrederReviewPage);
+    return OrederReviewPage;
+}());
+
+//# sourceMappingURL=orderreview.js.map
+
+/***/ }),
+
 /***/ 374:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2540,7 +2543,7 @@ var MyFeedBacksPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_order_service__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleOderUser_singleorderuser__ = __webpack_require__(712);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singleOderUser_singleorderuser__ = __webpack_require__(375);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2582,10 +2585,10 @@ var RequestedOrderPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'requestedorder',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/requestedOrders/reqestedorders.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n         Requested Orders\n         \n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding>\n    \n            <ion-list >\n\n              <ion-item *ngFor="let o of order" class="single-worker" (click)="toSingleOrederUSer(o._id);" >\n                \n\n                <h2 class="name" > {{o.orderTitle}}  </h2> \n                <span class="rate" >\n                  {{o.state}} <br>\n                </span>\n              </ion-item>\n\n            </ion-list>\n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/requestedOrders/reqestedorders.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_order_service__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_order_service__["a" /* OrderService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__app_services_users_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__app_services_order_service__["a" /* OrderService */]])
     ], RequestedOrderPage);
     return RequestedOrderPage;
-    var _a, _b, _c;
 }()); //end of the class
 
 //# sourceMappingURL=requestedorders.js.map
@@ -2593,6 +2596,200 @@ var RequestedOrderPage = /** @class */ (function () {
 /***/ }),
 
 /***/ 375:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SingleOrderUser; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__requestedWorks_requestedworks__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rate_rate__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__ = __webpack_require__(70);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+// import { GlobalProvider } from '../../providers/global/global'
+
+
+
+
+
+var SingleOrderUser = /** @class */ (function () {
+    function SingleOrderUser(navCtrl, userService, orderService, navParams, alertCtrl, http) {
+        this.navCtrl = navCtrl;
+        this.userService = userService;
+        this.orderService = orderService;
+        this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
+        this.http = http;
+        this.details = this.userService.userDetails;
+        this.orderID = navParams.get('id');
+    }
+    SingleOrderUser.prototype.ngOnInit = function () {
+        this.getOrder();
+    };
+    SingleOrderUser.prototype.serviceList = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
+    };
+    SingleOrderUser.prototype.getOrder = function () {
+        var _this = this;
+        this.orderService.getOrder(this.orderID).subscribe(function (response) {
+            _this.order = response;
+            console.log(_this.order);
+        });
+    };
+    SingleOrderUser.prototype.checkPending = function (state) {
+        if (state == "Pending" || state == "pending") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    SingleOrderUser.prototype.checkAccepted = function (state) {
+        if (state == "Accepted") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    SingleOrderUser.prototype.checkRejected = function (state) {
+        if (state == "Rejected") {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    SingleOrderUser.prototype.checkDone = function (state) {
+        if (state == "Done") {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    SingleOrderUser.prototype.toRequestedWorkPage = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__requestedWorks_requestedworks__["a" /* RequestedWorkPage */]);
+    };
+    SingleOrderUser.prototype.updateState = function (state) {
+        var _this = this;
+        var promise = new Promise(function (reslove, reject) {
+            console.log("updating State");
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
+            console.log(state);
+            var body = {
+                state: state
+            };
+            _this.http.put('http://localhost:3000/api/fixit/order/' + _this.orderID + '', body, { headers: headers })
+                .subscribe(function (data) {
+                reslove();
+                console.log(data);
+            });
+        });
+        return promise;
+    };
+    SingleOrderUser.prototype.changeState = function (state) {
+        var _this = this;
+        this.updateState(state).then(function () {
+            _this.stateUpdatedAlert(state);
+            _this.stateUpdatedAlert('done');
+            _this.toRequestedWorkPage();
+        });
+    };
+    SingleOrderUser.prototype.stateUpdatedAlert = function (state) {
+        var alert = this.alertCtrl.create({
+            title: 'Done',
+            subTitle: 'A Order Has Been Marked as Completed.Please Give Feedback to The User Himself',
+            buttons: ['ok']
+        });
+        alert.present();
+    };
+    SingleOrderUser.prototype.completeReq = function (workId, empid) {
+        var _this = this;
+        this.addfeedBack(workId).then(function () {
+            _this.updateState('Done').then(function () {
+                _this.stateUpdatedAlert('state');
+                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__rate_rate__["a" /* RatePage */], {
+                    userID: empid
+                });
+            });
+        });
+    };
+    SingleOrderUser.prototype.addfeedBack = function (workId) {
+        var _this = this;
+        var promise = new Promise(function (reslove, rejecct) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
+            var body = {
+                workId: workId,
+                feedback: _this.feedback.value
+            };
+            _this.http.post('http://localhost:3000/api/fixit/feedback/wfeedback', body, { headers: headers })
+                .subscribe(function (data) {
+                console.log(data);
+                reslove();
+            });
+        });
+        return promise;
+    };
+    SingleOrderUser.prototype.completeReqPresent = function (id, empid) {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: 'MArk This Order as Delivered',
+            message: 'mark this order as delivers and send feed back to the Shop?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                },
+                {
+                    text: 'Confirm',
+                    handler: function () {
+                        _this.completeReq(id, empid);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('feedback'),
+        __metadata("design:type", Object)
+    ], SingleOrderUser.prototype, "feedback", void 0);
+    SingleOrderUser = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'singleorderuser',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/singleOderUser/singleorderuser.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n         Order\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    \n            <br><br>\n\n            <div *ngFor="let o of order" class="single-worker" >\n                <b class="title">{{o.orderTitle}}</b>     <br> <br><br>\n                <span>{{o.description}}</span> \n                <span></span> \n                <br><br><br>\n         <div *ngIf="checkDone(o.state);">\n            <span *ngIf="checkPending(o.state)"  class="accept" color="secondary">Waiting For Worker to Respond</span>\n            <span *ngIf="checkRejected(o.state)"  class="reject" color="secondary">Worker Rejected This Request </span>\n            <span *ngIf="checkAccepted(o.state)"  class="accept" color="secondary">Worker Accepted This Request</span>\n            <div *ngIf="checkAccepted(o.state)">\n\n                <form >\n                \n                  <ion-item >\n                    <ion-label floating>Give FeedBack About This Order </ion-label>\n                    <ion-input type="text"  #feedback ></ion-input>\n                  </ion-item>\n                  <button (click)="completeReqPresent(o._id,o.empID)" ion-button type="submit" block> Mark This Order Request as Delivered </button>\n                </form>                \n            </div>\n        </div>  \n        <br><br><br>\n        <div class="accept" *ngIf="!checkDone(o.state)">\n          This Job is Done\n        </div>\n        </div>      \n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/singleOderUser/singleorderuser.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__["a" /* OrderService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
+    ], SingleOrderUser);
+    return SingleOrderUser;
+}());
+
+//# sourceMappingURL=singleorderuser.js.map
+
+/***/ }),
+
+/***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2656,13 +2853,13 @@ var LoginShopPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 376:
+/***/ 377:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(382);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2670,7 +2867,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 381:
+/***/ 382:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2678,18 +2875,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(418);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(707);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(708);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(709);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(708);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(709);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(710);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_service_service__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_shops_shop__ = __webpack_require__(367);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_shops_shop__ = __webpack_require__(366);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_jobs_job__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_user_user__ = __webpack_require__(368);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_user_user__ = __webpack_require__(367);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_tabs_tabs__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(266);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_servicelist_servicelist__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_status_bar__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_splash_screen__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_servicelist_servicelist__ = __webpack_require__(363);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_map_map__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_geolocation__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_http__ = __webpack_require__(18);
@@ -2697,24 +2894,24 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_signin_signin__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_employee_employee__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_rate_rate__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_shopinfo_shopinfo__ = __webpack_require__(710);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_welcome_welcome__ = __webpack_require__(711);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_loginShop_loginShop__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_work_work__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_addjob_addjob__ = __webpack_require__(365);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_shopinfo_shopinfo__ = __webpack_require__(711);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_welcome_welcome__ = __webpack_require__(712);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_loginShop_loginShop__ = __webpack_require__(376);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_work_work__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_addjob_addjob__ = __webpack_require__(364);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_userWorkReqs_workreq__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_singleWork_singlework__ = __webpack_require__(369);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_singleWork_singlework__ = __webpack_require__(368);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_requestedWorks_requestedworks__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_singleworkuser_singleworkuser__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_singleworkuser_singleworkuser__ = __webpack_require__(369);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_derections_derections__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_jobdinfo_jobinfo__ = __webpack_require__(366);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__pages_jobdinfo_jobinfo__ = __webpack_require__(365);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__pages_JobRequest_JobRequest__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_jobinfoUser_jobinfouser__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_myfeedbacks_myfeedback__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_reqOrders_reqorders__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__pages_jobinfoUser_jobinfouser__ = __webpack_require__(370);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__pages_myfeedbacks_myfeedback__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__pages_reqOrders_reqorders__ = __webpack_require__(362);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__pages_orderReq_orderreq__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_singleOderUser_singleorderuser__ = __webpack_require__(712);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_orderreview_orderreview__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__pages_singleOderUser_singleorderuser__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__pages_orderreview_orderreview__ = __webpack_require__(373);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__pages_requestedOrders_requestedorders__ = __webpack_require__(374);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2831,23 +3028,23 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 418:
+/***/ 419:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(266);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(269);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_users_service__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_role_service__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_feedback_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_shop_service__ = __webpack_require__(706);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_shop_service__ = __webpack_require__(707);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_work_service__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_job_service__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_jobreq_service__ = __webpack_require__(372);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_jobreq_service__ = __webpack_require__(371);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_order_service__ = __webpack_require__(70);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3121,7 +3318,7 @@ var OrderService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 706:
+/***/ 707:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3164,7 +3361,7 @@ var ShopService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 707:
+/***/ 708:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3199,7 +3396,7 @@ var AboutPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 708:
+/***/ 709:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3234,7 +3431,7 @@ var ContactPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 709:
+/***/ 710:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3269,7 +3466,7 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 710:
+/***/ 711:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3321,7 +3518,7 @@ var ShopInfoPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 711:
+/***/ 712:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3330,7 +3527,7 @@ var ShopInfoPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_signin__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__login_login__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loginShop_loginShop__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__loginShop_loginShop__ = __webpack_require__(376);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3368,197 +3565,6 @@ var WelcomePage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=welcome.js.map
-
-/***/ }),
-
-/***/ 712:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SingleOrderUser; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__requestedWorks_requestedworks__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rate_rate__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__ = __webpack_require__(70);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-// import { GlobalProvider } from '../../providers/global/global'
-
-
-
-
-
-var SingleOrderUser = /** @class */ (function () {
-    function SingleOrderUser(navCtrl, userService, orderService, navParams, alertCtrl, http) {
-        this.navCtrl = navCtrl;
-        this.userService = userService;
-        this.orderService = orderService;
-        this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.http = http;
-        this.details = this.userService.userDetails;
-        this.orderID = navParams.get('id');
-    }
-    SingleOrderUser.prototype.ngOnInit = function () {
-        this.getOrder();
-    };
-    SingleOrderUser.prototype.serviceList = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
-    };
-    SingleOrderUser.prototype.getOrder = function () {
-        var _this = this;
-        this.orderService.getOrder(this.orderID).subscribe(function (response) {
-            _this.order = response;
-            console.log(_this.order);
-        });
-    };
-    SingleOrderUser.prototype.checkPending = function (state) {
-        if (state == "Pending" || state == "pending") {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    SingleOrderUser.prototype.checkAccepted = function (state) {
-        if (state == "Accepted") {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    SingleOrderUser.prototype.checkRejected = function (state) {
-        if (state == "Rejected") {
-            return true;
-        }
-        else {
-            return false;
-        }
-    };
-    SingleOrderUser.prototype.checkDone = function (state) {
-        if (state == "Done") {
-            return false;
-        }
-        else {
-            return true;
-        }
-    };
-    SingleOrderUser.prototype.toRequestedWorkPage = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__requestedWorks_requestedworks__["a" /* RequestedWorkPage */]);
-    };
-    SingleOrderUser.prototype.updateState = function (state) {
-        var _this = this;
-        var promise = new Promise(function (reslove, reject) {
-            console.log("updating State");
-            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
-            console.log(state);
-            var body = {
-                state: state
-            };
-            _this.http.put('http://localhost:3000/api/fixit/order/' + _this.orderID + '', body, { headers: headers })
-                .subscribe(function (data) {
-                reslove();
-                console.log(data);
-            });
-        });
-        return promise;
-    };
-    SingleOrderUser.prototype.changeState = function (state) {
-        var _this = this;
-        this.updateState(state).then(function () {
-            _this.stateUpdatedAlert(state);
-            _this.stateUpdatedAlert('done');
-            _this.toRequestedWorkPage();
-        });
-    };
-    SingleOrderUser.prototype.stateUpdatedAlert = function (state) {
-        var alert = this.alertCtrl.create({
-            title: 'Done',
-            subTitle: 'A Order Has Been Marked as Completed.Please Give Feedback to The User Himself',
-            buttons: ['ok']
-        });
-        alert.present();
-    };
-    SingleOrderUser.prototype.completeReq = function (workId, empid) {
-        var _this = this;
-        this.addfeedBack(workId).then(function () {
-            _this.updateState('Done').then(function () {
-                _this.stateUpdatedAlert('state');
-                _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__rate_rate__["a" /* RatePage */], {
-                    userID: empid
-                });
-            });
-        });
-    };
-    SingleOrderUser.prototype.addfeedBack = function (workId) {
-        var _this = this;
-        var promise = new Promise(function (reslove, rejecct) {
-            var headers = new __WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Headers */]();
-            var body = {
-                workId: workId,
-                feedback: _this.feedback.value
-            };
-            _this.http.post('http://localhost:3000/api/fixit/feedback/wfeedback', body, { headers: headers })
-                .subscribe(function (data) {
-                console.log(data);
-                reslove();
-            });
-        });
-        return promise;
-    };
-    SingleOrderUser.prototype.completeReqPresent = function (id, empid) {
-        var _this = this;
-        var alert = this.alertCtrl.create({
-            title: 'MArk This Order as Delivered',
-            message: 'mark this order as delivers and send feed back to the Shop?',
-            buttons: [
-                {
-                    text: 'Cancel',
-                    role: 'cancel',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                },
-                {
-                    text: 'Confirm',
-                    handler: function () {
-                        _this.completeReq(id, empid);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('feedback'),
-        __metadata("design:type", Object)
-    ], SingleOrderUser.prototype, "feedback", void 0);
-    SingleOrderUser = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'singleorderuser',template:/*ion-inline-start:"/home/hansand/projects/fixit/src/pages/singleOderUser/singleorderuser.html"*/'<ion-header >\n    <ion-navbar color="primary">\n      <ion-title>\n         Order\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content align = "Center" padding="true">\n    \n            <br><br>\n\n            <div *ngFor="let o of order" class="single-worker" >\n                <b class="title">{{o.orderTitle}}</b>     <br> <br><br>\n                <span>{{o.description}}</span> \n                <span></span> \n                <br><br><br>\n         <div *ngIf="checkDone(o.state);">\n            <span *ngIf="checkPending(o.state)"  class="accept" color="secondary">Waiting For Worker to Respond</span>\n            <span *ngIf="checkRejected(o.state)"  class="reject" color="secondary">Worker Rejected This Request </span>\n            <span *ngIf="checkAccepted(o.state)"  class="accept" color="secondary">Worker Accepted This Request</span>\n            <div *ngIf="checkAccepted(o.state)">\n\n                <form >\n                \n                  <ion-item >\n                    <ion-label floating>Give FeedBack About This Job </ion-label>\n                    <ion-input type="text"  #feedback ></ion-input>\n                  </ion-item>\n                  <button (click)="completeReqPresent(o._id,o.empID)" ion-button type="submit" block> Mark This Work Request as Completed </button>\n                </form>                \n            </div>\n        </div>  \n        <br><br><br>\n        <div class="accept" *ngIf="!checkDone(o.state)">\n          This Job is Done\n        </div>\n        </div>      \n  </ion-content>\n'/*ion-inline-end:"/home/hansand/projects/fixit/src/pages/singleOderUser/singleorderuser.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__app_services_users_service__["a" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__["a" /* OrderService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__app_services_order_service__["a" /* OrderService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _f || Object])
-    ], SingleOrderUser);
-    return SingleOrderUser;
-    var _a, _b, _c, _d, _e, _f;
-}());
-
-//# sourceMappingURL=singleorderuser.js.map
 
 /***/ }),
 
@@ -4254,7 +4260,7 @@ var MapPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServicePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__servicelist_servicelist__ = __webpack_require__(363);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_services_role_service__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_services_users_service__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -4306,5 +4312,5 @@ var ServicePage = /** @class */ (function () {
 
 /***/ })
 
-},[376]);
+},[377]);
 //# sourceMappingURL=main.js.map
